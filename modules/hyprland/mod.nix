@@ -31,4 +31,9 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  hjem.users.ens.xdg.config.files = {
+    "hypr/hyprland.lua".source = ./config/hyprland.lua;
+    "hypr/hyprland".source = ./config/hyprland;
+  };
 }; }
