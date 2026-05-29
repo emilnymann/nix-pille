@@ -1,5 +1,10 @@
-{ flake.nixosModules.git = { ... }: {
+{ flake.nixosModules.git = { pkgs, ... }: {
   programs.git.enable = true;
+
+  environment.systemPackages = with pkgs; [ 
+    lazygit
+    yaziPlugins.lazygit
+  ];
 
   hjem.users.ens = {
     xdg.config.files."git/config".text = ''
