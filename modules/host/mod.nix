@@ -18,6 +18,7 @@
       config.flake.nixosModules.nvim
       config.flake.nixosModules.yazi
       config.flake.nixosModules.firefox
+      config.flake.nixosModules.discord
     ];
   };
 }
