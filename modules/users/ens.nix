@@ -1,0 +1,60 @@
+{ self, ... }:
+{
+  flake.userModules.ens =
+    {
+      pkgs,
+      lib,
+      config,
+      ...
+    }:
+    {
+      users.users.ens = {
+        isNormalUser = true;
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+          "audio"
+          "video"
+          "input"
+        ];
+      };
+
+      hjem.users.ens = {
+        imports = with self.homeModules; [
+          gtk-conf
+          ghostty
+          fish
+          darkmode
+          cursor-theme.rose-pine
+          lazyvim
+        ];
+
+        config = {
+          programs.lazyvim.extraPackages = with pkgs; [
+            cargo
+            statix
+            nixfmt
+            nixd
+          ];
+
+          xdg.config.files = {
+            # TODO: make hyprland config defaults and per user overridable
+            "hypr/hyprland.lua".source = ./config/hypr/hyprland.lua;
+            "hypr/hyprland".source = ./config/hypr/hyprland;
+
+            # TODO: use generator
+            "git/config".text = ''
+              [user]
+                name = Emil Nymann Sølyst
+                email = emilnymann96@gmail.com
+                signingkey = 45E51048D62204CCD70B633B31D710749D7D8E7B
+              [commit]
+                gpgsign = true
+              [tag]
+                gpgsign = true
+            '';
+          };
+        };
+      };
+    };
+}
