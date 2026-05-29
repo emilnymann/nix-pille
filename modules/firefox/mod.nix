@@ -1,4 +1,4 @@
-{ flake.nixosModules.firefox = { pkgs, ... }: {
+{ flake.nixosModules.firefox = { ... }: {
   programs.firefox = {
     enable = true;
     policies = {

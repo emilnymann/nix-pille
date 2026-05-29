@@ -1,6 +1,6 @@
 { flake.nixosModules.bitwarden = { pkgs, ... }: {
-  environment.systemPackages = [
-    pkgs.wl-clipboard
-    pkgs.bitwarden-desktop
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    bitwarden-desktop
   ];
 }; }

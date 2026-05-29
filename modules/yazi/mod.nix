@@ -1,4 +1,4 @@
-{ flake.nixosModules.yazi = { pkgs, ... }: {
+{ flake.nixosModules.yazi = { ... }: {
   programs.yazi = {
     enable = true;
   };

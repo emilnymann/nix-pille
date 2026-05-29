@@ -1,4 +1,4 @@
-{ flake.nixosModules.gpg = { pkgs, ... }: {
+{ flake.nixosModules.gpg = { ... }: {
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

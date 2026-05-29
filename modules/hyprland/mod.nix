@@ -1,7 +1,7 @@
 { flake.nixosModules.hyprland = { pkgs, ... }: {
-  environment.systemPackages = [
-    pkgs.wl-clipboard
-    pkgs.hyprlauncher
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    hyprlauncher
   ];
 
   programs.regreet.enable = true;

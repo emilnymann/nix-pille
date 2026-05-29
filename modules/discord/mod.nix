@@ -1,6 +1,6 @@
 { flake.nixosModules.discord = { pkgs, ... }: {
-  environment.systemPackages = [
-    pkgs.mako
-    pkgs.discord
+  environment.systemPackages = with pkgs; [
+    mako
+    discord
   ];
 }; }

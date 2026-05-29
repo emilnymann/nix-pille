@@ -1,5 +1,5 @@
 { flake.nixosModules.ghostty = { pkgs, ... }: {
-  environment.systemPackages = [ pkgs.ghostty ];
+  environment.systemPackages = with pkgs; [ ghostty ];
 
   hjem.users.ens = {
     files.".config/ghostty/config.ghostty".text = ''
