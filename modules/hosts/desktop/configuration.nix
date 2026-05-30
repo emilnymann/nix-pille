@@ -12,6 +12,7 @@
 			./hardware-configuration.nix
 
 			hyprland
+			hyprlauncher
 			waybar
 			bitwarden
 			firefox
