@@ -22,6 +22,7 @@
 			gpg
 			fish
 			nvim
+			discord
 		]) ++ (with self.userModules; [
 			ens
 		]);
