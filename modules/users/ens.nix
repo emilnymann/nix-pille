@@ -4,6 +4,7 @@
 		hjem.extraModules = with self.homeModules; [
 			ghostty
 			fish
+			darkmode
 		];
 
 		hjem.users.ens = {

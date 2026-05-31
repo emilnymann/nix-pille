@@ -23,6 +23,7 @@
 			fish
 			nvim
 			discord
+			darkmode
 		]) ++ (with self.userModules; [
 			ens
 		]);
