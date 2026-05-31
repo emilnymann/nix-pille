@@ -7,12 +7,13 @@
 		];
 	};
 
-	flake.nixosModules.desktop = { pkgs, ... }: {
+	flake.nixosModules.desktop = { pkgs, config, ... }: {
 		imports = (with self.nixosModules; [
 			./hardware-configuration.nix
 
 			hyprland
 			hyprlauncher
+			cursor-theme
 			waybar
 			bitwarden
 			firefox
@@ -88,6 +89,8 @@
 			vim
 			git
 		];
+
+		hjem.specialArgs.osConfig = config;
 
 		users = {
 			users.ens = {

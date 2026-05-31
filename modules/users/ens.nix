@@ -5,6 +5,7 @@
 			ghostty
 			fish
 			darkmode
+			cursor-theme.rose-pine
 		];
 
 		hjem.users.ens = {
