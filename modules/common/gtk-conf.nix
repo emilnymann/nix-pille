@@ -3,11 +3,11 @@
 	flake.homeModules.gtk-conf = { lib, config, ... }: {
 		options.homeModules.gtk-conf = {
 			settings3 = lib.mkOption {
-				type lib.types.attrsOf (lib.types.attrsOf lib.types.anything);
+				type = lib.types.attrsOf (lib.types.attrsOf lib.types.anything);
 				default = {};
 			};
 			settings4 = lib.mkOption {
-				type lib.types.attrsOf (lib.types.attrsOf lib.types.anything);
+				type = lib.types.attrsOf (lib.types.attrsOf lib.types.anything);
 				default = {};
 			};
 		};

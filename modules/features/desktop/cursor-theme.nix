@@ -13,7 +13,17 @@
 			rose-pine-hyprcursor
 		];
 
-		imports = [ self.homeModules.gtk-conf ];
+		homeModules.gtk-conf = {
+			settings3.Settings = {
+				gtk-cursor-theme-name = "BreezeX-RosePine-Linux";
+				gtk-cursor-theme-size = 24;
+			};
+
+			settings4.Settings = {
+				gtk-cursor-theme-name = "BreezeX-RosePine-Linux";
+				gtk-cursor-theme-size = 24;
+			};
+		};
 
 		xdg.config.files = {
 			"environment.d/cursor-theme.conf" = {
@@ -24,24 +34,6 @@
 				} // lib.optionalAttrs osConfig.programs.hyprland.enable {
 					HYPRCURSOR_THEME = "rose-pine-hyprcursor";
 					HYPRCURSOR_SIZE = 24;
-				};
-			};
-
-			"gtk-3.0/settings.ini" = {
-				value = {
-					Settings = {
-						gtk-cursor-theme-name = "BreezeX-RosePine-Linux";
-						gtk-cursor-theme-size = 24;
-					};
-				};
-			};
-
-			"gtk-4.0/settings.ini" = {
-				value = {
-					Settings = {
-						gtk-cursor-theme-name = "BreezeX-RosePine-Linux";
-						gtk-cursor-theme-size = 24;
-					};
 				};
 			};
 		};

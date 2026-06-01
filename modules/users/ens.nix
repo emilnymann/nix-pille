@@ -3,6 +3,7 @@
 	flake.userModules.ens = { pkgs, lib, config, ... }: {
 		hjem.users.ens = {
 			imports = with self.homeModules; [
+				gtk-conf
 				ghostty
 				fish
 				darkmode

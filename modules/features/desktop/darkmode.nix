@@ -33,27 +33,18 @@
 			default = true;
 		};
 
-		imports = [ self.homeModules.gtk-conf ];
-
 		config = {
+			homeModules.gtk-conf = {
+				settings3.Settings = {
+					gtk-application-prefer-dark-theme = 1;
+					gtk-theme-name = "adw-gtk3-dark";
+				};
+				settings4.Settings = {
+					gtk-application-prefer-dark-theme = 1;
+				};
+			};
+
 			xdg.config.files = {
-				"gtk-3.0/settings.ini" = {
-					value = {
-						Settings = {
-							gtk-application-prefer-dark-theme = 1;
-							gtk-theme-name = "adw-gtk3-dark";
-						};
-					};
-				};
-
-				"gtk-4.0/settings.ini" = {
-					value = {
-						Settings = {
-							gtk-application-prefer-dark-theme = 1;
-						};
-					};
-				};
-
 				"environment.d/dark-mode.conf" = {
 					generator = lib.generators.toKeyValue {};
 					value = {
