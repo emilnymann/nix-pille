@@ -1,14 +1,14 @@
 { self, inputs, lib, ... }:
 {
 	flake.userModules.ens = { pkgs, lib, config, ... }: {
-		hjem.extraModules = with self.homeModules; [
-			ghostty
-			fish
-			darkmode
-			cursor-theme.rose-pine
-		];
-
 		hjem.users.ens = {
+			imports = with self.homeModules; [
+				ghostty
+				fish
+				darkmode
+				cursor-theme.rose-pine
+			];
+
 			xdg.config.files = {
 				"hypr/hyprland.lua".source = ./config/hypr/hyprland.lua;
 				"hypr/hyprland".source = ./config/hypr/hyprland;

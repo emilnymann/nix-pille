@@ -1,9 +1,13 @@
 { self, inputs, ... }:
 {
 	flake.nixosModules.darkmode = { pkgs, lib, ... }: {
-		options.nixosModules.darkmode.enable = lib.mkEnableOption "darkmode";
+		options.features.darkmode.enable = lib.mkOption {
+			type = lib.types.bool;
+			default = true;
+		};
+
 		config = {
-			nixosModules.darkmode.enable = true;
+			features.darkmode.enable = true;
 
 			programs.dconf = {
 				enable = true;
@@ -23,13 +27,17 @@
 		};
 	};
 
-	flake.homeModules.darkmode = { pkgs, lib, config, ... }: {
-		options.homeModules.darkmode.enable = lib.mkEnableOption "darkmode";
+	flake.homeModules.darkmode = { self, pkgs, lib, config, ... }: {
+		options.features.darkmode.enable = lib.mkOption {
+			type = lib.types.bool;
+			default = true;
+		};
+
+		imports = [ self.homeModules.gtk-conf ];
+
 		config = {
-			homeModules.darkmode.enable = true;
 			xdg.config.files = {
 				"gtk-3.0/settings.ini" = {
-					generator = lib.mkDefault (lib.generators.toINI {});
 					value = {
 						Settings = {
 							gtk-application-prefer-dark-theme = 1;
@@ -39,7 +47,6 @@
 				};
 
 				"gtk-4.0/settings.ini" = {
-					generator = lib.mkDefault (lib.generators.toINI {});
 					value = {
 						Settings = {
 							gtk-application-prefer-dark-theme = 1;

@@ -1,10 +1,11 @@
 { self, inputs, ... }:
 {
 	flake.nixosModules.bitwarden = { pkgs, lib, ... }: {
-		options.nixosModules.bitwarden.enable = lib.mkEnableOption "bitwarden";
-		config = {
-			nixosModules.bitwarden.enable = true;
-			environment.systemPackages = with pkgs; [ bitwarden-desktop ];
+		options.programs.bitwarden.enable = lib.mkOption {
+			type = lib.types.bool;
+			default = true;
 		};
+
+		config.environment.systemPackages = with pkgs; [ bitwarden-desktop ];
 	};
 }

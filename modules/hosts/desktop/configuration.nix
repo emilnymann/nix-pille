@@ -90,7 +90,10 @@
 			git
 		];
 
-		hjem.specialArgs.osConfig = config;
+		hjem.specialArgs = {
+			osConfig = config;
+			inherit self;
+		};
 
 		users = {
 			users.ens = {
