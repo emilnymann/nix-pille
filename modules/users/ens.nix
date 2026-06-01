@@ -8,6 +8,7 @@
 				fish
 				darkmode
 				cursor-theme.rose-pine
+        lazyvim
 			];
 
 			xdg.config.files = {
