@@ -1,5 +1,5 @@
 _: {
-  flake.nixosModules.yazi = _: {
+  flake.homeModules.file-browser = _: {
     programs.yazi.enable = true;
   };
 }

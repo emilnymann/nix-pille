@@ -1,60 +1,51 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
-  flake.userModules.ens =
-    {
-      pkgs,
-      lib,
-      config,
-      ...
-    }:
-    {
-      users.users.ens = {
-        isNormalUser = true;
-        extraGroups = [
-          "wheel"
-          "networkmanager"
-          "audio"
-          "video"
-          "input"
-        ];
-      };
+  flake = {
+    homeConfigurations.ens = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+      modules = [
+        self.homeModules.ens
+        {
+          home.username = "ens";
+          home.homeDirectory = "/home/ens";
+        }
+      ];
+    };
 
-      hjem.users.ens = {
-        imports = with self.homeModules; [
-          gtk-conf
-          ghostty
-          fish
-          darkmode
-          cursor-theme.rose-pine
-          lazyvim
-        ];
+    homeModules.ens = _: {
+      imports = with self.homeModules; [
+        clipboard
+        desktop
+        theming
+        file-browser
+        web-browser
+        neovim-ide
+        git-gui
+        password-manager
+        smart-shell
+        terminal-emulator
+        tridactyl
+      ];
 
-        config = {
-          programs.lazyvim.extraPackages = with pkgs; [
-            cargo
-            statix
-            nixfmt
-            nixd
-          ];
+      xdg.enable = true;
 
-          xdg.config.files = {
-            # TODO: make hyprland config defaults and per user overridable
-            "hypr/hyprland.lua".source = ./config/hypr/hyprland.lua;
-            "hypr/hyprland".source = ./config/hypr/hyprland;
+      home.stateVersion = "26.05";
 
-            # TODO: use generator
-            "git/config".text = ''
-              [user]
-                name = Emil Nymann Sølyst
-                email = emilnymann96@gmail.com
-                signingkey = 45E51048D62204CCD70B633B31D710749D7D8E7B
-              [commit]
-                gpgsign = true
-              [tag]
-                gpgsign = true
-            '';
-          };
+      programs.rbw.settings.email = "emilnymann96@gmail.com";
+
+      programs.git.settings = {
+        user = {
+          name = "Emil Nymann Sølyst";
+          email = "emilnymann96@gmail.com";
+          signingkey = "45E51048D62204CCD70B633B31D710749D7D8E7B";
+        };
+        commit = {
+          gpgsign = true;
+        };
+        tag = {
+          gpgsign = true;
         };
       };
     };
+  };
 }
