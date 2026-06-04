@@ -20,7 +20,11 @@ _: {
     };
 
   flake.homeModules.desktop =
-    { lib, osConfig, ... }:
+    {
+      lib,
+      osConfig,
+      ...
+    }:
     {
       imports = [
         ./hyprland/_programs.nix
@@ -35,6 +39,17 @@ _: {
         portalPackage = null;
         systemd = lib.mkIf osConfig.programs.hyprland.withUWSM {
           enable = false;
+        };
+      };
+
+      services.hyprlauncher = {
+        enable = true;
+      };
+
+      services.hyprpaper = {
+        enable = true;
+        settings = {
+          splash = false;
         };
       };
     };

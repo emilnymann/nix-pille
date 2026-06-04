@@ -46,6 +46,13 @@
           gpgsign = true;
         };
       };
+
+      services.hyprpaper.settings.wallpaper = [
+        {
+          monitor = "";
+          path = "${./wallpapers}";
+        }
+      ];
     };
   };
 }
