@@ -19,6 +19,7 @@
         imports = with self.nixosModules; [
           ./hardware-configuration.nix
 
+          smart-shell
           desktop
           theming
           gpg-ssh
@@ -81,6 +82,8 @@
         hardware.graphics.enable = true;
         hardware.enableRedistributableFirmware = true;
 
+        security.sudo.wheelNeedsPassword = false;
+
         users = {
           defaultUserShell = pkgs.bash;
           users.ens = {
@@ -92,6 +95,8 @@
               "video"
               "input"
             ];
+
+            shell = pkgs.fish;
           };
         };
 
