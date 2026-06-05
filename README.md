@@ -5,6 +5,11 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 ## Todo
 
-- [ ] hyprland: make switching to a normal workspace also toggle the scratchpad workspace
+- [ ] hyprland: 
+    - [x] make switching to a normal workspace also toggle the scratchpad workspace
+    - [ ] rebind capslock to control
 - [ ] desktop: bluetooth/devices status (config?) shell
 - [ ] theming: custom breezex gruvbox cursor theme
+- [ ] tridactyl: declarative configuration
+- [ ] nixvim: binds:
+    - [ ] "escape" clears search highlight

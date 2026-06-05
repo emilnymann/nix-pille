@@ -23,5 +23,9 @@ _: {
     cursor = {
       inactive_timeout = 6;
     };
+
+    binds = {
+      hide_special_on_workspace_change = true;
+    };
   };
 }
