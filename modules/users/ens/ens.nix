@@ -15,6 +15,7 @@
     homeModules.ens = _: {
       imports = with self.homeModules; [
         desktop
+        desktop-notifications
         theming
         file-browser
         web-browser
