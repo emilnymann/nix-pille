@@ -62,6 +62,26 @@
           { description = "Close active window"; }
         ];
       }
+      {
+        _args = [
+          "SUPER + mouse:272"
+          (lib.generators.mkLuaInline "hl.dsp.window.drag()")
+          {
+            description = "Drag window";
+            mouse = true;
+          }
+        ];
+      }
+      {
+        _args = [
+          "SUPER + mouse:273"
+          (lib.generators.mkLuaInline "hl.dsp.window.resize()")
+          {
+            description = "Resize window";
+            mouse = true;
+          }
+        ];
+      }
     ]
 
     ++ (lib.flatten (
