@@ -2,8 +2,6 @@ _: {
   flake.nixosModules.desktop =
     {
       pkgs,
-      lib,
-      config,
       ...
     }:
     {
@@ -11,21 +9,6 @@ _: {
         programs.hyprland = {
           enable = true;
         };
-
-        xdg.portal = {
-          enable = true;
-          extraPortals = with pkgs; [
-            xdg-desktop-portal-hyprland
-            xdg-desktop-portal-gtk
-            xdg-desktop-portal-termfilechooser
-          ];
-          config.common."org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
-        };
-
-        environment.pathsToLink = [
-          "/share/xdg-desktop-portal"
-          "/share/applications"
-        ];
 
         fonts.packages = with pkgs; [ font-awesome_4 ];
         programs.waybar.enable = true;
@@ -63,6 +46,22 @@ _: {
         settings = {
           launcher = {
             _var = "${pkgs.hyprlauncher}/bin/hyprlauncher";
+          };
+        };
+      };
+
+      xdg.portal = {
+        enable = true;
+        xdgOpenUsePortal = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-termfilechooser
+        ];
+        config = {
+          hyprland = {
+            default = [
+              "hyprland"
+            ];
+            "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
           };
         };
       };
