@@ -31,7 +31,10 @@
           discord
         ];
 
-        accounts.email.accounts.${config.home.username}.address = "emilnymann96@gmail.com";
+        accounts.email.accounts.${config.home.username} = {
+          primary = true;
+          address = "emilnymann96@gmail.com";
+        };
 
         programs.git.settings = {
           user = {
