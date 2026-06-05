@@ -8,23 +8,30 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] desktop: bluetooth/devices status (config?) shell
 - [ ] theming: custom breezex gruvbox cursor theme
 - [ ] tridactyl: declarative configuration
-- [ ] nixvim: 
+- [ ] gpg-agent: higher cache timeout
 
 ### hyprland: 
 
 - [x] make switching to a normal workspace also toggle the scratchpad workspace
 - [x] rebind capslock to control
 - [ ] change special workspace animation direction to up/down
+- [ ] searchable keybinds list
 
 ### Nixvim 
 
+- [ ] break config into smaller files
+- [ ] auto-close brackets
+- [ ] auto-indent on new line
+
 #### Binds
 
-- [ ] "escape" clears search highlight
+- [x] "escape" clears search highlight
+- [ ] "ctrl + s" to save
 
 #### Plugins
 
 - [ ] lazygit
 - [ ] completions
 - [ ] markdown render and formatting
+- [ ] flash search
 
