@@ -6,12 +6,6 @@ _: {
         enable = true;
         polarity = "dark";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
-        cursor = {
-          name = "rose-pine-hyprcursor";
-          package = pkgs.rose-pine-hyprcursor;
-          size = 24;
-        };
-
         targets.kmscon.enable = false;
       };
     };
@@ -23,11 +17,28 @@ _: {
         enable = true;
         polarity = "dark";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
-        cursor = {
-          name = "rose-pine-hyprcursor";
-          package = pkgs.rose-pine-hyprcursor;
-          size = 24;
-        };
       };
+
+      home.pointerCursor =
+        let
+          getFrom = url: hash: name: {
+            gtk.enable = true;
+            x11.enable = true;
+            name = name;
+            size = 24;
+            package = pkgs.runCommand "moveUp" { } ''
+              mkdir -p $out/share/icons
+              ln -s ${
+                pkgs.fetchzip {
+                  url = url;
+                  hash = hash;
+                }
+              } $out/share/icons/${name}
+            '';
+          };
+        in
+        getFrom "https://github.com/ful1e5/BreezeX_Cursor/releases/download/v2.0.1/BreezeX-Dark.tar.xz"
+          "sha256-HqjO/ogAd/dsrO5WHIilUQaq1CbiU48lEaoefcUmmBM="
+          "BreezeX-Dark";
     };
 }
