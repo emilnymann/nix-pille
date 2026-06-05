@@ -12,47 +12,49 @@
       ];
     };
 
-    homeModules.ens = _: {
-      imports = with self.homeModules; [
-        desktop
-        desktop-notifications
-        theming
-        file-browser
-        web-browser
-        neovim-ide
-        git-gui
-        password-manager
-        smart-shell
-        terminal-emulator
-        tridactyl
-      ];
+    homeModules.ens =
+      { config, ... }:
+      {
+        imports = with self.homeModules; [
+          desktop
+          desktop-notifications
+          theming
+          file-browser
+          web-browser
+          neovim-ide
+          git-gui
+          password-manager
+          smart-shell
+          terminal-emulator
+          tridactyl
+        ];
 
-      xdg.enable = true;
 
-      home.stateVersion = "26.05";
+        accounts.email.accounts.${config.home.username}.address = "emilnymann96@gmail.com";
 
-      programs.rbw.settings.email = "emilnymann96@gmail.com";
-
-      programs.git.settings = {
-        user = {
-          name = "Emil Nymann Sølyst";
-          email = "emilnymann96@gmail.com";
-          signingkey = "45E51048D62204CCD70B633B31D710749D7D8E7B";
+        programs.git.settings = {
+          user = {
+            name = "Emil Nymann Sølyst";
+            email = "emilnymann96@gmail.com";
+            signingkey = "45E51048D62204CCD70B633B31D710749D7D8E7B";
+          };
+          commit = {
+            gpgsign = true;
+          };
+          tag = {
+            gpgsign = true;
+          };
         };
-        commit = {
-          gpgsign = true;
-        };
-        tag = {
-          gpgsign = true;
-        };
+
+        services.hyprpaper.settings.wallpaper = [
+          {
+            monitor = "";
+            path = "${./wallpapers}";
+          }
+        ];
+
+        xdg.enable = true;
+        home.stateVersion = "26.05";
       };
-
-      services.hyprpaper.settings.wallpaper = [
-        {
-          monitor = "";
-          path = "${./wallpapers}";
-        }
-      ];
-    };
   };
 }
