@@ -85,7 +85,6 @@
         security.sudo.wheelNeedsPassword = false;
 
         users = {
-          defaultUserShell = pkgs.bash;
           users.ens = {
             isNormalUser = true;
             extraGroups = [
@@ -107,15 +106,7 @@
           users.ens = self.homeModules.ens;
         };
 
-        services.greetd = {
-          enable = true;
-          settings = {
-            default_session = {
-              user = "ens";
-              command = "uwsm start hyprland-uwsm.desktop";
-            };
-          };
-        };
+        services.displayManager.autoLogin.user = "ens";
       };
   };
 }

@@ -1,6 +1,15 @@
 _: {
   flake.homeModules.web-browser =
-    { config, ... }:
+    {
+      pkgs,
+      config,
+      lib,
+      ...
+    }:
+    let
+      withHyprland = config.wayland.windowManager.hyprland.enable;
+      withStylix = config.stylix.enable;
+    in
     {
       programs.firefox = {
         enable = true;
@@ -25,6 +34,14 @@ _: {
         };
       };
 
-      stylix.targets.firefox.profileNames = [ config.home.username ];
+      stylix = lib.mkIf withStylix {
+        targets.firefox.profileNames = [ config.home.username ];
+      };
+
+      wayland.windowManager.hyprland.settings = lib.mkIf withHyprland {
+        browser = {
+          _var = "${pkgs.firefox}/bin/firefox";
+        };
+      };
     };
 }

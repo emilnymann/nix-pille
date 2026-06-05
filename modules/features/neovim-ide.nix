@@ -1,13 +1,16 @@
 _: {
   flake.homeModules.neovim-ide =
-    { pkgs, ... }:
+    {
+      pkgs,
+      ...
+    }:
     {
       programs.nixvim = {
         enable = true;
         defaultEditor = true;
 
         clipboard.register = "unnamedplus";
-        clipboard.colorschemes.gruvbox-material = {
+        colorschemes.gruvbox-material = {
           enable = true;
           autoLoad = true;
         };

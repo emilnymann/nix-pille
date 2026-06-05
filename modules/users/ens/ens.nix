@@ -14,7 +14,6 @@
 
     homeModules.ens = _: {
       imports = with self.homeModules; [
-        clipboard
         desktop
         theming
         file-browser
