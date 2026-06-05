@@ -27,8 +27,9 @@
           smart-shell
           terminal-emulator
           tridactyl
-        ];
 
+          discord
+        ];
 
         accounts.email.accounts.${config.home.username}.address = "emilnymann96@gmail.com";
 
