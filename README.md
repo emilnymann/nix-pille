@@ -25,20 +25,16 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 - [x] break config into smaller files
 - [ ] auto-close brackets
-- [ ] auto-indent
-
-#### Binds
-
+- [x] auto-indent
 - [x] "escape" clears search highlight
 - [ ] "ctrl + s" to save
-
-#### Plugins
-
+- [ ] "ctrl + direction" to move focus
 - [x] file explorer
 - [x] lazygit
-- [ ] fuzzy find files
+- [x] fuzzy find files
 - [ ] terminal buffer overlay
 - [ ] completions
 - [ ] markdown render and formatting
 - [ ] flash search
+- [ ] tabs
 
