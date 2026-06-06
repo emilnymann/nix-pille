@@ -21,6 +21,7 @@
 
           smart-shell
           desktop
+          trashcan
           theming
           gpg-ssh
         ];
