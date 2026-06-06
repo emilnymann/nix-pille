@@ -21,7 +21,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 - [ ] break config into smaller files
 - [ ] auto-close brackets
-- [ ] auto-indent on new line
+- [ ] auto-indent
 
 #### Binds
 
@@ -30,7 +30,9 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 #### Plugins
 
-- [ ] lazygit
+- [ ] file explorer
+- [x] lazygit
+- [ ] terminal buffer overlay
 - [ ] completions
 - [ ] markdown render and formatting
 - [ ] flash search

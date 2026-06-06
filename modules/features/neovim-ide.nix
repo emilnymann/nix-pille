@@ -2,12 +2,28 @@ _: {
   flake.homeModules.neovim-ide =
     {
       pkgs,
+      config,
+      lib,
       ...
     }:
+    let
+      withLazygit = config.programs.lazygit.enable;
+    in
     {
+      # create nvim cache dir on home-manager activation, after
+      # DAG (directed acyclic graph) write boundary, so after HM finishes
+      # writing managed files and symlinks.
+      home.activation.createNvimCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        mkdir -p "${config.xdg.cacheHome}/nvim"
+      '';
+
       programs.nixvim = {
         enable = true;
         defaultEditor = true;
+
+        extraPackages = with pkgs; [
+          neovim-remote
+        ];
 
         clipboard.register = "unnamedplus";
         colorschemes.gruvbox-material = {
@@ -23,6 +39,10 @@ _: {
           tabstop = 2;
           shiftwidth = 2;
           exrc = true;
+        };
+
+        globals = {
+          mapleader = " ";
         };
 
         lsp = {
@@ -43,6 +63,18 @@ _: {
           };
         };
 
+        plugins = {
+          snacks = {
+            enable = true;
+            settings = {
+              lazygit = lib.mkIf withLazygit {
+                enabled = true;
+                configure = true;
+              };
+            };
+          };
+        };
+
         autoCmd = [
           {
             event = [ "BufWritePre" ];
@@ -50,7 +82,7 @@ _: {
               		function()
               			vim.lsp.buf.format()
               		end
-              		'';
+            '';
           }
         ];
 
@@ -67,7 +99,19 @@ _: {
               desc = "Escape and clear search highlight";
             };
           }
-        ];
+        ]
+        ++ lib.optional withLazygit {
+          mode = [ "n" ];
+          key = "<leader>gg";
+          action.__raw = ''
+            function()
+              Snacks.lazygit()
+            end
+          '';
+          options = {
+            desc = "Lazygit";
+          };
+        };
       };
     };
 }
