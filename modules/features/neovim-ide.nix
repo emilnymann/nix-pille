@@ -32,13 +32,27 @@ _: {
         };
 
         opts = {
+          exrc = true;
+          undolevels = 10000;
+
           wrap = false;
+          virtualedit = "block";
+
           number = true;
           relativenumber = true;
+
           expandtab = true;
           tabstop = 2;
+          shiftround = true;
           shiftwidth = 2;
-          exrc = true;
+
+          termguicolors = true;
+          cursorline = true;
+          smoothscroll = true;
+
+          ignorecase = true;
+          smartcase = true;
+          smartindent = true;
         };
 
         globals = {
