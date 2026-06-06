@@ -23,7 +23,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 ### Nixvim 
 
-- [ ] break config into smaller files
+- [x] break config into smaller files
 - [ ] auto-close brackets
 - [ ] auto-indent
 
@@ -36,6 +36,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 - [x] file explorer
 - [x] lazygit
+- [ ] fuzzy find files
 - [ ] terminal buffer overlay
 - [ ] completions
 - [ ] markdown render and formatting

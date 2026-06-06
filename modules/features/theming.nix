@@ -11,7 +11,15 @@ _: {
     };
 
   flake.homeModules.theming =
-    { pkgs, ... }:
+    {
+      pkgs,
+      lib,
+      config,
+      ...
+    }:
+    let
+      withNixvim = config.programs.nixvim.enable;
+    in
     {
       stylix = {
         enable = true;
@@ -40,5 +48,12 @@ _: {
         getFrom "https://github.com/ful1e5/BreezeX_Cursor/releases/download/v2.0.1/BreezeX-Dark.tar.xz"
           "sha256-HqjO/ogAd/dsrO5WHIilUQaq1CbiU48lEaoefcUmmBM="
           "BreezeX-Dark";
+
+      programs.nixvim.colorschemes = lib.mkIf withNixvim {
+        gruvbox-material = {
+          enable = true;
+          autoLoad = true;
+        };
+      };
     };
 }
