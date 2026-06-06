@@ -33,7 +33,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] lazygit
 - [x] fuzzy find files
 - [ ] terminal buffer overlay
-- [ ] completions
+- [x] completions
 - [ ] markdown render and formatting
 - [ ] flash search
 - [ ] tabs
