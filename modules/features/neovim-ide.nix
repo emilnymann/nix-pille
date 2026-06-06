@@ -83,7 +83,12 @@ _: {
             settings = {
               lazygit = lib.mkIf withLazygit {
                 enabled = true;
-                configure = true;
+              };
+              explorer = {
+                enabled = true;
+              };
+              picker = {
+                enabled = true;
               };
             };
           };
@@ -113,17 +118,23 @@ _: {
               desc = "Escape and clear search highlight";
             };
           }
+          {
+            mode = [
+              "n"
+            ];
+            key = "<leader>e";
+            action.__raw = "function() Snacks.explorer() end";
+            options = {
+              desc = "File explorer";
+            };
+          }
         ]
         ++ lib.optional withLazygit {
           mode = [ "n" ];
           key = "<leader>gg";
-          action.__raw = ''
-            function()
-              Snacks.lazygit()
-            end
-          '';
+          action.__raw = "function() Snacks.lazygit() end";
           options = {
-            desc = "Lazygit";
+            desc = "Git";
           };
         };
       };

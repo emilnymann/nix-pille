@@ -34,7 +34,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 #### Plugins
 
-- [ ] file explorer
+- [x] file explorer
 - [x] lazygit
 - [ ] terminal buffer overlay
 - [ ] completions
