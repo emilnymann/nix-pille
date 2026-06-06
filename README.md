@@ -8,7 +8,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] desktop: bluetooth/devices status (config?) shell
 - [ ] theming: custom breezex gruvbox cursor theme
 - [ ] tridactyl: declarative configuration
-- [ ] gpg-agent: higher cache timeout
+- [x] gpg-agent: higher cache timeout
 
 ### hyprland
 
