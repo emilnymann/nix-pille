@@ -12,6 +12,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] gpg-agent: higher cache timeout
 - [ ] shutdown menu
 - [ ] btop
+- [ ] nerd font patching
 
 ### hyprland
 
@@ -39,7 +40,8 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] completions
 - [ ] markdown render and formatting
 - [ ] flash search
-- [ ] tabs
+- [x] tabs
 - [ ] dashboard
 - [ ] no-neck-pain
+- [ ] which-key
 
