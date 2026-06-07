@@ -30,7 +30,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] auto-close brackets
 - [x] auto-indent
 - [x] "escape" clears search highlight
-- [ ] "ctrl + s" to save
+- [x] "ctrl + s" to save
 - [ ] "ctrl + direction" to move focus
 - [x] file explorer
 - [x] lazygit
