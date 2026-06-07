@@ -33,6 +33,11 @@ _: {
           };
         };
 
+        xdg.terminal-exec = {
+          enable = true;
+          settings.default = [ "ghostty.desktop" ];
+        };
+
         features.terminal-emulator = {
           bin = "${pkgs.ghostty}/bin/ghostty";
           titleFlag = "--title=";
