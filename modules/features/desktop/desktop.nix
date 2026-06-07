@@ -30,6 +30,16 @@ _: {
       lib,
       ...
     }:
+    let
+      power-menu = pkgs.writeShellScriptBin "power-menu" ''
+        choice=$(printf 'Shutdown\nReboot' | ${lib.getExe pkgs.hyprlauncher} --dmenu)
+
+        case "$choice" in
+          Shutdown) ${pkgs.systemd}/bin/systemctl poweroff ;;
+          Reboot) ${pkgs.systemd}/bin/systemctl reboot ;;
+        esac
+      '';
+    in
     {
       imports = [
         ./hyprland/_config.nix
@@ -44,9 +54,8 @@ _: {
       wayland.windowManager.hyprland = {
         enable = true;
         settings = {
-          launcher = {
-            _var = "${pkgs.hyprlauncher}/bin/hyprlauncher";
-          };
+          launcher._var = "${lib.getExe pkgs.hyprlauncher}";
+          power_menu._var = "${lib.getExe power-menu}";
         };
       };
 

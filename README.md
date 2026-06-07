@@ -10,7 +10,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] tridactyl: declarative configuration
 - [ ] tridactyl: theme
 - [x] gpg-agent: higher cache timeout
-- [ ] shutdown menu
+- [x] shutdown menu
 - [ ] btop
 - [ ] nerd font patching
 
@@ -20,6 +20,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] rebind capslock to control
 - [ ] change special workspace animation direction to up/down
 - [ ] searchable keybinds list
+- [ ] hyprlauncher theming
 
 ### Waybar
 

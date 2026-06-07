@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   wayland.windowManager.hyprland.settings.bind =
     let
@@ -82,6 +82,17 @@
           }
         ];
       }
+
+      ## Power menu
+      {
+        _args = [
+          "SUPER + Escape"
+          (lib.generators.mkLuaInline "hl.dsp.exec_cmd(power_menu)")
+          {
+            description = "Power menu";
+          }
+        ];
+      }
     ]
 
     ++ (lib.flatten (
@@ -142,21 +153,21 @@
       {
         _args = [
           "XF86AudioRaiseVolume"
-          (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+')")
+          (lib.generators.mkLuaInline "hl.dsp.exec_cmd('${pkgs.wireplumber}/bin/wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+')")
           { description = "Raise volume"; }
         ];
       }
       {
         _args = [
           "XF86AudioLowerVolume"
-          (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-')")
+          (lib.generators.mkLuaInline "hl.dsp.exec_cmd('${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-')")
           { description = "Lower volume"; }
         ];
       }
       {
         _args = [
           "XF86AudioMute"
-          (lib.generators.mkLuaInline "hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle')")
+          (lib.generators.mkLuaInline "hl.dsp.exec_cmd('${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle')")
           { description = "Mute volume"; }
         ];
       }
