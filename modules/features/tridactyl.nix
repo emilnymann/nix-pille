@@ -59,11 +59,11 @@ _: {
 
 
         " - OPEN -
-        unbind --mode=normal <Space><Space>
-        unbind --mode=normal <Space>t
+        unbind --mode=normal o
+        unbind --mode=normal O
 
-        bind --mode=normal <Space><Space> fillcmdline open
-        bind --mode=normal <Space>t fillcmdline tabopen
+        bind --mode=normal o fillcmdline open
+        bind --mode=normal O fillcmdline tabopen
       '';
     };
 }

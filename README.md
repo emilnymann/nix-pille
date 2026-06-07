@@ -13,6 +13,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] shutdown menu
 - [ ] btop
 - [ ] nerd font patching
+- [ ] zoxide/z
 
 ### hyprland
 
