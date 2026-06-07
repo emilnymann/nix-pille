@@ -18,6 +18,7 @@
         imports = with self.homeModules; [
           desktop
           desktop-notifications
+          bluetooth
           theming
           file-browser
           web-browser

@@ -20,6 +20,7 @@
           ./hardware-configuration.nix
 
           smart-shell
+          bluetooth
           desktop
           trashcan
           theming

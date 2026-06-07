@@ -5,7 +5,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 ## Todo
 
-- [ ] desktop: bluetooth/devices status (config?) shell
+- [x] desktop: bluetooth/devices status (config?) shell
 - [ ] theming: custom breezex gruvbox cursor theme
 - [x] tridactyl: declarative configuration
 - [ ] tridactyl: theme
@@ -46,4 +46,5 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] dashboard
 - [ ] no-neck-pain
 - [ ] which-key
+- [ ] snippets
 
