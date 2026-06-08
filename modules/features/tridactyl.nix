@@ -29,7 +29,7 @@ _: {
         bind --mode=normal H tabprev
         bind --mode=normal L tabnext
         bind --mode=normal <Space>bd tabclose
-        bind --mode=normal <Space>bd composite tabcloseallto left | tabcloseallto right
+        bind --mode=normal <Space>bo composite tabcloseallto left | tabcloseallto right
 
 
 
