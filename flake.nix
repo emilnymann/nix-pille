@@ -22,6 +22,13 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+
+    glide = {
+      url = "github:glide-browser/glide.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
   };
 
   outputs =

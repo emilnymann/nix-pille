@@ -11,7 +11,7 @@ _: {
       withStylix = config.stylix.enable;
     in
     {
-      programs.firefox = {
+      programs.glide-browser = {
         enable = true;
         profiles.${config.home.username} = {
           isDefault = true;
@@ -34,13 +34,13 @@ _: {
         };
       };
 
-      stylix = lib.mkIf withStylix {
-        targets.firefox.profileNames = [ config.home.username ];
-      };
+      # stylix = lib.mkIf withStylix {
+      #   targets.firefox.profileNames = [ config.home.username ];
+      # };
 
       wayland.windowManager.hyprland.settings = lib.mkIf withHyprland {
         browser = {
-          _var = "${pkgs.firefox}/bin/firefox";
+          _var = lib.getExe config.programs.glide-browser.package;
         };
       };
     };
