@@ -1,3 +1,4 @@
+# Deprecated in favor of glide browser
 _: {
   flake.homeModules.tridactyl =
     { pkgs, ... }:

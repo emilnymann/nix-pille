@@ -1,16 +1,16 @@
 _: {
   flake.homeModules.web-browser =
     {
-      pkgs,
       config,
       lib,
       ...
     }:
     let
       withHyprland = config.wayland.windowManager.hyprland.enable;
-      withStylix = config.stylix.enable;
     in
     {
+      xdg.configFile."glide/glide.ts".source = ./glide/glide.ts;
+
       programs.glide-browser = {
         enable = true;
         profiles.${config.home.username} = {
@@ -33,10 +33,6 @@ _: {
           };
         };
       };
-
-      # stylix = lib.mkIf withStylix {
-      #   targets.firefox.profileNames = [ config.home.username ];
-      # };
 
       wayland.windowManager.hyprland.settings = lib.mkIf withHyprland {
         browser = {

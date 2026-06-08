@@ -24,4 +24,6 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] no-neck-pain
 - [ ] which-key
 - [ ] snippets
+- [ ] dashboard `old_files` and grep (`rg`) doesn't work?
+- [ ] `gcc` to toggle comment
 

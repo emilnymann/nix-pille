@@ -27,7 +27,6 @@
           password-manager
           smart-shell
           terminal-emulator
-          tridactyl
 
           discord
         ];
