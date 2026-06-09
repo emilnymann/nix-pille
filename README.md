@@ -9,7 +9,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] btop
 - [ ] nerd font patching
 - [ ] zoxide/z
-- [ ] waybar theme
+- [x] ~~waybar theme~~ ashell status bar
 - [ ] scratchpad workspace appears from bottom
 - [ ] keybinds list
 - [ ] hyprlauncher theme
@@ -17,12 +17,14 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] generate themed wallpapers with stylix
 - [ ] rbw setup
 - [ ] glide browser `tab_new` does not allow url entering
+- [ ] clipboard history with search
+- [ ] replace mako with ashell notificaiton daemon when nixpkgs-unstable updates it to `0.9`
 
 ### Nixvim 
 
 - [ ] "ctrl + direction" to move focus
 - [ ] terminal buffer overlay
-- [ ] markdown render and formatting
+- [ ] markdown ~~render and formatting~~ lsp
 - [ ] flash search
 - [ ] no-neck-pain
 - [ ] which-key
