@@ -27,14 +27,14 @@
       }
       {
         _args = [
-          "SUPER + ALT + B"
+          "SUPER + SHIFT + B"
           (lib.generators.mkLuaInline "hl.dsp.exec_cmd(browser)")
           { description = "Browser"; }
         ];
       }
       {
         _args = [
-          "SUPER + ALT + F"
+          "SUPER + SHIFT + F"
           (lib.generators.mkLuaInline "hl.dsp.exec_cmd(filemanager)")
           { description = "Filemanager"; }
         ];
@@ -106,7 +106,7 @@
         }
         {
           _args = [
-            "SUPER + ALT + ${key}"
+            "SUPER + SHIFT + ${key}"
             (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = '${dir}' })")
             { description = "Move window <${dir}>"; }
           ];
@@ -124,7 +124,7 @@
       }
       {
         _args = [
-          "SUPER + ALT + ae"
+          "SUPER + SHIFT + ae"
           (lib.generators.mkLuaInline "hl.dsp.window.move({ workspace = 'special:scratch'})")
           { description = "Toggle scratchpad"; }
         ];
@@ -142,7 +142,7 @@
         }
         {
           _args = [
-            "SUPER + ALT + ${toString i}"
+            "SUPER + SHIFT + ${toString i}"
             (lib.generators.mkLuaInline "hl.dsp.window.move({ workspace = '${toString i}' })")
             { description = "Move active window to workspace <${toString i}>"; }
           ];

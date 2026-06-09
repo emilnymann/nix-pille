@@ -6,7 +6,6 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 ## Todo
 
 - [ ] theming: custom breezex gruvbox cursor theme
-- [ ] tridactyl: theme
 - [ ] btop
 - [ ] nerd font patching
 - [ ] zoxide/z
@@ -14,6 +13,10 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] scratchpad workspace appears from bottom
 - [ ] keybinds list
 - [ ] hyprlauncher theme
+- [ ] bluetui xdg desktop entry fix
+- [ ] generate themed wallpapers with stylix
+- [ ] rbw setup
+- [ ] glide browser `tab_new` does not allow url entering
 
 ### Nixvim 
 
