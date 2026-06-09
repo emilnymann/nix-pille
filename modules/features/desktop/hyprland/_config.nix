@@ -2,7 +2,7 @@ _: {
   wayland.windowManager.hyprland.settings.config = {
     general = {
       gaps_in = 4;
-      gaps_out = 12;
+      gaps_out = 4;
     };
 
     decoration = {
