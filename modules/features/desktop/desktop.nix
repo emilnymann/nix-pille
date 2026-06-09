@@ -1,26 +1,22 @@
 _: {
-  flake.nixosModules.desktop =
-    {
-      ...
-    }:
-    {
-      config = {
-        programs.hyprland = {
-          enable = true;
-        };
+  flake.nixosModules.desktop = _: {
+    config = {
+      programs.hyprland = {
+        enable = true;
+      };
 
-        services.upower.enable = true;
+      services.upower.enable = true;
 
-        services.displayManager = {
+      services.displayManager = {
+        enable = true;
+        defaultSession = "hyprland";
+        sddm = {
           enable = true;
-          defaultSession = "hyprland";
-          sddm = {
-            enable = true;
-            wayland.enable = true;
-          };
+          wayland.enable = true;
         };
       };
     };
+  };
 
   flake.homeModules.desktop =
     {

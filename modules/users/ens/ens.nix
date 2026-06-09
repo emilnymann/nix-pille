@@ -13,7 +13,6 @@
     };
 
     homeModules.ens =
-      { config, ... }:
       {
         imports = with self.homeModules; [
           desktop
@@ -31,10 +30,6 @@
           discord
         ];
 
-        accounts.email.accounts.${config.home.username} = {
-          primary = true;
-          address = "emilnymann96@gmail.com";
-        };
 
         programs.git.settings = {
           user = {

@@ -19,6 +19,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] glide browser `tab_new` does not allow url entering
 - [ ] clipboard history with search
 - [ ] replace mako with ashell notificaiton daemon when nixpkgs-unstable updates it to `0.9`
+- [ ] glide browser theme
 
 ### Nixvim 
 

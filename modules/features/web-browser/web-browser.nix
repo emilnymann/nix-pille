@@ -9,34 +9,44 @@ _: {
       withHyprland = config.wayland.windowManager.hyprland.enable;
     in
     {
-      xdg.configFile."glide/glide.ts".source = ./glide/glide.ts;
-
-      programs.glide-browser = {
-        enable = true;
-        profiles.${config.home.username} = {
-          isDefault = true;
-          name = config.home.username;
-        };
-        policies = {
-          NoDefaultBookmarks = true;
-          GenerativeAI.Enabled = false;
-          AIControls.Default.Value = "blocked";
-          DisableFirefoxAccounts = true;
-          DisableSetDesktopBackground = true;
-          DisableTelemetry = true;
-          UserMessaging = {
-            ExtensionRecommendations = false;
-            FeatureRecommendations = false;
-            UrlbarInterventions = false;
-            SkipOnboarding = true;
-            MoreFromMozilla = false;
-          };
-        };
+      options.features.web-browser.glide.extensionLines = lib.mkOption {
+        type = lib.types.listOf lib.types.lines;
+        default = [ ];
       };
 
-      wayland.windowManager.hyprland.settings = lib.mkIf withHyprland {
-        browser = {
-          _var = lib.getExe config.programs.glide-browser.package;
+      config = {
+
+        xdg.configFile."glide/glide.ts".source = ./glide/glide.ts;
+        xdg.configFile."glide/extensions.glide.ts".text =
+          lib.concatStringsSep "\n" config.features.web-browser.glide.extensionLines;
+
+        programs.glide-browser = {
+          enable = true;
+          profiles.${config.home.username} = {
+            isDefault = true;
+            name = config.home.username;
+          };
+          policies = {
+            NoDefaultBookmarks = true;
+            GenerativeAI.Enabled = false;
+            AIControls.Default.Value = "blocked";
+            DisableFirefoxAccounts = true;
+            DisableSetDesktopBackground = true;
+            DisableTelemetry = true;
+            UserMessaging = {
+              ExtensionRecommendations = false;
+              FeatureRecommendations = false;
+              UrlbarInterventions = false;
+              SkipOnboarding = true;
+              MoreFromMozilla = false;
+            };
+          };
+        };
+
+        wayland.windowManager.hyprland.settings = lib.mkIf withHyprland {
+          browser = {
+            _var = lib.getExe config.programs.glide-browser.package;
+          };
         };
       };
     };
