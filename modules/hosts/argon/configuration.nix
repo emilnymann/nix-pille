@@ -23,7 +23,6 @@
           bluetooth
           desktop
           trashcan
-          theming
           gpg-ssh
         ];
 

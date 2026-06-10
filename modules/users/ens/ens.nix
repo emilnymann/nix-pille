@@ -12,48 +12,45 @@
       ];
     };
 
-    homeModules.ens =
-      {
-        imports = with self.homeModules; [
-          desktop
-          desktop-notifications
-          bluetooth
-          theming
-          file-browser
-          web-browser
-          neovim-ide
-          git-gui
-          password-manager
-          smart-shell
-          terminal-emulator
+    homeModules.ens = {
+      imports = with self.homeModules; [
+        desktop
+        desktop-notifications
+        bluetooth
+        file-browser
+        web-browser
+        neovim-ide
+        git-tui
+        password-manager
+        smart-shell
+        terminal-emulator
 
-          discord
-        ];
+        discord
+      ];
 
-
-        programs.git.settings = {
-          user = {
-            name = "Emil Nymann Sølyst";
-            email = "emilnymann96@gmail.com";
-            signingkey = "45E51048D62204CCD70B633B31D710749D7D8E7B";
-          };
-          commit = {
-            gpgsign = true;
-          };
-          tag = {
-            gpgsign = true;
-          };
+      programs.git.settings = {
+        user = {
+          name = "Emil Nymann Sølyst";
+          email = "emilnymann96@gmail.com";
+          signingkey = "45E51048D62204CCD70B633B31D710749D7D8E7B";
         };
-
-        services.hyprpaper.settings.wallpaper = [
-          {
-            monitor = "";
-            path = "${./wallpapers}";
-          }
-        ];
-
-        xdg.enable = true;
-        home.stateVersion = "26.05";
+        commit = {
+          gpgsign = true;
+        };
+        tag = {
+          gpgsign = true;
+        };
       };
+
+      services.hyprpaper.settings.wallpaper = [
+        {
+          monitor = "";
+          path = "${./wallpapers}";
+        }
+      ];
+
+      xdg.enable = true;
+      home.stateVersion = "26.05";
+    };
   };
 }
