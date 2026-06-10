@@ -1,5 +1,5 @@
 _: {
-  flake.nixosModules.desktop =
+  flake.nixosModules.theming =
     { pkgs, ... }:
     {
       stylix = {
@@ -10,9 +10,8 @@ _: {
       };
     };
 
-  flake.homeModules.desktop =
+  flake.homeModules.theming =
     {
-      osConfig,
       pkgs,
       lib,
       config,
@@ -21,7 +20,7 @@ _: {
     let
       withNixvim = config.programs.nixvim.enable;
     in
-    lib.mkIf osConfig.programs.hyprland.enable {
+    {
       stylix = {
         enable = true;
         polarity = "dark";

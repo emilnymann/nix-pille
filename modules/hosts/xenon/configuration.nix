@@ -5,45 +5,75 @@
 }:
 {
   flake = {
-    nixosConfigurations.argon = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.xenon = inputs.nixpkgs.lib.nixosSystem {
       modules = [
-        self.nixosModules.argon
+        self.nixosModules.xenon
         self.nixosModules.myHomeManager
         inputs.stylix.nixosModules.stylix
       ];
     };
 
-    nixosModules.argon =
+    nixosModules.xenon =
       { pkgs, ... }:
       {
         imports = with self.nixosModules; [
           ./hardware-configuration.nix
 
           smart-shell
-          bluetooth
-          desktop
           trashcan
           gpg-ssh
           theming
         ];
 
-        networking = {
-          hostName = "argon";
-          networkmanager.enable = true;
+        networking.useDHCP = false;
+        systemd.network = {
+          enable = true;
+          networks."10-wan" = {
+            matchConfig.MACAddress = "b4:2e:99:48:18:cd";
+            networkConfig = {
+              Gateway = "95.217.37.193";
+              DNS = [
+                "185.12.64.1"
+                "185.12.64.2"
+              ];
+            };
+            addresses = [
+              {
+                Address = "95.217.37.253/32";
+                Peer = "95.217.37.193/32";
+              }
+            ];
+          };
+        };
+
+        boot.loader.grub = {
+          enable = true;
+          devices = [
+            "/dev/disk/by-id/ata-HGST_HUH721008ALE600_7HKK5VXJ" # sda
+            "/dev/disk/by-id/ata-HGST_HUH721008ALE600_7HKKSVXJ" # sdb
+          ];
+        };
+
+        boot.swraid.mdadmConf = ''
+          MAILADDR root
+        '';
+
+        services.smartd = {
+          enable = true;
+          notifications.wall.enable = true;
+        };
+
+        services.openssh = {
+          enable = true;
+          settings = {
+            PasswordAuthentication = false;
+            PermitRootLogin = "prohibit-password";
+          };
         };
 
         security = {
           sudo.enable = true;
-          polkit.enable = true;
-        };
-
-        boot = {
-          plymouth.enable = true;
-          kernelParams = [ "quiet" ];
-          loader = {
-            systemd-boot.enable = true;
-            efi.canTouchEfiVariables = true;
-          };
+          sudo.wheelNeedsPassword = false;
         };
 
         time.timeZone = "Europe/Copenhagen";
@@ -78,26 +108,19 @@
         };
 
         nixpkgs.config.allowUnfree = true;
-
-        system.stateVersion = "26.05";
-
-        hardware.graphics.enable = true;
         hardware.enableRedistributableFirmware = true;
 
-        security.sudo.wheelNeedsPassword = false;
-
         users = {
+          users.root.openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHp2+MUwKg4vv7M2I5kyCWwlmyKQL++/VasEqj7/GFhC openpgp:0x2FF97ABE"
+          ];
           users.ens = {
             isNormalUser = true;
-            extraGroups = [
-              "wheel"
-              "networkmanager"
-              "audio"
-              "video"
-              "input"
-            ];
-
+            extraGroups = [ "wheel" ];
             shell = pkgs.fish;
+            openssh.authorizedKeys.keys = [
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHp2+MUwKg4vv7M2I5kyCWwlmyKQL++/VasEqj7/GFhC openpgp:0x2FF97ABE"
+            ];
           };
         };
 
@@ -109,7 +132,7 @@
           users.ens = self.homeModules.ens;
         };
 
-        services.displayManager.autoLogin.user = "ens";
+        system.stateVersion = "26.05";
       };
   };
 }

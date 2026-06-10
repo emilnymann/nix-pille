@@ -24,6 +24,7 @@
         password-manager
         smart-shell
         terminal-emulator
+        theming
 
         discord
       ];
