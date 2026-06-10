@@ -42,7 +42,7 @@
       };
 
       tempo = {
-        clock_format = "%e %R ";
+        clock_format = "%R • %e";
       };
 
       tray = {
