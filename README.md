@@ -7,18 +7,14 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 - [ ] theming: custom breezex gruvbox cursor theme
 - [ ] btop
-- [ ] nerd font patching
 - [ ] zoxide/z
-- [x] ~~waybar theme~~ ashell status bar
 - [ ] scratchpad workspace appears from bottom
-- [x] keybinds list
-- [x] bluetui xdg desktop entry fix
 - [ ] generate themed wallpapers with stylix
 - [ ] glide browser `tab_new` does not allow url entering
-- [x] clipboard history with search
 - [ ] replace mako with ashell notificaiton daemon when nixpkgs-unstable updates it to `0.9`
 - [ ] glide browser theme
 - [ ] ashell module right click behavior swap
+- [ ] glide inc-search
 
 ### Nixvim 
 
