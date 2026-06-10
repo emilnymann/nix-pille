@@ -26,7 +26,7 @@ _: {
     }:
     let
       power-menu = pkgs.writeShellScriptBin "power-menu" ''
-        choice=$(printf 'Shutdown\nReboot' | ${lib.getExe pkgs.hyprlauncher} --dmenu)
+        choice=$(printf 'Shutdown\nReboot' | ${lib.getExe pkgs.vicinae} dmenu)
 
         case "$choice" in
           Shutdown) ${pkgs.systemd}/bin/systemctl poweroff ;;
@@ -40,6 +40,7 @@ _: {
         ./hyprland/_monitors.nix
         ./hyprland/_binds.nix
         ./_ashell.nix
+        ./vicinae/_extensions.nix
       ];
 
       home.packages = with pkgs; [
@@ -49,8 +50,10 @@ _: {
       wayland.windowManager.hyprland = {
         enable = true;
         settings = {
-          launcher._var = "${lib.getExe pkgs.hyprlauncher}";
+          launcher._var = "${lib.getExe pkgs.vicinae} open";
           power_menu._var = "${lib.getExe power-menu}";
+          cliphist._var = "${lib.getExe pkgs.vicinae} deeplink vicinae://launch/clipboard/history";
+          which_key._var = "${lib.getExe pkgs.vicinae} deeplink vicinae://launch/@sovereign/hypr-keybinds/hyprland-keybinds";
         };
       };
 
@@ -80,8 +83,9 @@ _: {
         };
       };
 
-      services.hyprlauncher = {
+      programs.vicinae = {
         enable = true;
+        systemd.enable = true;
       };
 
       services.hyprpaper = {

@@ -11,15 +11,14 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] zoxide/z
 - [x] ~~waybar theme~~ ashell status bar
 - [ ] scratchpad workspace appears from bottom
-- [ ] keybinds list
-- [ ] hyprlauncher theme
-- [ ] bluetui xdg desktop entry fix
+- [x] keybinds list
+- [x] bluetui xdg desktop entry fix
 - [ ] generate themed wallpapers with stylix
-- [ ] rbw setup
 - [ ] glide browser `tab_new` does not allow url entering
-- [ ] clipboard history with search
+- [x] clipboard history with search
 - [ ] replace mako with ashell notificaiton daemon when nixpkgs-unstable updates it to `0.9`
 - [ ] glide browser theme
+- [ ] ashell module right click behavior swap
 
 ### Nixvim 
 
@@ -32,4 +31,5 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] snippets
 - [ ] dashboard `old_files` and grep (`rg`) doesn't work?
 - [ ] `gcc` to toggle comment
+- [ ] lazygit integration -> edit file -> open file in new bufferline tab, not a "nested" instance
 

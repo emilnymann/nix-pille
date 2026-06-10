@@ -39,22 +39,22 @@
           { description = "Filemanager"; }
         ];
       }
+      {
+        _args = [
+          "SUPER + V"
+          (lib.generators.mkLuaInline "hl.dsp.exec_cmd(cliphist)")
+          { description = "Clipboard history"; }
+        ];
+      }
+      {
+        _args = [
+          "SUPER + ALT + K"
+          (lib.generators.mkLuaInline "hl.dsp.exec_cmd(which_key)")
+          { description = "Show keybinds"; }
+        ];
+      }
 
       # Windows
-      {
-        _args = [
-          "SUPER + W"
-          (lib.generators.mkLuaInline "hl.dsp.window.close()")
-          { description = "Close active window"; }
-        ];
-      }
-      {
-        _args = [
-          "SUPER + W"
-          (lib.generators.mkLuaInline "hl.dsp.window.close()")
-          { description = "Close active window"; }
-        ];
-      }
       {
         _args = [
           "SUPER + W"
@@ -101,14 +101,14 @@
           _args = [
             "SUPER + ${key}"
             (lib.generators.mkLuaInline "hl.dsp.focus({ direction = '${dir}' })")
-            { description = "Move focus <${dir}>"; }
+            { description = "Move focus ${dir}"; }
           ];
         }
         {
           _args = [
             "SUPER + SHIFT + ${key}"
             (lib.generators.mkLuaInline "hl.dsp.window.move({ direction = '${dir}' })")
-            { description = "Move window <${dir}>"; }
+            { description = "Move window ${dir}"; }
           ];
         }
       ]) directionKeys
@@ -144,7 +144,7 @@
           _args = [
             "SUPER + SHIFT + ${toString i}"
             (lib.generators.mkLuaInline "hl.dsp.window.move({ workspace = '${toString i}' })")
-            { description = "Move active window to workspace <${toString i}>"; }
+            { description = "Move active window to workspace ${toString i}"; }
           ];
         }
       ]) (lib.range 1 9)
