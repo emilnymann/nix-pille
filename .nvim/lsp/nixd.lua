@@ -11,6 +11,9 @@ vim.lsp.config("nixd", {
 				["home-manager"] = {
 					expr = [[(builtins.getFlake "/etc/nixos").nixosConfigurations.argon.options.home-manager.users.type.getSubOptions []]],
 				},
+        ["flake-parts"] = {
+          expr = [[(builtins.getFlake "/etc/nixos").debug.options]],
+        },
 			},
 		},
 	},
