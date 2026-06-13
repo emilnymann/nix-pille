@@ -18,14 +18,14 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 
 ### Nixvim 
 
-- [ ] "ctrl + direction" to move focus
+- [x] "ctrl + direction" to move focus
 - [ ] terminal buffer overlay
 - [ ] markdown ~~render and formatting~~ lsp
 - [ ] flash search
 - [ ] no-neck-pain
 - [ ] which-key
-- [ ] snippets
+- [x] snippets
 - [ ] dashboard `old_files` and grep (`rg`) doesn't work?
-- [ ] `gcc` to toggle comment
-- [ ] lazygit integration -> edit file -> open file in new bufferline tab, not a "nested" instance
+- [x] `gcc` to toggle comment
+- [x] lazygit integration -> edit file -> open file in new bufferline tab, not a "nested" instance
 
