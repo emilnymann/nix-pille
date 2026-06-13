@@ -29,6 +29,7 @@
         theming
 
         discord
+        coding-agent
       ];
 
       programs.git.settings = {
