@@ -8,12 +8,12 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] theming: custom breezex gruvbox cursor theme
 - [ ] btop
 - [ ] zoxide/z
-- [ ] scratchpad workspace appears from bottom
+- [x] scratchpad workspace appears from bottom
 - [ ] generate themed wallpapers with stylix
 - [x] glide browser `tab_new` does not allow url entering
 - [x] replace mako with ashell notificaiton daemon when nixpkgs-unstable updates it to `0.9`
 - [ ] glide browser theme
-- [ ] ashell module right click behavior swap
+- [x] ashell module right click behavior swap
 - [ ] glide inc-search (findbar)
 - [x] glide `u` to undo tab closure
 - [ ] git delta pager
