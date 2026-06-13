@@ -1,11 +1,10 @@
 _: {
-  flake.homeModules.desktop =
-    {
-      osConfig,
-      lib,
-      pkgs,
-      ...
-    }:
+  flake.homeModules.desktop = {
+    osConfig,
+    lib,
+    pkgs,
+    ...
+  }:
     lib.mkIf osConfig.programs.hyprland.enable {
       programs.ashell = {
         enable = true;

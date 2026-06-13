@@ -11,7 +11,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [ ] scratchpad workspace appears from bottom
 - [ ] generate themed wallpapers with stylix
 - [x] glide browser `tab_new` does not allow url entering
-- [ ] replace mako with ashell notificaiton daemon when nixpkgs-unstable updates it to `0.9`
+- [x] replace mako with ashell notificaiton daemon when nixpkgs-unstable updates it to `0.9`
 - [ ] glide browser theme
 - [ ] ashell module right click behavior swap
 - [ ] glide inc-search (findbar)
@@ -32,3 +32,4 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] lazygit integration -> edit file -> open file in new bufferline tab, not a "nested" instance
 - [ ] trouble + binds
 - [ ] motion in/around argument/use/etc.
+- [ ] `sg` grep cwd
