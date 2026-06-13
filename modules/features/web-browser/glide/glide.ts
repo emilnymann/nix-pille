@@ -1,5 +1,8 @@
-glide.keymaps.set("normal", "o", "commandline_show tab ");
-glide.keymaps.set("normal", "O", "commandline_show tab_new ");
+glide.keymaps.set("normal", "o", async () => {
+  glide.keys.send("<C-l>", { skip_mappings: true });
+});
+
+glide.keymaps.set("normal", "O", "tab_new");
 
 glide.keymaps.set("command", "<C-n>", "commandline_focus_next");
 glide.keymaps.set("command", "<C-j>", "commandline_focus_next");
@@ -20,6 +23,8 @@ glide.keymaps.set("normal", "bo", async () => {
 
 glide.keymaps.set(["normal", "insert"], "<C-h>", "back");
 glide.keymaps.set(["normal", "insert"], "<C-l>", "forward");
+
+glide.keymaps.set(["normal"], "u", "tab_reopen");
 
 glide.o.hint_size = "18px";
 
