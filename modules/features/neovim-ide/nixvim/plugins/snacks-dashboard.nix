@@ -1,6 +1,7 @@
 _: {
   flake.homeModules.neovim-ide = _: {
     programs.nixvim = {
+      dependencies.ripgrep.enable = true;
       plugins.snacks = {
         enable = true;
         settings = {
@@ -8,7 +9,7 @@ _: {
             enabled = true;
             preset = {
               header = ''
-                @@@  @@@  @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@@@@ 
+                @@@  @@@  @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@@@@
                 @@@@ @@@  @@@  @@@  @@@  @@@  @@@  @@@  @@@@@@@@@@@
                 @@!@!@@@  @@!  @@!  !@@  @@!  @@@  @@!  @@! @@! @@!
                 !@!!@!@!  !@!  !@!  @!!  !@!  @!@  !@!  !@! !@! !@!
@@ -16,8 +17,8 @@ _: {
                 !@!  !!!  !!!    @!!!    !@!  !!!  !!!  !@!   ! !@!
                 !!:  !!!  !!:   !: :!!   :!:  !!:  !!:  !!:     !!:
                 :!:  !:!  :!:  :!:  !:!   ::!!:!   :!:  :!:     :!:
-                ::   ::   ::   ::  :::    ::::     ::  :::     ::  
-                ::    :   :     :   ::      :      :     :      :  
+                ::   ::   ::   ::  :::    ::::     ::  :::     ::
+                ::    :   :     :   ::      :      :     :      :
               '';
               keys = [
                 {
@@ -42,7 +43,7 @@ _: {
                   icon = " ";
                   key = "r";
                   desc = "Recent Files";
-                  action = ":lua Snacks.dashboard.pick('old_files')";
+                  action = ":lua Snacks.dashboard.pick('oldfiles')";
                 }
                 {
                   icon = " ";
@@ -59,7 +60,7 @@ _: {
               ];
             };
             sections = [
-              { section = "header"; }
+              {section = "header";}
               {
                 section = "keys";
                 gap = 1;
