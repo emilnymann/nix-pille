@@ -1,57 +1,54 @@
 _: {
-  flake.homeModules.neovim-ide =
-    {
-      lib,
-      config,
-      ...
-    }:
-    let
-      cmd = (lib.getExe config.programs.nixvim.lsp.servers.tsgo.package);
-    in
-    {
-      programs.nixvim.lsp = {
-        servers = {
-          tsgo = {
-            enable = true;
-            config = {
-              cmd = [
-                cmd
-                "--lsp"
-                "--stdio"
-              ];
+  flake.homeModules.neovim-ide = {
+    lib,
+    config,
+    ...
+  }: let
+    cmd = lib.getExe config.programs.nixvim.lsp.servers.tsgo.package;
+  in {
+    programs.nixvim.lsp = {
+      servers = {
+        tsgo = {
+          enable = true;
+          config = {
+            cmd = [
+              cmd
+              "--lsp"
+              "--stdio"
+            ];
 
-              filetypes = [
-                "javascript"
-                "javascriptreact"
-                "typescript"
-                "typescriptreact"
-              ];
+            filetypes = [
+              "javascript"
+              "javascriptreact"
+              "typescript"
+              "typescriptreact"
+            ];
 
-              root_markers = [
-                "package-lock.json"
-                "yarn.lock"
-                "pnpm-lock.yaml"
-                "bun.lockb"
-                "bun.lock"
-                ".git"
-              ];
+            root_markers = [
+              "package-lock.json"
+              "yarn.lock"
+              "pnpm-lock.yaml"
+              "bun.lockb"
+              "bun.lock"
+              ".git"
+            ];
 
-              settings = {
-                typescript.inlayHints = {
-                  parameterNames = {
-                    enabled = "literals";
-                    suppressWhenArgumentMatchesName = true;
-                  };
-                  parameterTypes.enabled = true;
-                  variableTypes.enabled = true;
-                  propertyDeclarationTypes.enabled = true;
-                  functionLikeReturnTypes.enabled = true;
-                  enumMemberValues.enabled = true;
+            settings = {
+              typescript.inlayHints = {
+                parameterNames = {
+                  enabled = "literals";
+                  suppressWhenArgumentMatchesName = true;
                 };
+                parameterTypes.enabled = true;
+                variableTypes.enabled = true;
+                propertyDeclarationTypes.enabled = true;
+                functionLikeReturnTypes.enabled = true;
+                enumMemberValues.enabled = true;
               };
             };
           };
         };
       };
     };
+  };
 }
