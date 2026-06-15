@@ -25,6 +25,8 @@
         gaming
       ];
 
+      environment.systemPackages = with pkgs; [sops];
+
       networking = {
         hostName = "argon";
         networkmanager.enable = true;

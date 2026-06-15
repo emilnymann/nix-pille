@@ -9,6 +9,7 @@
         self.nixosModules.xenon
         self.nixosModules.myHomeManager
         inputs.stylix.nixosModules.stylix
+        inputs.sops-nix.nixosModules.sops
       ];
     };
 
@@ -22,6 +23,16 @@
         theming
         media-server
       ];
+
+      sops = {
+        defaultSopsFile = ./secrets.yaml;
+        age.keyFile = "/var/lib/sops-nix/xenon.key";
+      };
+
+      # Provide terminfo for terminals used to SSH in (e.g. Ghostty's
+      # xterm-ghostty), so ncurses programs don't error with
+      # "unknown terminal type".
+      environment.systemPackages = [pkgs.ghostty.terminfo];
 
       networking.useDHCP = false;
       systemd.network = {

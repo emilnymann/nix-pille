@@ -1,4 +1,4 @@
 creation_rules:
-  - path_regex: modules/features/media-server/secrets/.*\.yaml$
+  - path_regex: modules/hosts/xenon/secrets\.yaml$
     age: age1hqg2uaxq48v4hm3qey4dgz03u6kyff7k5tyezvn8vjp4fwyaxd2qgudwaw
     pgp: 45E51048D62204CCD70B633B31D710749D7D8E7B
