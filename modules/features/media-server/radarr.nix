@@ -5,70 +5,67 @@ _: {
     ...
   }: {
     systemd.tmpfiles.rules = [
-      "d /srv/media/media/tv 2775 root media -"
+      "d /srv/media/media/movies 2775 root media -"
     ];
 
     sops = {
       secrets = {
-        "sonarr/api-key".restartUnits = ["podman-sonarr.service"];
+        "radarr/api-key".restartUnits = ["podman-radarr.service"];
       };
 
       templates = {
-        "sonarr/env" = {
-          owner = "sonarr";
-          restartUnits = ["podman-sonarr.service"];
+        "radarr/env" = {
+          owner = "radarr";
+          restartUnits = ["podman-radarr.service"];
           content = lib.generators.toKeyValue {} {
-            SONARR__AUTH__APIKEY = config.sops.placeholder."sonarr/api-key";
+            RADARR__AUTH__APIKEY = config.sops.placeholder."radarr/api-key";
           };
         };
       };
     };
 
-    virtualisation.oci-containers.containers.sonarr = {
-      image = "ghcr.io/hotio/sonarr:release";
+    virtualisation.oci-containers.containers.radarr = {
+      image = "ghcr.io/hotio/radarr:release";
       environment = {
-        PUID = toString config.users.users.sonarr.uid;
+        PUID = toString config.users.users.radarr.uid;
         PGID = toString config.users.groups.media.gid;
         UMASK = "002";
         TZ = "Europe/Copenhagen";
-        SONARR__SERVER__BINDADDRESS = "0.0.0.0";
-        SONARR__SERVER__PORT = "8989";
+        RADARR__SERVER__BINDADDRESS = "0.0.0.0";
+        RADARR__SERVER__PORT = "7878";
       };
-      environmentFiles = [config.sops.templates."sonarr/env".path];
+      environmentFiles = [config.sops.templates."radarr/env".path];
       networks = ["media"];
       volumes = [
         "/srv/media:/data"
-        "sonarr-config:/config"
+        "radarr-config:/config"
       ];
     };
 
-    systemd.services."podman-sonarr" = {
+    systemd.services."podman-radarr" = {
       requires = ["podman-network-media-create.service"];
       after = ["podman-network-media-create.service"];
     };
 
-    features.media-server.configarr.parts.sonarr.instance1 = {
+    features.media-server.configarr.parts.radarr.instance1 = {
       include = [
         {
           # TRASH quality defs
-          template = "bef99584217af744e404ed44a33af589";
+          template = "aed34b9f60ee115dfa7918b742336277";
           source = "TRASH";
         }
       ];
-      base_url = "http://sonarr:8989";
-      api_key = config.sops.placeholder."sonarr/api-key";
+      base_url = "http://radarr:7878";
+      api_key = config.sops.placeholder."radarr/api-key";
       delete_unmanaged_custom_formats.enabled = true;
       delete_unmanaged_quality_profiles.enabled = true;
-      root_folders = ["/data/media/tv"];
+      root_folders = ["/data/media/movies"];
 
       media_naming = {
-        series = "emby-tvdb";
-        season = "default";
-        episodes = {
+        folder = "emby-tmdb";
+        movie = {
           rename = true;
-          standard = "default";
-          daily = "default";
-          anime = "default";
+          standard = "emby-tmdb";
         };
       };
 
@@ -78,15 +75,15 @@ _: {
           reset_unmatched_scores.enabled = true;
           upgrade = {
             allowed = true;
-            until_quality = "WEB 1080p";
-            until_score = 1000;
-            min_format_score = 5;
+            until_quality = "Remux-1080p";
+            until_score = 10000;
+            min_format_score = 1;
           };
           min_format_score = 0;
           quality_sort = "top";
           qualities = [
             {
-              name = "Bluray-1080p Remux";
+              name = "Remux-1080p";
             }
             {
               name = "WEB 1080p";
@@ -141,23 +138,28 @@ _: {
         {
           trash_guide = [
             {
-              # Repack/Proper
-              id = "22256473b656e195eabc2798e326fbb7";
-              include_unrequired = true;
-            }
-            {
               # Audio Formats
-              id = "e9a1944a254e6f8a9da63083f7ae15cb";
+              id = "9d5acd8f1da78dfbae788182f7605200";
               include_unrequired = true;
             }
             {
               # Audio Channels
-              id = "42b39185048c0a3e852270ced3076284";
+              id = "71660f8c0900b2de202181efb0ca1c88";
+              include_unrequired = true;
+            }
+            {
+              # Repack/Proper
+              id = "d688ff99733a9bc626c37eb61ea74704";
               include_unrequired = true;
             }
             {
               # Streaming Services
-              id = "abe720fab2d27682adc2a735136cec02";
+              id = "d9cc9a504e5ede6294c8b973aad4f028";
+              include_unrequired = true;
+            }
+            {
+              # Movie Editions
+              id = "f4f1474b963b24cf983455743aa9906c";
               include_unrequired = true;
             }
           ];
@@ -191,7 +193,7 @@ _: {
               url_base = "/";
               username = config.sops.placeholder."nzbget/username";
               password = config.sops.placeholder."nzbget/password";
-              tv_category = "TV";
+              movie_category = "Movies";
             };
           }
         ];
@@ -200,8 +202,8 @@ _: {
       };
     };
 
-    features.media-server.caddy.virtualHosts."sonarr.emns.dev" = ''
-      reverse_proxy sonarr:8989
+    features.media-server.caddy.virtualHosts."radarr.emns.dev" = ''
+      reverse_proxy radarr:7878
     '';
   };
 }
