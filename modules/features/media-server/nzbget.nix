@@ -24,9 +24,6 @@ _: {
         owner = "nzbget";
         restartUnits = ["podman-nzbget.service"];
         content = lib.generators.toKeyValue {} {
-          ControlUsername = config.sops.placeholder."nzbget/username";
-          ControlPassword = config.sops.placeholder."nzbget/password";
-
           # --- paths (match the container's volumes) ---
           MainDir = "/data/nzbget";
           DestDir = "/data/nzbget/completed";
@@ -50,16 +47,25 @@ _: {
           ControlIP = "0.0.0.0";
           ControlPort = 6789;
           SecureControl = "no";
+          ControlUsername = config.sops.placeholder."nzbget/username";
+          ControlPassword = config.sops.placeholder."nzbget/password";
 
           # --- behaviour ---
           AppendCategoryDir = "yes";
           DirectWrite = "yes";
           WriteBuffer = 1024;
-          ArticleCache = 500;
+          ArticleCache = 1000;
           ParCheck = "auto";
           ParRepair = "yes";
           Unpack = "yes";
           ShellOverride = ".py=/usr/bin/python3";
+          FileNaming = "auto";
+          PostStrategy = "balanced";
+          NzbCleanupDisk = "yes";
+          ParBuffer = 1000;
+          UnpackPauseQueue = "no";
+          ParPauseQueue = "no";
+          ScriptPauseQueue = "no";
 
           # --- logging ---
           WriteLog = "rotate";
@@ -67,7 +73,8 @@ _: {
           ErrorTarget = "both";
           WarningTarget = "both";
           InfoTarget = "both";
-          DetailTarget = "log";
+          DetailTarget = "none";
+          LogBuffer = 20;
 
           # --- servers ---
           "Server1.Active" = "yes";
