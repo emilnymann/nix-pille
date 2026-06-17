@@ -29,9 +29,9 @@ _: {
 
           # --- paths (match the container's volumes) ---
           MainDir = "/data/nzbget";
-          DestDir = "\${MainDir}/completed";
-          InterDir = "\${MainDir}/intermediate";
-          NzbDir = "\${MainDir}/nzb";
+          DestDir = "/data/nzbget/completed";
+          InterDir = "/data/nzbget/intermediate";
+          NzbDir = "/data/nzbget/nzb";
           QueueDir = "/config/queue";
           TempDir = "/config/tmp";
           ScriptDir = "/config/scripts";
@@ -93,9 +93,16 @@ _: {
 
           # --- categories ---
           "Category1.Name" = "Movies";
+          "Category1.DestDir" = "/data/nzbget/completed/Movies";
+
           "Category2.Name" = "MoviesUHD";
+          "Category2.DestDir" = "/data/nzbget/completed/MoviesUHD";
+
           "Category3.Name" = "TV";
+          "Category3.DestDir" = "/data/nzbget/completed/TV";
+
           "Category4.Name" = "TVUHD";
+          "Category4.DestDir" = "/data/nzbget/completed/TVUHD";
         };
       };
     };
