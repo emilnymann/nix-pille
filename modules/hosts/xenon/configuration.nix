@@ -27,6 +27,7 @@
       sops = {
         defaultSopsFile = ./secrets.yaml;
         age.keyFile = "/var/lib/sops-nix/xenon.key";
+        useSystemdActivation = true;
       };
 
       # Provide terminfo for terminals used to SSH in (e.g. Ghostty's
