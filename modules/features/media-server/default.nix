@@ -6,6 +6,8 @@ _: {
 
     systemd.tmpfiles.rules = [
       "d /srv/media 2775 root media -"
+      "d /srv/media/media 2775 root media -"
+      "d /srv/media/media/tv 2775 root media -"
     ];
 
     systemd.services."podman-network-media-create" = {
