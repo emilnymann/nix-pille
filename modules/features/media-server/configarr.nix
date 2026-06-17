@@ -32,12 +32,6 @@ _: {
     };
 
     config = {
-      users.users.configarr = {
-        isSystemUser = true;
-        uid = 983;
-        group = "media";
-      };
-
       sops.templates."configarr/config.yml" = {
         owner = "configarr";
         file = (pkgs.formats.yaml {}).generate "configarr-config.yml" generatedConfig;

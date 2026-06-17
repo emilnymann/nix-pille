@@ -4,12 +4,6 @@ _: {
     config,
     ...
   }: {
-    users.users.sonarr = {
-      isSystemUser = true;
-      group = config.users.groups.media.name;
-      uid = 982;
-    };
-
     systemd.tmpfiles.rules = [
       "d /srv/media/media 2775 root media -"
       "d /srv/media/media/tv 2775 root media -"

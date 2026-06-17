@@ -3,6 +3,31 @@ _: {
     virtualisation.oci-containers.backend = "podman";
 
     users.groups.media.gid = 980;
+    users.users = {
+      nzbget = {
+        isSystemUser = true;
+        group = "media";
+        uid = 981;
+      };
+
+      sonarr = {
+        isSystemUser = true;
+        group = "media";
+        uid = 982;
+      };
+
+      configarr = {
+        isSystemUser = true;
+        group = "media";
+        uid = 983;
+      };
+
+      radarr = {
+        isSystemUser = true;
+        group = "media";
+        uid = 984;
+      };
+    };
 
     systemd.tmpfiles.rules = [
       "d /srv/media 2775 root media -"

@@ -4,12 +4,6 @@ _: {
     config,
     ...
   }: {
-    users.users.nzbget = {
-      isSystemUser = true;
-      group = config.users.groups.media.name;
-      uid = 981;
-    };
-
     sops = {
       secrets = {
         "nzbget/username".restartUnits = ["podman-nzbget.service"];
