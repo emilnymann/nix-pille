@@ -33,6 +33,12 @@ _: {
         group = "media";
         uid = 985;
       };
+
+      emby = {
+        isSystemUser = true;
+        group = "media";
+        uid = 986;
+      };
     };
 
     systemd.tmpfiles.rules = [
