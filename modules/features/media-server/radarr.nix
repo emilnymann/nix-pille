@@ -180,20 +180,19 @@ _: {
       download_clients = {
         data = [
           {
-            name = "NZBGet";
-            type = "Nzbget";
+            name = "NzbDav";
+            type = "sabnzbd";
             enable = true;
             priority = 1;
             remove_completed_downloads = true;
             remove_failed_downloads = true;
             fields = {
-              host = "nzbget";
-              port = 6789;
+              host = "nzbdav";
+              port = 3000;
+              api_key = config.sops.placeholder."nzbdav/api-key";
               use_ssl = false;
               url_base = "/";
-              username = config.sops.placeholder."nzbget/username";
-              password = config.sops.placeholder."nzbget/password";
-              movie_category = "Movies";
+              movie_category = "movies";
             };
           }
         ];

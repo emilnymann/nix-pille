@@ -1,9 +1,16 @@
 _: {
-  flake.nixosModules.media-server = {
-    lib,
-    config,
-    ...
-  }: {
+  flake.nixosModules.media-server = {config, ...}: {
+    systemd.tmpfiles.rules = [
+      "d /srv/media/nzbdav 2775 nzbdav media -"
+      "d /srv/media/nzbdav/completed 2775 nzbdav media -"
+    ];
+
+    sops = {
+      secrets = {
+        "nzbdav/api-key".restartUnits = ["podman-nzbdav.service"];
+      };
+    };
+
     virtualisation.oci-containers.containers.nzbdav = {
       image = "ghcr.io/nzbdav-dev/nzbdav:0.6.x";
       environment = {
