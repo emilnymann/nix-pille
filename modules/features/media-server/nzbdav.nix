@@ -17,6 +17,7 @@ _: {
         "/srv/media:/data"
         "nzbdav-config:/config"
       ];
+      extraOptions = ["--umask=0002"];
     };
 
     systemd.services."podman-nzbdav" = {
