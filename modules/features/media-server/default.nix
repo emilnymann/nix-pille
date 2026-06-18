@@ -27,6 +27,12 @@ _: {
         group = "media";
         uid = 984;
       };
+
+      nzbdav = {
+        isSystemUser = true;
+        group = "media";
+        uid = 985;
+      };
     };
 
     systemd.tmpfiles.rules = [
