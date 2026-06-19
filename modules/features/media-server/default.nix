@@ -39,6 +39,12 @@ _: {
         group = "media";
         uid = 986;
       };
+
+      seerr = {
+        isSystemUser = true;
+        group = "media";
+        uid = 987;
+      };
     };
 
     systemd.tmpfiles.rules = [
