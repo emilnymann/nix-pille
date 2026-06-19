@@ -2,8 +2,73 @@ _: {
   flake.nixosModules.media-server = {
     lib,
     config,
+    pkgs,
     ...
-  }: {
+  }: let
+    radarrNotifySeerrAvailable = pkgs.writeTextFile {
+      name = "radarr-notify-seerr-available";
+      executable = true;
+      text = ''
+        #!/bin/sh
+        set -eu
+
+        # Radarr exposes event data as RADARR_* environment variables.
+        # Relevant variables for this script:
+        #   RADARR_EVENTTYPE
+        #   RADARR_MOVIE_TITLE
+        #   RADARR_MOVIE_TMDBID
+
+        SEERR_URL="''${SEERR_URL:-http://seerr:5055}"
+        TIMEOUT="''${SEERR_TIMEOUT:-30}"
+
+        echo "radarr-notify-seerr-available: event=''${RADARR_EVENTTYPE:-unknown} movie=''${RADARR_MOVIE_TITLE:-unknown} tmdb=''${RADARR_MOVIE_TMDBID:-unknown}"
+
+        case "''${RADARR_EVENTTYPE:-}" in
+          Test)
+            echo "radarr-notify-seerr-available: test event OK"
+            exit 0
+            ;;
+          Download|Import)
+            ;;
+          *)
+            echo "radarr-notify-seerr-available: ignoring event: ''${RADARR_EVENTTYPE:-unset}"
+            exit 0
+            ;;
+        esac
+
+        : "''${SEERR_API_KEY:?SEERR_API_KEY is required}"
+        : "''${RADARR_MOVIE_TMDBID:?RADARR_MOVIE_TMDBID is required}"
+
+        movie_json="$(wget \
+          --server-response \
+          --output-document - \
+          --timeout="$TIMEOUT" \
+          --header 'Accept: application/json' \
+          --header "X-Api-Key: $SEERR_API_KEY" \
+          "$SEERR_URL/api/v1/movie/$RADARR_MOVIE_TMDBID")"
+
+        media_id="$(printf '%s' "$movie_json" | jq -r '.mediaInfo.id // empty')"
+
+        if [ -z "$media_id" ]; then
+          echo "radarr-notify-seerr-available: no Seerr mediaInfo.id found for tmdb=$RADARR_MOVIE_TMDBID" >&2
+          exit 1
+        fi
+
+        echo "radarr-notify-seerr-available: marking Seerr media_id=$media_id available"
+
+        wget \
+          --server-response \
+          --output-document - \
+          --timeout="$TIMEOUT" \
+          --method POST \
+          --header 'Content-Type: application/json' \
+          --header 'Accept: application/json' \
+          --header "X-Api-Key: $SEERR_API_KEY" \
+          --body-data '{"is4k":false}' \
+          "$SEERR_URL/api/v1/media/$media_id/available"
+      '';
+    };
+  in {
     systemd.tmpfiles.rules = [
       "d /srv/media/media/movies 2775 root media -"
       "d /srv/media/media/movies-uhd 2775 root media -"
@@ -20,6 +85,7 @@ _: {
           restartUnits = ["podman-radarr.service"];
           content = lib.generators.toKeyValue {} {
             RADARR__AUTH__APIKEY = config.sops.placeholder."radarr/api-key";
+            SEERR_API_KEY = config.sops.placeholder."seerr/api-key";
           };
         };
 
@@ -49,6 +115,7 @@ _: {
         volumes = [
           "/srv/media:/data"
           "radarr-config:/config"
+          "${radarrNotifySeerrAvailable}:/scripts/radarr-notify-seerr-available:ro"
         ];
       };
 

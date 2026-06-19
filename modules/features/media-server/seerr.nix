@@ -1,5 +1,7 @@
 _: {
   flake.nixosModules.media-server = {config, ...}: {
+    sops.secrets."seerr/api-key".restartUnits = ["podman-radarr.service"];
+
     virtualisation.oci-containers.containers.seerr = {
       image = "ghcr.io/hotio/seerr:release-v3";
       environment = {
