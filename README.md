@@ -18,6 +18,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] glide `u` to undo tab closure
 - [ ] git delta pager
 - [ ] declarative agent harness
+- [ ] solaar (logitech)
 
 ### Nixvim 
 
