@@ -15,6 +15,17 @@ _: {
         }
       ];
 
+      wayland.windowManager.hyprland.settings.window_rule = [
+        {
+          name = "screenshot-annotate-overlay";
+          match.class = "^dev\\.ens\\.ScreenshotAnnotate$";
+          float = true;
+          center = true;
+          focus_on_activate = true;
+          stay_focused = true;
+        }
+      ];
+
       wayland.windowManager.hyprland.settings.config = {
         general = {
           gaps_in = 4;

@@ -8,11 +8,13 @@ _: {
     screenshotFullscreenCopy = pkgs.writeShellScriptBin "screenshot-fullscreen-copy" ''
       set -euo pipefail
       ${lib.getExe pkgs.grim} - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"} --type image/png
+      ${lib.getExe' pkgs.libnotify "notify-send"} --app-name=screenshot "Screenshot copied" "Fullscreen screenshot copied to clipboard"
     '';
 
     screenshotSelectionGeometry = ''
+      workspace="$(${lib.getExe' pkgs.hyprland "hyprctl"} activeworkspace -j | ${lib.getExe pkgs.jq} -r '.id')"
       ${lib.getExe' pkgs.hyprland "hyprctl"} clients -j \
-        | ${lib.getExe pkgs.jq} -r '.[] | select(.mapped) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1]) \(.title)"' \
+        | ${lib.getExe pkgs.jq} -r --argjson workspace "$workspace" '.[] | select(.mapped and .workspace.id == $workspace) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1]) \(.title)"' \
         | ${lib.getExe pkgs.slurp}
     '';
 
@@ -20,6 +22,7 @@ _: {
       set -euo pipefail
       geometry="$(${screenshotSelectionGeometry})"
       ${lib.getExe pkgs.grim} -g "$geometry" - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"} --type image/png
+      ${lib.getExe' pkgs.libnotify "notify-send"} --app-name=screenshot "Screenshot copied" "Selection screenshot copied to clipboard"
     '';
 
     screenshotFullscreenAnnotate = pkgs.writeShellScriptBin "screenshot-fullscreen-annotate" ''
@@ -27,6 +30,9 @@ _: {
       ${lib.getExe pkgs.grim} - \
         | ${lib.getExe pkgs.satty} \
             --filename - \
+            --resize smart \
+            --app-id dev.ens.ScreenshotAnnotate \
+            --title "Screenshot annotation" \
             --copy-command ${lib.getExe' pkgs.wl-clipboard "wl-copy"} \
             --output-filename "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
     '';
@@ -37,6 +43,9 @@ _: {
       ${lib.getExe pkgs.grim} -g "$geometry" - \
         | ${lib.getExe pkgs.satty} \
             --filename - \
+            --resize smart \
+            --app-id dev.ens.ScreenshotAnnotate \
+            --title "Screenshot annotation" \
             --copy-command ${lib.getExe' pkgs.wl-clipboard "wl-copy"} \
             --output-filename "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
     '';
