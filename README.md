@@ -16,7 +16,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 - [x] ashell module right click behavior swap
 - [ ] glide inc-search (findbar)
 - [x] glide `u` to undo tab closure
-- [ ] git delta pager
+- [x] git delta pager
 - [ ] declarative agent harness
 - [ ] solaar (logitech)
 
