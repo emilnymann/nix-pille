@@ -25,7 +25,10 @@
         gaming
       ];
 
-      environment.systemPackages = with pkgs; [sops];
+      environment.systemPackages = with pkgs; [
+        sops
+        btop
+      ];
 
       networking = {
         hostName = "argon";

@@ -6,7 +6,7 @@ using [flake-parts](https://flake.parts/) and [import-tree](https://github.com/d
 ## Todo
 
 - [ ] theming: custom breezex gruvbox cursor theme
-- [ ] btop
+- [x] btop
 - [ ] zoxide/z
 - [x] scratchpad workspace appears from bottom
 - [ ] generate themed wallpapers with stylix

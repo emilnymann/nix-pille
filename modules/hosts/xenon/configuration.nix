@@ -30,10 +30,7 @@
         useSystemdActivation = true;
       };
 
-      # Provide terminfo for terminals used to SSH in (e.g. Ghostty's
-      # xterm-ghostty), so ncurses programs don't error with
-      # "unknown terminal type".
-      environment.systemPackages = [pkgs.ghostty.terminfo];
+      environment.systemPackages = with pkgs; [ghostty.terminfo btop];
 
       networking.useDHCP = false;
       systemd.network = {
