@@ -37,6 +37,7 @@ _: {
 
           settings = {
             peripheral_indicators = "All";
+            audio_indicator_format = "IconAndPercentage";
             indicators = [
               "Audio"
               "Microphone"
