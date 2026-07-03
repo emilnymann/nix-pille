@@ -8,4 +8,11 @@ _: {
       };
     };
   };
+
+  flake.darwinModules.gpg-ssh = _: {
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
 }
