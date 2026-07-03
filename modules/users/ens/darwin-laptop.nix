@@ -1,5 +1,6 @@
 {
   self,
+  lib,
   ...
 }:
 {
@@ -13,5 +14,7 @@
       theming
       discord
     ];
+
+    programs.git.settings.user.email = lib.mkForce "ens@uniify.io";
   };
 }
