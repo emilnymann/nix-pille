@@ -1,7 +1,5 @@
 _: {
-  flake.homeModules.discord =
-    { osConfig, lib, ... }:
-    lib.mkIf osConfig.programs.hyprland.enable {
-      programs.discord.enable = true;
-    };
+  flake.homeModules.discord = _: {
+    programs.discord.enable = true;
+  };
 }

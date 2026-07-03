@@ -45,7 +45,7 @@ _: {
         };
       };
 
-      home.pointerCursor =
+      home.pointerCursor = lib.mkIf pkgs.stdenv.hostPlatform.isLinux (
         let
           getFrom = url: hash: name: {
             gtk.enable = true;
@@ -65,7 +65,8 @@ _: {
         in
         getFrom "https://github.com/ful1e5/BreezeX_Cursor/releases/download/v2.0.1/BreezeX-Dark.tar.xz"
           "sha256-HqjO/ogAd/dsrO5WHIilUQaq1CbiU48lEaoefcUmmBM="
-          "BreezeX-Dark";
+          "BreezeX-Dark"
+      );
 
       programs.nixvim.colorschemes = lib.mkIf withNixvim {
         gruvbox-material = {

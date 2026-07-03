@@ -1,7 +1,6 @@
 _: {
   flake.homeModules.terminal-emulator =
     {
-      osConfig,
       pkgs,
       config,
       lib,
@@ -9,6 +8,8 @@ _: {
     }:
     let
       withHyprland = config.wayland.windowManager.hyprland.enable;
+      ghosttyPackage = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+      ghosttyExe = lib.getExe ghosttyPackage;
     in
     {
       options.features.terminal-emulator = {
@@ -25,29 +26,30 @@ _: {
         };
       };
 
-      config = lib.mkIf osConfig.programs.hyprland.enable {
+      config = {
         programs.ghostty = {
           enable = true;
+          package = ghosttyPackage;
           settings = {
             window-padding-x = 16;
             window-padding-y = 16;
           };
         };
 
-        xdg.terminal-exec = {
-          enable = true;
-          settings.default = [ "ghostty.desktop" ];
-        };
-
         features.terminal-emulator = {
-          bin = "${pkgs.ghostty}/bin/ghostty";
+          bin = ghosttyExe;
           titleFlag = "--title=";
           execFlag = "-e";
         };
 
+        xdg.terminal-exec = lib.mkIf config.xdg.enable {
+          enable = true;
+          settings.default = [ "ghostty.desktop" ];
+        };
+
         wayland.windowManager.hyprland.settings = lib.mkIf withHyprland {
           terminal = {
-            _var = "${pkgs.ghostty}/bin/ghostty";
+            _var = ghosttyExe;
           };
         };
       };

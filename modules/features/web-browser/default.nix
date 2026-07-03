@@ -1,7 +1,6 @@
 _: {
   flake.homeModules.web-browser =
     {
-      osConfig,
       config,
       lib,
       ...
@@ -15,7 +14,7 @@ _: {
         default = [ ];
       };
 
-      config = lib.mkIf osConfig.programs.hyprland.enable {
+      config = {
         xdg.configFile."glide/glide.ts".source = ./glide/glide.ts;
         xdg.configFile."glide/extensions.glide.ts".text =
           lib.concatStringsSep "\n" config.features.web-browser.glide.extensionLines;

@@ -1,12 +1,12 @@
 _: {
   flake.homeModules.file-browser =
     {
-      osConfig,
+      config,
       lib,
       pkgs,
       ...
     }:
-    lib.mkIf osConfig.programs.hyprland.enable {
+    lib.mkIf config.wayland.windowManager.hyprland.enable {
       programs.yazi = {
         extraPackages = with pkgs; [
           ripdrag
