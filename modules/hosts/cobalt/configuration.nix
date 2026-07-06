@@ -64,6 +64,9 @@
 
       environment.shells = [pkgs.fish];
 
+      documentation.doc.enable = false;
+      system.tools.darwin-uninstaller.enable = false;
+
       environment.systemPackages = with pkgs; [
         git
         curl
