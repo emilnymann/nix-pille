@@ -23,6 +23,36 @@ _: {
             desc = "Find files";
           };
         }
+        {
+          mode = [
+            "n"
+          ];
+          key = "<leader>sg";
+          action.__raw = "function() Snacks.picker.grep() end";
+          options = {
+            desc = "Grep project";
+          };
+        }
+        {
+          mode = [
+            "n"
+          ];
+          key = "<leader>sw";
+          action.__raw = "function() Snacks.picker.grep_word() end";
+          options = {
+            desc = "Grep word under cursor";
+          };
+        }
+        {
+          mode = [
+            "n"
+          ];
+          key = "<leader>sr";
+          action.__raw = "function() Snacks.picker.recent() end";
+          options = {
+            desc = "Recent files";
+          };
+        }
       ];
     };
   };
