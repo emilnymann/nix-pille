@@ -4,31 +4,31 @@ _: {
       {
         mode = ["n"];
         key = "gd";
-        action = "vim.lsp.buf.definition";
+        action.__raw = "function() vim.lsp.buf.definition() end";
         options = {desc = "Goto definition";};
       }
       {
         mode = ["n"];
         key = "gr";
-        action = "vim.lsp.buf.references";
+        action.__raw = "function() vim.lsp.buf.references() end";
         options = {desc = "Goto references";};
       }
       {
         mode = ["n"];
         key = "gI";
-        action = "vim.lsp.buf.implementation";
+        action.__raw = "function() vim.lsp.buf.implementation() end";
         options = {desc = "Goto Implementation";};
       }
       {
         mode = ["n"];
         key = "gy";
-        action = "vim.lsp.buf.type_definition";
+        action.__raw = "function() vim.lsp.buf.type_definition() end";
         options = {desc = "Goto t[y]pe definition";};
       }
       {
         mode = ["n"];
         key = "gD";
-        action = "vim.lsp.buf.declaration";
+        action.__raw = "function() vim.lsp.buf.declaration() end";
         options = {desc = "Goto Declaration";};
       }
       {
