@@ -13,7 +13,7 @@
       ];
     };
 
-    darwinModules.cobalt = { pkgs, ... }: {
+    darwinModules.cobalt = {pkgs, ...}: {
       networking.hostName = "cobalt";
 
       system.primaryUser = "ens";
@@ -38,7 +38,7 @@
       system.defaults = {
         NSGlobalDomain = {
           ApplePressAndHoldEnabled = false;
-          InitialKeyRepeat = 10;
+          InitialKeyRepeat = 30;
           KeyRepeat = 1;
           NSAutomaticCapitalizationEnabled = false;
           NSAutomaticDashSubstitutionEnabled = false;
@@ -62,7 +62,7 @@
       system.keyboard.enableKeyMapping = true;
       system.keyboard.remapCapsLockToControl = true;
 
-      environment.shells = [ pkgs.fish ];
+      environment.shells = [pkgs.fish];
 
       environment.systemPackages = with pkgs; [
         git
