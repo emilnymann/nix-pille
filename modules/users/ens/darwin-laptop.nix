@@ -14,5 +14,6 @@
     ];
 
     programs.git.settings.user.email = lib.mkForce "ens@uniify.io";
+    programs.man.generateCaches = false;
   };
 }
