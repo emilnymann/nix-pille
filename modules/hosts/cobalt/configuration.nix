@@ -73,6 +73,9 @@
         curl
         jq
         _1password-gui
+        linear
+        notion-app
+        slack
       ];
 
       programs.fish.enable = true;
