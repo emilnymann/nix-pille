@@ -8,7 +8,7 @@ _: {
       };
 
       lsp.servers = {
-        tsgo.enable = true;
+        vtsls.enable = true;
       };
     };
   };
