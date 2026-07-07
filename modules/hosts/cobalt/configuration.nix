@@ -45,7 +45,6 @@
           NSAutomaticPeriodSubstitutionEnabled = false;
           NSAutomaticQuoteSubstitutionEnabled = false;
           NSAutomaticSpellingCorrectionEnabled = false;
-          "com.apple.swipescrolldirection" = false;
         };
 
         dock = {
