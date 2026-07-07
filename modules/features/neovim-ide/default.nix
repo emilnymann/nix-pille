@@ -17,6 +17,8 @@ _: {
         enable = true;
         defaultEditor = true;
 
+        nixpkgs.config.allowUnfree = true;
+
         opts = {
           exrc = true;
           undolevels = 10000;
