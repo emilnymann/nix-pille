@@ -3,6 +3,10 @@ _: {
     programs.nixvim = {
       lsp.servers.copilot.enable = true;
       plugins = {
+        lspconfig = {
+          enable = true;
+        };
+
         sidekick = {
           enable = true;
           settings = {
