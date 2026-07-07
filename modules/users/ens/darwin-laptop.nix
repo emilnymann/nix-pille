@@ -8,9 +8,9 @@
       ens-base
       file-browser
       web-browser
-      password-manager
       terminal-emulator
       theming
+      onepassword
     ];
 
     programs.git.settings.user.email = lib.mkForce "ens@uniify.io";

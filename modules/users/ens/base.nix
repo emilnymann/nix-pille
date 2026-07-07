@@ -1,14 +1,11 @@
-{
-  self,
-  ...
-}:
-{
+{self, ...}: {
   flake.homeModules.ens-base = {
     imports = with self.homeModules; [
       neovim-ide
       git-tui
       smart-shell
       coding-agent
+      password-manager
     ];
 
     programs.git.settings = {

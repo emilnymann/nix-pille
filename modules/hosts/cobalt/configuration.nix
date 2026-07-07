@@ -71,6 +71,7 @@
         git
         curl
         jq
+        _1password-gui
       ];
 
       programs.fish.enable = true;
