@@ -93,7 +93,7 @@
           home.homeDirectory = "/Users/ens";
 
           programs.fish.shellAbbrs = {
-            drs = "sudo nix run nix-darwin -- switch --flake ~/dev/nix-darwin#cobalt";
+            drs = "sudo nix run nix-darwin -- switch --flake ~/nix#cobalt";
           };
         };
       };
