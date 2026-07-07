@@ -1,17 +1,16 @@
 _: {
   flake.homeModules.neovim-ide = _: {
-    programs.nixvim.lsp = {
-      servers = {
-        phpantom_lsp = {
+    programs.nixvim = {
+      plugins = {
+        lspconfig = {
           enable = true;
-          config = {
-            cmd = ["phpantom_lsp"];
-            filetypes = ["php"];
-            root_markers = [
-              "composer.json"
-              ".git"
-              ".phpantom.toml"
-            ];
+        };
+      };
+
+      lsp = {
+        servers = {
+          phpantom_lsp = {
+            enable = true;
           };
         };
       };
