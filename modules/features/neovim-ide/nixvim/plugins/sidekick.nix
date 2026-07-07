@@ -3,6 +3,10 @@ _: {
     programs.nixvim = {
       lsp.servers.copilot.enable = true;
       plugins = {
+        treesitter-textobjects = {
+          enable = true;
+        };
+
         lspconfig = {
           enable = true;
         };
