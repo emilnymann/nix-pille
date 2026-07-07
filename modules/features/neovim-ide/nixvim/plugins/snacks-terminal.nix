@@ -14,15 +14,10 @@ _: {
 
       keymaps = [
         {
-          mode = [
-            "n"
-            "t"
-          ];
+          mode = ["i" "n" "t"];
           key = "<C-t>";
           action.__raw = "function() Snacks.terminal() end";
-          options = {
-            desc = "Terminal";
-          };
+          options = {desc = "Toggle terminal";};
         }
       ];
     };
