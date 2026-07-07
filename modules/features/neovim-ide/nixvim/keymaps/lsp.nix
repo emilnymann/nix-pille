@@ -41,6 +41,12 @@ _: {
         options = {desc = "Hover";};
       }
       {
+        mode = ["n" "v"];
+        key = "<leader>ca";
+        action.__raw = "function() vim.lsp.buf.code_action() end";
+        options = {desc = "Code action";};
+      }
+      {
         mode = ["n"];
         key = "gK";
         action.__raw = "function() vim.lsp.buf.signature_help() end";
