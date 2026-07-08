@@ -78,6 +78,8 @@
         notion-app
         slack
         sops
+        docker
+        docker-compose
       ];
 
       programs.fish.enable = true;
