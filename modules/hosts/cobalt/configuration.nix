@@ -67,6 +67,8 @@
       documentation.doc.enable = false;
       system.tools.darwin-uninstaller.enable = false;
 
+      security.pam.services.sudo_local.touchIdAuth = true;
+
       environment.systemPackages = with pkgs; [
         git
         curl
