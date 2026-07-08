@@ -3,14 +3,13 @@ _: {
     programs.fish.enable = true;
   };
 
-  flake.homeModules.smart-shell =
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [
-        fishPlugins.pure
-      ];
+  flake.homeModules.smart-shell = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      fishPlugins.pure
+    ];
 
-      programs.fish = {
+    programs = {
+      fish = {
         enable = true;
         interactiveShellInit = "set fish_greeting";
         plugins = [
@@ -20,5 +19,11 @@ _: {
           }
         ];
       };
+
+      zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+      };
     };
+  };
 }
