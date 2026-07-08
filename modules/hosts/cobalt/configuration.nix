@@ -77,6 +77,7 @@
         linear
         notion-app
         slack
+        sops
       ];
 
       programs.fish.enable = true;
