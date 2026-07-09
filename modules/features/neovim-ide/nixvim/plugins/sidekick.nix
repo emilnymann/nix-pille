@@ -11,6 +11,17 @@ _: {
           enable = true;
         };
 
+        which-key = {
+          settings = {
+            spec = [
+              {
+                __unkeyed-1 = "<leader>a";
+                group = "Sidekick";
+              }
+            ];
+          };
+        };
+
         sidekick = {
           enable = true;
           settings = {
@@ -33,17 +44,28 @@ _: {
           mode = ["n" "t" "i" "x"];
           key = "<C-.>";
           action.__raw = ''function() require("sidekick.cli").focus() end'';
-          options = {desc = "Sidekick - Focus";};
+          options = {desc = "Focus";};
         }
         {
           key = "<leader>aa";
-          action.__raw = ''function() require("sidekick.cli").toggle() end'';
-          options = {desc = "Sidekick - Toggle";};
+          action.__raw = ''function() require("sidekick.cli").toggle({ name = "pi", focus = true }) end'';
+          options = {desc = "Toggle";};
         }
         {
           key = "<leader>ad";
           action.__raw = ''function() require("sidekick.cli").close() end'';
-          options = {desc = "Sidekick - Close";};
+          options = {desc = "Close";};
+        }
+        {
+          key = "<leader>av";
+          action.__raw = ''function() require("sidekick.cli").send({ name = "pi", msg = "{selection}" }) end'';
+          mode = ["x"];
+          options = {desc = "Send visual selection";};
+        }
+        {
+          key = "<leader>af";
+          action.__raw = ''function() require("sidekick.cli").send({ name = "pi", msg = "{file}" }) end'';
+          options = {desc = "Send current file";};
         }
       ];
     };
