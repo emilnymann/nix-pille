@@ -1,6 +1,13 @@
 _: {
   flake.homeModules.neovim-ide = _: {
     programs.nixvim = {
+      plugins.which-key.settings.spec = [
+        {
+          __unkeyed-1 = "<leader>s";
+          group = "Search";
+        }
+      ];
+
       plugins = {
         snacks = {
           enable = true;

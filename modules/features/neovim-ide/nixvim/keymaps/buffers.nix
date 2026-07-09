@@ -5,6 +5,13 @@ _: {
       withSnacks = config.programs.nixvim.plugins.snacks.enable;
     in
     {
+      programs.nixvim.plugins.which-key.settings.spec = [
+        {
+          __unkeyed-1 = "<leader>b";
+          group = "Buffers";
+        }
+      ];
+
       programs.nixvim.keymaps = [
         {
           mode = [

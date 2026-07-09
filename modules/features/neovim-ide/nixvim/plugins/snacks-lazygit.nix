@@ -7,6 +7,13 @@ _: {
           neovim-remote
         ];
 
+        plugins.which-key.settings.spec = [
+          {
+            __unkeyed-1 = "<leader>g";
+            group = "Git";
+          }
+        ];
+
         plugins.snacks = {
           enable = true;
           settings = {

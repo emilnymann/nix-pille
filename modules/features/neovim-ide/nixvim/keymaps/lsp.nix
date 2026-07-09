@@ -1,5 +1,12 @@
 _: {
   flake.homeModules.neovim-ide = _: {
+    programs.nixvim.plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>c";
+        group = "Code";
+      }
+    ];
+
     programs.nixvim.keymaps = [
       {
         mode = ["n"];
