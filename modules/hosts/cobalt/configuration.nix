@@ -47,6 +47,12 @@
           NSAutomaticSpellingCorrectionEnabled = false;
         };
 
+        CustomUserPreferences = {
+          "com.linear" = {
+            AutoUpdateDisabled = true;
+          };
+        };
+
         dock = {
           autohide = true;
           mru-spaces = false;
