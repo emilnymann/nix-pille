@@ -42,6 +42,27 @@ lib.recursiveUpdate
 ]])
 end
 
+local function nixvim_options()
+  return from_flake([[
+let
+  system = builtins.currentSystem;
+  cfg = flake.inputs.home-manager.lib.homeManagerConfiguration {
+    pkgs = import flake.inputs.nixpkgs { inherit system; };
+    modules = [
+      flake.inputs.nixvim.homeModules.nixvim
+      flake.homeModules.neovim-ide
+      {
+        home.username = "nixd";
+        home.homeDirectory = "/tmp";
+        home.stateVersion = "26.05";
+      }
+    ];
+  };
+in
+cfg.options.programs.nixvim.type.getSubOptions []
+]])
+end
+
 vim.lsp.config("nixd", {
   settings = {
     nixd = {
@@ -57,6 +78,9 @@ vim.lsp.config("nixd", {
         },
         ["home-manager"] = {
           expr = merge_home_manager_options(),
+        },
+        nixvim = {
+          expr = nixvim_options(),
         },
         ["flake-parts"] = {
           expr = from_flake("flake.debug.options"),
