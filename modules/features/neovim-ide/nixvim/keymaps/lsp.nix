@@ -65,6 +65,12 @@ _: {
         action.__raw = "function() vim.lsp.buf.signature_help() end";
         options = {desc = "Signature help";};
       }
+      {
+        mode = ["n"];
+        key = "<c-f>";
+        action.__raw = "function() vim.lsp.buf.format({ async = false }) end";
+        options = {desc = "Format buffer";};
+      }
     ];
   };
 }
