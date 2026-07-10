@@ -65,9 +65,6 @@
         };
       };
 
-      system.keyboard.enableKeyMapping = true;
-      system.keyboard.remapCapsLockToControl = true;
-
       environment.shells = [pkgs.fish];
 
       documentation.doc.enable = false;
@@ -84,6 +81,7 @@
         notion-app
         slack
         sops
+        posting
       ];
 
       programs.fish.enable = true;
