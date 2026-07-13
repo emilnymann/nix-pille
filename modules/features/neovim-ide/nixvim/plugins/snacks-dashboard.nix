@@ -35,7 +35,7 @@ _: {
                 }
                 {
                   icon = " ";
-                  key = "g";
+                  key = "s";
                   desc = "Find Text";
                   action = ":lua Snacks.dashboard.pick('live_grep')";
                 }
@@ -65,6 +65,19 @@ _: {
                 section = "keys";
                 gap = 1;
                 padding = 1;
+              }
+              {
+                icon = " ";
+                title = "Git";
+                key = "g";
+                action.__raw = "function() Snacks.lazygit() end";
+                section = "terminal";
+                enabled.__raw = "function() return Snacks.git.get_root() ~= nil end";
+                cmd = "git status --short --branch --renames";
+                height = 8;
+                padding = 1;
+                ttl = 300;
+                indent = 2;
               }
             ];
           };
