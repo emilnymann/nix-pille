@@ -67,17 +67,86 @@ _: {
                 padding = 1;
               }
               {
-                icon = " ";
-                title = "Git";
-                key = "g";
-                action.__raw = "function() Snacks.lazygit() end";
-                section = "terminal";
-                enabled.__raw = "function() return Snacks.git.get_root() ~= nil end";
-                cmd = "git status --short --branch --renames";
-                height = 8;
-                padding = 1;
-                ttl = 300;
-                indent = 2;
+                __raw = ''
+                  (function()
+                    local uv = vim.uv or vim.loop
+                    local cache = {}
+
+                    local function summary()
+                      local root = Snacks.git.get_root()
+                      if not root then
+                        return nil
+                      end
+
+                      local now = uv.now()
+                      local cached = cache[root]
+                      if cached and (now - cached.ts) < 5000 then
+                        return cached.value
+                      end
+
+                      local out = vim.fn.system({
+                        "git",
+                        "-C",
+                        root,
+                        "status",
+                        "--short",
+                        "--branch",
+                        "--renames",
+                      })
+
+                      if vim.v.shell_error ~= 0 then
+                        return nil
+                      end
+
+                      local lines = vim.split(vim.trim(out), "\n", { plain = true })
+                      local header = lines[1] or ""
+                      header = header:gsub("^## ", "")
+
+                      local branch = header:gsub("%.%.%.[^ ]+", "")
+                      local tracking = header:match("%[(.-)%]")
+                      branch = vim.trim(branch:gsub(" %b[]", ""))
+
+                      if branch == "" then
+                        branch = "detached"
+                      end
+
+                      local changes = math.max(#lines - 1, 0)
+                      local value = branch
+
+                      if tracking and tracking ~= "" then
+                        value = value .. " [" .. tracking .. "]"
+                      end
+
+                      value = value .. (changes == 0 and " • clean" or (" • " .. changes .. " change" .. (changes == 1 and "" or "s")))
+
+                      cache[root] = {
+                        ts = now,
+                        value = value,
+                      }
+
+                      return value
+                    end
+
+                    return function()
+                      local value = summary()
+                      if not value then
+                        return {}
+                      end
+
+                      return {
+                        {
+                          icon = " ",
+                          desc = value,
+                          key = "g",
+                          action = function()
+                            Snacks.lazygit()
+                          end,
+                          padding = 1,
+                        },
+                      }
+                    end
+                  end)()
+                '';
               }
             ];
           };
