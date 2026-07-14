@@ -60,6 +60,26 @@ _: {
             desc = "Recent files";
           };
         }
+        {
+          mode = [
+            "n"
+          ];
+          key = "<leader>ss";
+          action.__raw = "function() Snacks.picker.lsp_symbols() end";
+          options = {
+            desc = "LSP symbols";
+          };
+        }
+        {
+          mode = [
+            "n"
+          ];
+          key = "<leader>sS";
+          action.__raw = "function() Snacks.picker.lsp_workspace_symbols() end";
+          options = {
+            desc = "LSP workspace symbols";
+          };
+        }
       ];
     };
   };
