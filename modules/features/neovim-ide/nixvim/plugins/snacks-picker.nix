@@ -80,6 +80,26 @@ _: {
             desc = "LSP workspace symbols";
           };
         }
+        {
+          mode = [
+            "n"
+          ];
+          key = "<leader>gb";
+          action.__raw = "function() Snacks.picker.git_log_line() end";
+          options = {
+            desc = "Git blame line";
+          };
+        }
+        {
+          mode = [
+            "n"
+          ];
+          key = "<leader>gf";
+          action.__raw = "function() Snacks.picker.git_log_file() end";
+          options = {
+            desc = "Git file history";
+          };
+        }
       ];
     };
   };
