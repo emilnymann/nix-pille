@@ -1,19 +1,28 @@
 _: {
   flake.homeModules.git-tui = _: {
-    programs.git.enable = true;
-    programs.lazygit = {
-      enable = true;
-      settings = {
-        git = {
-          pagers = [{pager = "delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format=\"lazygit-edit://{path}:{line}\"";}];
-          overrideGpg = true;
+    programs = {
+      git = {
+        enable = true;
+      };
+
+      delta = {
+        enable = true;
+        enableGitIntegration = true;
+      };
+
+      lazygit = {
+        enable = true;
+        settings = {
+          git = {
+            overrideGpg = true;
+            pagers = [{pager = "delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format=\"lazygit-edit://{path}:{line}\"";}];
+          };
         };
       };
-    };
 
-    programs.delta = {
-      enable = true;
-      enableGitIntegration = true;
+      gh = {
+        enable = true;
+      };
     };
   };
 }
