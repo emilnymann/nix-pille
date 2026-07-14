@@ -15,6 +15,7 @@
 
     home.packages = with pkgs; [
       orbstack
+      hurl
     ];
 
     programs.git.settings.user.email = lib.mkForce "ens@uniify.io";
