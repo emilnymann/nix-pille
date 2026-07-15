@@ -14,6 +14,11 @@
     };
 
     darwinModules.cobalt = {pkgs, ...}: {
+      imports = [
+        self.darwinModules."macos-base"
+        self.darwinModules."work-apps"
+      ];
+
       networking.hostName = "cobalt";
 
       system.primaryUser = "ens";
@@ -21,86 +26,6 @@
         home = "/Users/ens";
         shell = pkgs.fish;
       };
-
-      nix = {
-        settings.experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
-        optimise.automatic = true;
-      };
-
-      nixpkgs = {
-        hostPlatform = "aarch64-darwin";
-        config.allowUnfree = true;
-      };
-
-      system.defaults = {
-        NSGlobalDomain = {
-          ApplePressAndHoldEnabled = false;
-          InitialKeyRepeat = 30;
-          KeyRepeat = 1;
-          NSAutomaticCapitalizationEnabled = false;
-          NSAutomaticDashSubstitutionEnabled = false;
-          NSAutomaticPeriodSubstitutionEnabled = false;
-          NSAutomaticQuoteSubstitutionEnabled = false;
-          NSAutomaticSpellingCorrectionEnabled = false;
-        };
-
-        CustomUserPreferences = {
-          "com.linear" = {
-            AutoUpdateDisabled = true;
-          };
-        };
-
-        dock = {
-          autohide = true;
-          mru-spaces = false;
-          showhidden = true;
-        };
-
-        finder = {
-          AppleShowAllExtensions = true;
-          FXEnableExtensionChangeWarning = false;
-        };
-      };
-
-      system.activationScripts.postActivation.text = ''
-        install -d -m 755 "/Library/Managed Preferences"
-        install -m 644 ${pkgs.writeText "com.tinyspeck.slackmacgap.plist" ''
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-            <dict>
-              <key>AutoUpdate</key>
-              <false/>
-            </dict>
-          </plist>
-        ''} "/Library/Managed Preferences/com.tinyspeck.slackmacgap.plist"
-        chown root:wheel "/Library/Managed Preferences/com.tinyspeck.slackmacgap.plist"
-        /usr/bin/killall cfprefsd || true
-      '';
-
-      environment.shells = [pkgs.fish];
-
-      documentation.doc.enable = false;
-      system.tools.darwin-uninstaller.enable = false;
-
-      security.pam.services.sudo_local.touchIdAuth = true;
-
-      environment.systemPackages = with pkgs; [
-        git
-        curl
-        jq
-        _1password-gui
-        linear
-        notion-app
-        slack
-        sops
-        posting
-      ];
-
-      programs.fish.enable = true;
 
       home-manager = {
         sharedModules = [
