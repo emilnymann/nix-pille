@@ -55,6 +55,12 @@ _: {
       }
       {
         mode = ["n"];
+        key = "<leader>cr";
+        action.__raw = "function() vim.lsp.buf.rename() end";
+        options = {desc = "Rename symbol";};
+      }
+      {
+        mode = ["n"];
         key = "gK";
         action.__raw = "function() vim.lsp.buf.signature_help() end";
         options = {desc = "Signature help";};
