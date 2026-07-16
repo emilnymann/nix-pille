@@ -1,9 +1,5 @@
 _: {
-  flake.homeModules.neovim-ide = {
-    pkgs,
-    lib,
-    ...
-  }: {
+  flake.homeModules.neovim-ide = {pkgs, lib, ...}: {
     programs.nixvim.lsp = {
       servers = {
         nixd = {

@@ -3,25 +3,6 @@ _: {
     programs.nixvim = {
       lsp.servers.copilot.enable = true;
       plugins = {
-        treesitter-textobjects = {
-          enable = true;
-        };
-
-        lspconfig = {
-          enable = true;
-        };
-
-        which-key = {
-          settings = {
-            spec = [
-              {
-                __unkeyed-1 = "<leader>a";
-                group = "Sidekick";
-              }
-            ];
-          };
-        };
-
         sidekick = {
           enable = true;
           settings = {

@@ -5,16 +5,23 @@ _: {
         neovim-remote
       ];
 
-      plugins.which-key.settings.spec = [
-        {
-          __unkeyed-1 = "<leader>g";
-          group = "Git";
-        }
-      ];
+      plugins = {
+        which-key = {
+          enable = true;
+          settings.spec = [
+            {
+              __unkeyed-1 = "<leader>g";
+              group = "Git";
+            }
+          ];
+        };
 
-      plugins.snacks = {
+        snacks = {
         enable = true;
         settings = {
+          picker = {
+            enabled = true;
+          };
           lazygit = {
             enabled = true;
             config = {
@@ -26,6 +33,7 @@ _: {
             };
           };
         };
+        };
       };
 
       keymaps = [
@@ -35,6 +43,22 @@ _: {
           action.__raw = "function() Snacks.lazygit() end";
           options = {
             desc = "Git";
+          };
+        }
+        {
+          mode = ["n"];
+          key = "<leader>gb";
+          action.__raw = "function() Snacks.picker.git_log_line() end";
+          options = {
+            desc = "Git blame line";
+          };
+        }
+        {
+          mode = ["n"];
+          key = "<leader>gf";
+          action.__raw = "function() Snacks.picker.git_log_file() end";
+          options = {
+            desc = "Git file history";
           };
         }
       ];

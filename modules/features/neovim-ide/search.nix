@@ -1,14 +1,16 @@
 _: {
   flake.homeModules.neovim-ide = _: {
     programs.nixvim = {
-      plugins.which-key.settings.spec = [
-        {
-          __unkeyed-1 = "<leader>s";
-          group = "Search";
-        }
-      ];
-
       plugins = {
+        which-key = {
+          enable = true;
+          settings.spec = [
+            {
+              __unkeyed-1 = "<leader>s";
+              group = "Search";
+            }
+          ];
+        };
         snacks = {
           enable = true;
           settings = {
@@ -21,9 +23,7 @@ _: {
 
       keymaps = [
         {
-          mode = [
-            "n"
-          ];
+          mode = ["n"];
           key = "<leader><space>";
           action.__raw = "function() Snacks.picker.smart() end";
           options = {
@@ -31,9 +31,7 @@ _: {
           };
         }
         {
-          mode = [
-            "n"
-          ];
+          mode = ["n"];
           key = "<leader>sg";
           action.__raw = "function() Snacks.picker.grep() end";
           options = {
@@ -41,9 +39,7 @@ _: {
           };
         }
         {
-          mode = [
-            "n"
-          ];
+          mode = ["n"];
           key = "<leader>sw";
           action.__raw = "function() Snacks.picker.grep_word() end";
           options = {
@@ -51,9 +47,7 @@ _: {
           };
         }
         {
-          mode = [
-            "n"
-          ];
+          mode = ["n"];
           key = "<leader>sr";
           action.__raw = "function() Snacks.picker.recent() end";
           options = {
@@ -61,9 +55,7 @@ _: {
           };
         }
         {
-          mode = [
-            "n"
-          ];
+          mode = ["n"];
           key = "<leader>ss";
           action.__raw = "function() Snacks.picker.lsp_symbols() end";
           options = {
@@ -71,33 +63,11 @@ _: {
           };
         }
         {
-          mode = [
-            "n"
-          ];
+          mode = ["n"];
           key = "<leader>sS";
           action.__raw = "function() Snacks.picker.lsp_workspace_symbols() end";
           options = {
             desc = "LSP workspace symbols";
-          };
-        }
-        {
-          mode = [
-            "n"
-          ];
-          key = "<leader>gb";
-          action.__raw = "function() Snacks.picker.git_log_line() end";
-          options = {
-            desc = "Git blame line";
-          };
-        }
-        {
-          mode = [
-            "n"
-          ];
-          key = "<leader>gf";
-          action.__raw = "function() Snacks.picker.git_log_file() end";
-          options = {
-            desc = "Git file history";
           };
         }
       ];
