@@ -41,6 +41,10 @@ _: {
           kb_layout = "us";
           kb_variant = "";
           kb_options = "ctrl:nocaps";
+
+          touchpad = {
+            natural_scroll = true;
+          };
         };
 
         misc = {
