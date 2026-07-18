@@ -41,6 +41,8 @@ _: {
           kb_layout = "us";
           kb_variant = "";
           kb_options = "ctrl:nocaps";
+          repeat_delay = 450;
+          repeat_rate = 67;
 
           touchpad = {
             natural_scroll = true;
