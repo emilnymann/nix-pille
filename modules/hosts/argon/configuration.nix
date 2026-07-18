@@ -51,7 +51,7 @@
 
       time.timeZone = "Europe/Copenhagen";
       location.provider = "geoclue2";
-      console.keyMap = "dk-latin1";
+      console.keyMap = "us";
       i18n = {
         defaultLocale = "en_DK.UTF-8";
         extraLocaleSettings = {

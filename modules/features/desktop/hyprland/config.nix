@@ -38,8 +38,8 @@ _: {
 
         input = {
           kb_model = "pc104";
-          kb_layout = "dk";
-          kb_variant = "nodeadkeys";
+          kb_layout = "us";
+          kb_variant = "";
           kb_options = "ctrl:nocaps";
         };
 
