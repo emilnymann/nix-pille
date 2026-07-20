@@ -1,6 +1,7 @@
 _: {
-  flake.homeModules.neovim-ide = _: {
+  flake.homeModules.neovim-ide = {pkgs, ...}: {
     programs.nixvim = {
+      extraPackages = with pkgs; [fd];
       plugins = {
         snacks = {
           enable = true;
