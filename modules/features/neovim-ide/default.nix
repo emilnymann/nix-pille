@@ -39,6 +39,8 @@ _: {
         ignorecase = true;
         smartcase = true;
         smartindent = true;
+
+        conceallevel = 2;
       };
 
       clipboard.register = "unnamedplus";
