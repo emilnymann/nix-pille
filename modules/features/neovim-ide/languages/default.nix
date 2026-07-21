@@ -106,10 +106,10 @@ _: {
           options = {desc = "Signature help";};
         }
         {
-          mode = ["n"];
+          mode = ["n" "v"];
           key = "<c-f>";
           action.__raw = "function() vim.lsp.buf.format({ async = false }) end";
-          options = {desc = "Format buffer";};
+          options = {desc = "Format buffer / selection";};
         }
       ];
     };
