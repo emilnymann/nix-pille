@@ -15,18 +15,36 @@ _: {
             }
           ];
         };
+
+        lualine = {
+          settings = {
+            sections = {
+              lualine_c = [
+                {
+                  __unkeyed-1 = "diagnostics";
+                  symbols = {
+                    error = " ";
+                    warn = " ";
+                    hint = " ";
+                    info = " ";
+                  };
+                }
+              ];
+            };
+          };
+        };
       };
 
       keymaps = [
         {
           key = "<leader>xx";
           action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
-          options = { desc = "Buffer diagnostics"; };
+          options = {desc = "Buffer diagnostics";};
         }
         {
           key = "<leader>xX";
           action = "<cmd>Trouble diagnostics toggle<cr>";
-          options = { desc = "Workspace diagnostics"; };
+          options = {desc = "Workspace diagnostics";};
         }
       ];
     };

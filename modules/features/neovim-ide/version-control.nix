@@ -99,6 +99,36 @@ _: {
             '';
           };
         };
+
+        lualine = {
+          settings = {
+            sections = {
+              lualine_b = ["branch"];
+              lualine_x = [
+                {
+                  __unkeyed-1 = "diff";
+                  symbols = {
+                    added = " ";
+                    modified = " ";
+                    removed = " ";
+                  };
+                  source.__raw = ''
+                    function()
+                      local gitsigns = vim.b.gitsigns_status_dict
+                      if gitsigns then
+                        return {
+                          added = gitsigns.added,
+                          modified = gitsigns.changed,
+                          removed = gitsigns.removed,
+                        }
+                      end
+                    end
+                  '';
+                }
+              ];
+            };
+          };
+        };
       };
 
       keymaps = [
