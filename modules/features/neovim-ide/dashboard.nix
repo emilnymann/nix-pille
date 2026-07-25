@@ -47,6 +47,12 @@ _: {
                     action = ":lua Snacks.dashboard.pick('oldfiles')";
                   }
                   {
+                    icon = "󰙰 ";
+                    key = "R";
+                    desc = "Restore Session";
+                    action.__raw = ''function() require("persistence").load({ last = true }) end'';
+                  }
+                  {
                     icon = " ";
                     key = "q";
                     desc = "Quit";
