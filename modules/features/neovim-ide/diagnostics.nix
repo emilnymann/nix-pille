@@ -46,6 +46,12 @@ _: {
           action = "<cmd>Trouble diagnostics toggle<cr>";
           options = {desc = "Workspace diagnostics";};
         }
+        {
+          mode = ["n"];
+          key = "<leader>cd";
+          action.__raw = "vim.diagnostic.open_float";
+          options = {desc = "Line Diagnostics";};
+        }
       ];
     };
   };
