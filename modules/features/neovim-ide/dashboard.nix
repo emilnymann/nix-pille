@@ -47,12 +47,6 @@ _: {
                     action = ":lua Snacks.dashboard.pick('oldfiles')";
                   }
                   {
-                    icon = " ";
-                    key = "c";
-                    desc = "Config";
-                    action = ":lua Snacks.dashboard.pick('files', { cwd = '/etc/nixos/modules/features/neovim-ide'})";
-                  }
-                  {
                     icon = " ";
                     key = "q";
                     desc = "Quit";
