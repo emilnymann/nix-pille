@@ -11,12 +11,20 @@ _: {
             }
           ];
         };
+
         snacks = {
           enable = true;
           settings = {
             picker = {
               enabled = true;
             };
+          };
+        };
+
+        grug-far = {
+          enable = true;
+          settings = {
+            headerMaxWidth = 80;
           };
         };
       };
@@ -68,6 +76,25 @@ _: {
           action.__raw = "function() Snacks.picker.lsp_workspace_symbols() end";
           options = {
             desc = "LSP workspace symbols";
+          };
+        }
+        {
+          mode = ["n" "x"];
+          key = "<leader>sR";
+          action.__raw = ''
+            function()
+              local grug = require("grug-far")
+              local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+              grug.open({
+                transient = true,
+                prefills = {
+                  filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+                },
+              })
+            end
+          '';
+          options = {
+            desc = "Search and Replace";
           };
         }
       ];
