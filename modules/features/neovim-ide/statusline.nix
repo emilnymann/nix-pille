@@ -31,8 +31,6 @@ _: {
                 }
               ];
 
-              lualine_z.__raw = "{}";
-
               lualine_y = [
                 {
                   __unkeyed-1 = "progress";
