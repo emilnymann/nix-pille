@@ -15,7 +15,7 @@ _: {
         settings = {
           git = {
             overrideGpg = true;
-            pagers = [{pager = "delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format=\"lazygit-edit://{path}:{line}\"";}];
+            diffRenderers = [{command = "delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format=\"lazygit-edit://{path}:{line}\"";}];
           };
         };
       };
