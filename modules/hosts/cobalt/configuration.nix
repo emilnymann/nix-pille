@@ -17,6 +17,7 @@
       imports = [
         self.darwinModules."macos-base"
         self.darwinModules."work-apps"
+        self.darwinModules.desktop
       ];
 
       networking.hostName = "cobalt";
