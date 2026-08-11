@@ -4,6 +4,9 @@ _: {
       "com.linear" = {
         AutoUpdateDisabled = true;
       };
+      "dev.kdrag0n.MacVirt" = {
+        SUEnableAutomaticChecks = false;
+      };
     };
 
     system.activationScripts.postActivation.text = ''
