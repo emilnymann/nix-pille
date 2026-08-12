@@ -26,6 +26,9 @@ _: {
             picker = {
               enabled = true;
             };
+            gh = {
+              enabled = true;
+            };
             lazygit = {
               enabled = true;
               config = {
@@ -154,6 +157,22 @@ _: {
           action.__raw = "function() Snacks.picker.git_log_file() end";
           options = {
             desc = "Git file history";
+          };
+        }
+        {
+          mode = ["n"];
+          key = "<leader>gp";
+          action.__raw = "function() Snacks.picker.gh_pr() end";
+          options = {
+            desc = "GitHub Pull Requests (open)";
+          };
+        }
+        {
+          mode = ["n"];
+          key = "<leader>gP";
+          action.__raw = ''function() Snacks.picker.gh_pr({ state = "all" }) end'';
+          options = {
+            desc = "GitHub Pull Requests (all)";
           };
         }
       ];
