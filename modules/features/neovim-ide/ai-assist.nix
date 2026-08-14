@@ -8,7 +8,9 @@ _: {
           settings = {
             cli = {
               tools = {
-                pi = {};
+                pi = {
+                  cmd = ["pi" "--continue"];
+                };
               };
             };
           };
@@ -38,7 +40,7 @@ _: {
         {
           mode = ["n" "t" "i" "x"];
           key = "<C-.>";
-          action.__raw = ''function() require("sidekick.cli").focus() end'';
+          action.__raw = ''function() require("sidekick.cli").focus({ name = "pi" }) end'';
           options = {desc = "Focus";};
         }
         {
