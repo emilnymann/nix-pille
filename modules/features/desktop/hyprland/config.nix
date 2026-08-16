@@ -39,8 +39,8 @@ _: {
         input = {
           kb_model = "pc104";
           kb_layout = "us";
-          kb_variant = "";
-          kb_options = "ctrl:nocaps";
+          kb_variant = "mac";
+          kb_options = "ctrl:nocaps,lv3:alt_switch";
           repeat_delay = 450;
           repeat_rate = 67;
 
