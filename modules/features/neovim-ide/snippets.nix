@@ -1,5 +1,25 @@
 _: let
   phpSnippets = {
+    "if" = {
+      prefix = "if";
+      body = [
+        "if ($1) {"
+        "  $0"
+        "}"
+      ];
+      description = "If block";
+    };
+    ifelse = {
+      prefix = "ife";
+      body = [
+        "if ($1) {"
+        "  $2"
+        "} else {"
+        "  $0"
+        "}"
+      ];
+      description = "If/else block";
+    };
     try = {
       prefix = "try";
       body = [
@@ -30,6 +50,15 @@ _: let
         "}"
       ];
       description = "Private function";
+    };
+    match = {
+      prefix = "match";
+      body = [
+        "match ($1) {"
+        "  $2 => $3,$0"
+        "}"
+      ];
+      description = "Match statement";
     };
   };
 in {
