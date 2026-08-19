@@ -28,6 +28,9 @@ _: {
       zellij = {
         enable = true;
         enableFishIntegration = true;
+        settings = {
+          default_layout = "compact";
+        };
       };
     };
   };
