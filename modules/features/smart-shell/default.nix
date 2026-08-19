@@ -12,12 +12,6 @@ _: {
       fish = {
         enable = true;
         interactiveShellInit = "set fish_greeting";
-        plugins = [
-          {
-            name = "pure";
-            src = pkgs.fishPlugins.pure.src;
-          }
-        ];
       };
 
       zoxide = {
@@ -28,8 +22,10 @@ _: {
       zellij = {
         enable = true;
         enableFishIntegration = true;
+        attachExistingSession = true;
         settings = {
           default_layout = "compact";
+          default_mode = "locked";
         };
       };
     };
