@@ -25,7 +25,7 @@ _: let
       body = [
         "try {"
         "  $1"
-        "} catch (\\Throwable $e) {"
+        "} catch ($2 $3) {"
         "  $0"
         "}"
       ];
@@ -59,6 +59,24 @@ _: let
         "}"
       ];
       description = "Match statement";
+    };
+    foreach = {
+      prefix = "fore";
+      body = [
+        "foreach ($1 as \\$$2) {"
+        "  $0"
+        "}"
+      ];
+      description = "Foreach";
+    };
+    foreach_keyed = {
+      prefix = "fork";
+      body = [
+        "foreach ($1 as \\$$2 => \\$$3) {"
+        "  $0"
+        "}"
+      ];
+      description = "Foreach";
     };
   };
 in {
