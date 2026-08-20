@@ -30,6 +30,7 @@ _: {
       linear
       notion-app
       slack
+      rainfrog
     ];
   };
 }
