@@ -24,7 +24,6 @@ _: {
         enableFishIntegration = true;
         attachExistingSession = true;
         settings = {
-          default_layout = "compact";
           default_mode = "locked";
         };
       };
