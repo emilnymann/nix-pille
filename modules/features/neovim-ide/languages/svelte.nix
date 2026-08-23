@@ -4,8 +4,7 @@ _: {
       nixvim = {
         lsp = {
           servers = {
-            vtsls.enable = true;
-            denols.enable = true;
+            svelte.enable = true;
           };
         };
       };
