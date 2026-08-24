@@ -13,14 +13,12 @@ _: {
           "gpt-5.6*"
         ];
 
-        editorPaddingX = 1;
-
         packages = [
           "npm:pi-mcp-adapter"
           "npm:@tintinweb/pi-subagents"
           "npm:pi-web-access"
           "npm:@h4rvey-g/context-mode"
-          "npm:@mjasnikovs/pi-task"
+          "npm:@tintinweb/pi-tasks"
           "npm:@narumitw/pi-btw"
           "npm:pi-powerline-footer"
         ];
