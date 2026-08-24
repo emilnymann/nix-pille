@@ -5,7 +5,8 @@ _: {
       extraPackages = [pkgs.nodejs];
       settings = {
         defaultProvider = "github-copilot";
-        defaultModel = "kimi-k3";
+        defaultModel = "gpt-5.6-luna";
+        defaultThinkingLevel = "xhigh";
         enabledModels = [
           "kimi-k3"
           "gpt-5.6*"
