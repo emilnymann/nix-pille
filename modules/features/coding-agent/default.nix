@@ -2,7 +2,10 @@ _: {
   flake.homeModules.coding-agent = {pkgs, ...}: {
     programs.pi-coding-agent = {
       enable = true;
-      extraPackages = [pkgs.nodejs];
+      extraPackages = [
+        pkgs.nodejs
+        pkgs.ast-grep
+      ];
 
       settings = {
         defaultProvider = "github-copilot";
