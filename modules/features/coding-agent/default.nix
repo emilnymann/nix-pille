@@ -3,6 +3,7 @@ _: {
     programs.pi-coding-agent = {
       enable = true;
       extraPackages = [pkgs.nodejs];
+
       settings = {
         defaultProvider = "github-copilot";
         defaultModel = "gpt-5.6-luna";
@@ -11,6 +12,9 @@ _: {
           "kimi-k3"
           "gpt-5.6*"
         ];
+
+        editorPaddingX = 1;
+
         packages = [
           "npm:pi-mcp-adapter"
           "npm:@tintinweb/pi-subagents"
