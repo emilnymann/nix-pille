@@ -20,6 +20,8 @@ _: {
           "npm:@tintinweb/pi-subagents"
           "npm:pi-web-access"
           "npm:@h4rvey-g/context-mode"
+          "npm:@mjasnikovs/pi-task"
+          "npm:@narumitw/pi-btw"
         ];
       };
       keybindings = {
