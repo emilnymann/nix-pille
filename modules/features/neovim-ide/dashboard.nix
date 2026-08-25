@@ -50,7 +50,7 @@ _: {
                     icon = "󰙰 ";
                     key = "R";
                     desc = "Restore Session";
-                    action.__raw = ''function() require("persistence").load({ last = true }) end'';
+                    action.__raw = ''function() require("persistence").load() end'';
                   }
                   {
                     icon = " ";
