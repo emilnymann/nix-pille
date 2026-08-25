@@ -1,5 +1,30 @@
 _: {
-  flake.homeModules.coding-agent = {pkgs, ...}: {
+  flake.homeModules.coding-agent = {pkgs, ...}: let
+    jsonFormat = pkgs.formats.json {};
+
+    powerlineTheme = {
+      colors = {
+        model = "muted";
+        shellMode = "borderMuted";
+        path = "muted";
+        gitDirty = "warning";
+        gitClean = "dim";
+        thinking = "dim";
+        thinkingMinimal = "dim";
+        thinkingLow = "muted";
+        thinkingMedium = "muted";
+        context = "dim";
+        contextWarn = "warning";
+        contextError = "error";
+        cost = "text";
+        tokens = "dim";
+        queue = "muted";
+        separator = "borderMuted";
+        border = "borderMuted";
+      };
+      icons.warning = "";
+    };
+  in {
     programs.pi-coding-agent = {
       enable = true;
       extraPackages = [
@@ -50,6 +75,9 @@ _: {
         "tui.editor.newLine" = ["enter"];
         "tui.editor.submit" = ["ctrl+enter"];
       };
+    };
+    home = {
+      file.".pi/agent/extensions/powerline-footer/theme.json".source = jsonFormat.generate "pi-powerline-footer-theme.json" powerlineTheme;
     };
   };
 }
