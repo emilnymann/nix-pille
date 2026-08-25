@@ -61,13 +61,16 @@ _: {
           placement = "below";
           preset = "nerd";
           separator = "dot";
+          model = {
+            showThinkingLevel = true;
+          };
           cost = {
             subscriptionDisplay = "reported-cost";
             currency = "USD";
           };
 
           layout = {
-            left = ["session" "model" "thinking" "cost"];
+            left = ["session" "model" "cost"];
             right = ["token_in" "token_out" "cache_read" "context_pct" "time_spent" "subagents"];
             secondary = ["extension_statuses"];
           };
