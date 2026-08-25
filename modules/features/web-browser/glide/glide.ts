@@ -36,6 +36,18 @@ glide.keymaps.set(["normal", "insert"], "<C-l>", "forward");
 
 glide.keymaps.set(["normal"], "u", "tab_reopen");
 
+glide.keymaps.set("normal", "/", async () => {
+  await glide.findbar.open();
+});
+
+glide.keymaps.set("normal", "n", async () => {
+  await glide.findbar.next_match();
+});
+
+glide.keymaps.set("normal", "N", async () => {
+  await glide.findbar.previous_match();
+});
+
 glide.o.hint_size = "18px";
 
 glide.include("extensions.glide.ts");
