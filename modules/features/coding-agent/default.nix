@@ -24,6 +24,11 @@ _: {
       };
       icons.warning = "";
     };
+
+    subagentsSettings = {
+      showCost = true;
+      reportUsage = true;
+    };
   in {
     programs.pi-coding-agent = {
       enable = true;
@@ -76,8 +81,10 @@ _: {
         "tui.editor.submit" = ["ctrl+enter"];
       };
     };
+
     home = {
       file.".pi/agent/extensions/powerline-footer/theme.json".source = jsonFormat.generate "pi-powerline-footer-theme.json" powerlineTheme;
+      file.".pi/agent/subagents.json".source = jsonFormat.generate "pi-subagents-settings.json" subagentsSettings;
     };
   };
 }
