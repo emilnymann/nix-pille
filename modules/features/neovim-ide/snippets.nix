@@ -79,10 +79,28 @@ _: let
       description = "Foreach";
     };
   };
+
+  svelteSnippets = {
+    script_typescript = {
+      prefix = "script-ts";
+      body = [
+        "<script lang=\"ts\">"
+        "  $0"
+        "</script>"
+      ];
+    };
+  };
 in {
   flake.homeModules.neovim-ide = _: {
     # blink.cmp's native snippets source scans this directory for VS Code
     # snippet JSON files. The snippets are expanded with vim.snippet.expand.
-    programs.nixvim.extraFiles."snippets/php.json".text = builtins.toJSON phpSnippets;
+    programs = {
+      nixvim = {
+        extraFiles = {
+          "snippets/php.json".text = builtins.toJSON phpSnippets;
+          "snippets/svelte.json".text = builtins.toJSON svelteSnippets;
+        };
+      };
+    };
   };
 }
