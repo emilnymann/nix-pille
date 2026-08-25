@@ -1,5 +1,15 @@
-glide.keymaps.set("normal", "o", async () => {
-  glide.keys.send("<C-l>", { skip_mappings: true });
+// Focus the browser UI directly instead of synthesizing a platform-specific Firefox shortcut.
+glide.keymaps.set("normal", "o", () => {
+  glide.hints.show({
+    selector: "#urlbar-input",
+    location: "browser-ui",
+    auto_activate: "always",
+    action: ({ content }) =>
+      content.execute((urlbar) => {
+        urlbar.focus();
+        (urlbar as HTMLInputElement).select();
+      }),
+  });
 });
 
 glide.keymaps.set("normal", "O", "tab_new");
