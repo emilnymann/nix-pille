@@ -35,6 +35,7 @@ _: {
       extraPackages = [
         pkgs.nodejs
         pkgs.ast-grep
+        pkgs.rtk
       ];
 
       settings = {
@@ -48,9 +49,9 @@ _: {
 
         packages = [
           "npm:pi-mcp-adapter"
+          "npm:pi-rtk-optimizer"
           "npm:@tintinweb/pi-subagents"
           "npm:pi-web-access"
-          "npm:@h4rvey-g/context-mode"
           "npm:@tintinweb/pi-tasks"
           "npm:@narumitw/pi-btw"
           "npm:pi-powerline-footer"
