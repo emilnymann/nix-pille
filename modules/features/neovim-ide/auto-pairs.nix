@@ -7,7 +7,7 @@ _: {
           modes = {
             insert = true;
             command = false;
-            terminal = false;
+            terminal = true;
           };
 
           mappings = {
