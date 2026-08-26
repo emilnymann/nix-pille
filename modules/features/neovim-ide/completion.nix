@@ -7,6 +7,14 @@ _: {
           keymap = {
             preset = "enter";
           };
+          term = {
+            enabled = true;
+            sources.__raw = ''
+              function()
+                return vim.bo.filetype == "sidekick_terminal" and { "buffer" } or {}
+              end
+            '';
+          };
           # Use Neovim's native vim.snippet implementation. This expands both
           # LSP-provided snippets and the local snippets source below without
           # pulling in friendly-snippets (or another snippet engine).
