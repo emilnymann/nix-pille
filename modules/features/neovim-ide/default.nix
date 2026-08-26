@@ -26,6 +26,7 @@ _: {
 
         number = true;
         relativenumber = true;
+        jumpoptions = "view";
 
         expandtab = true;
         tabstop = 2;
