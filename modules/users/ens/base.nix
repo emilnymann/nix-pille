@@ -6,6 +6,7 @@
       smart-shell
       coding-agent
       password-manager
+      music-player
     ];
 
     programs.git.settings = {
