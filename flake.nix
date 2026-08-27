@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-    nixpkgs-stable.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
@@ -38,16 +37,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
   };
 
-  outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} (
       inputs.import-tree.filterNot (
         file:
-        inputs.nixpkgs.lib.hasInfix "hardware-configuration" file
-        || inputs.nixpkgs.lib.hasPrefix "_" (baseNameOf file)
-      ) ./modules
+          inputs.nixpkgs.lib.hasInfix "hardware-configuration" file
+          || inputs.nixpkgs.lib.hasPrefix "_" (baseNameOf file)
+      )
+      ./modules
     );
 }
