@@ -55,6 +55,7 @@ _: {
           "npm:@tintinweb/pi-tasks"
           "npm:@narumitw/pi-btw"
           "npm:pi-powerline-footer"
+          "git:github.com/DietrichGebert/ponytail"
         ];
 
         powerline = {
