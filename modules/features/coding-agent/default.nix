@@ -39,6 +39,8 @@ _: {
       ];
 
       settings = {
+        quietStartup = true;
+
         defaultProvider = "github-copilot";
         defaultModel = "gpt-5.6-luna";
         defaultThinkingLevel = "xhigh";
