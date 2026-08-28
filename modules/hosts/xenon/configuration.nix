@@ -131,13 +131,7 @@
         };
       };
 
-      home-manager = {
-        sharedModules = [
-          inputs.nixvim.homeModules.nixvim
-          inputs.glide.homeModules.default
-        ];
-        users.ens = self.homeModules.ens;
-      };
+      home-manager.users.ens = self.homeModules.ens;
 
       system.stateVersion = "26.05";
     };

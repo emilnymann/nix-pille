@@ -104,13 +104,7 @@
         };
       };
 
-      home-manager = {
-        sharedModules = [
-          inputs.nixvim.homeModules.nixvim
-          inputs.glide.homeModules.default
-        ];
-        users.ens = self.homeModules.ens;
-      };
+      home-manager.users.ens = self.homeModules.ens;
 
       services.displayManager.autoLogin.user = "ens";
 

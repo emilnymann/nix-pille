@@ -30,8 +30,6 @@
 
       home-manager = {
         sharedModules = [
-          inputs.nixvim.homeModules.nixvim
-          inputs.glide.homeModules.default
           inputs.stylix.homeModules.stylix
         ];
 

@@ -1,4 +1,4 @@
-_: {
+{inputs, ...}: {
   flake.homeModules.web-browser =
     {
       config,
@@ -9,6 +9,8 @@ _: {
       withHyprland = config.wayland.windowManager.hyprland.enable;
     in
     {
+      imports = [inputs.glide.homeModules.default];
+
       options.features.web-browser.glide.extensionLines = lib.mkOption {
         type = lib.types.listOf lib.types.lines;
         default = [ ];
