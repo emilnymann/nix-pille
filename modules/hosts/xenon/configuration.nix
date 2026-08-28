@@ -8,7 +8,6 @@
       modules = [
         self.nixosModules.xenon
         self.nixosModules.myHomeManager
-        inputs.stylix.nixosModules.stylix
         inputs.sops-nix.nixosModules.sops
       ];
     };

@@ -8,7 +8,6 @@
       modules = [
         self.nixosModules.argon
         self.nixosModules.myHomeManager
-        inputs.stylix.nixosModules.stylix
       ];
     };
 

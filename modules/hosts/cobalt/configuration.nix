@@ -9,7 +9,7 @@
         self.darwinModules.cobalt
         self.darwinModules.gpg-ssh
         self.darwinModules.myHomeManager
-        inputs.stylix.darwinModules.stylix
+        self.darwinModules.theming
       ];
     };
 
@@ -28,22 +28,16 @@
         shell = pkgs.fish;
       };
 
-      home-manager = {
-        sharedModules = [
-          inputs.stylix.homeModules.stylix
+      home-manager.users.ens = {
+        imports = [
+          self.homeModules.ens-darwin-laptop
         ];
 
-        users.ens = {
-          imports = [
-            self.homeModules.ens-darwin-laptop
-          ];
+        home.username = "ens";
+        home.homeDirectory = "/Users/ens";
 
-          home.username = "ens";
-          home.homeDirectory = "/Users/ens";
-
-          programs.fish.shellAbbrs = {
-            drs = "sudo nix run nix-darwin -- switch --flake ~/nix#cobalt";
-          };
+        programs.fish.shellAbbrs = {
+          drs = "sudo nix run nix-darwin -- switch --flake ~/nix#cobalt";
         };
       };
 

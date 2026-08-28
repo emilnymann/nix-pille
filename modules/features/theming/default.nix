@@ -1,11 +1,18 @@
-_: {
+{inputs, ...}: {
   flake.nixosModules.theming = {pkgs, ...}: {
+    imports = [inputs.stylix.nixosModules.stylix];
+
     stylix = {
       enable = true;
       polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
+      homeManagerIntegration.autoImport = false;
       targets.kmscon.enable = false;
     };
+  };
+
+  flake.darwinModules.theming = {
+    imports = [inputs.stylix.darwinModules.stylix];
   };
 
   flake.homeModules.theming = {
@@ -16,6 +23,8 @@ _: {
   }: let
     withNixvim = config.programs.nixvim.enable;
   in {
+    imports = [inputs.stylix.homeModules.stylix];
+
     stylix = {
       enable = true;
       overlays.enable = false;
