@@ -64,6 +64,14 @@ _: {
         }
         {
           mode = ["n"];
+          key = "<leader>sp";
+          action.__raw = "function() Snacks.picker.resume() end";
+          options = {
+            desc = "Resume picker";
+          };
+        }
+        {
+          mode = ["n"];
           key = "<leader>ss";
           action.__raw = "function() Snacks.picker.lsp_symbols() end";
           options = {
