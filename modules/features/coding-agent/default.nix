@@ -40,6 +40,7 @@ _: {
 
       settings = {
         quietStartup = true;
+        tuiMode = "fullscreen";
 
         defaultProvider = "github-copilot";
         defaultModel = "gpt-5.6-luna";
