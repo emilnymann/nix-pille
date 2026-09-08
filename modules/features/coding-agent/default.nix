@@ -32,10 +32,11 @@ _: {
   in {
     programs.pi-coding-agent = {
       enable = true;
-      extraPackages = [
-        pkgs.nodejs
-        pkgs.ast-grep
-        pkgs.rtk
+      extraPackages = with pkgs; [
+        nodejs
+        ast-grep
+        rtk
+        ffmpeg
       ];
 
       settings = {
