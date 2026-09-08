@@ -55,6 +55,14 @@ _: {
           };
         }
         {
+          mode = ["x"];
+          key = "<leader>sg";
+          action.__raw = "function() Snacks.picker.grep_word() end";
+          options = {
+            desc = "Grep visual selection";
+          };
+        }
+        {
           mode = ["n"];
           key = "<leader>sr";
           action.__raw = "function() Snacks.picker.recent() end";
