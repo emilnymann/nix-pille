@@ -29,6 +29,18 @@ _: {
               neigh_pattern = "^[^\\][^%w%%%'%[%\"%.%`%$]";
             };
 
+            "<" = {
+              action = "open";
+              pair = "<>";
+              neigh_pattern = "^[^\\][^%w%%%'%[%\"%.%`%$]";
+            };
+
+            ">" = {
+              action = "close";
+              pair = "<>";
+              neigh_pattern = "^[^\\]";
+            };
+
             "\"" = {
               action = "closeopen";
               pair = "\"\"";
