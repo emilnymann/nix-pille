@@ -58,7 +58,6 @@ _: {
           "npm:@tintinweb/pi-subagents"
           "npm:pi-web-access"
           "npm:@tintinweb/pi-tasks"
-          "npm:@narumitw/pi-btw"
           "npm:pi-powerline-footer"
           "npm:pi-blackhole"
         ];
