@@ -41,6 +41,12 @@ _: {
                     action = ":lua Snacks.dashboard.pick('live_grep')";
                   }
                   {
+                    icon = " ";
+                    key = "d";
+                    desc = "Todo";
+                    action = ":DooingLocal";
+                  }
+                  {
                     icon = " ";
                     key = "r";
                     desc = "Recent Files";
