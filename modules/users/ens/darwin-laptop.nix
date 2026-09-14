@@ -8,6 +8,7 @@
       ens-base
       file-browser
       web-browser
+      web-browser-work-profiles
       terminal-emulator
       theming
       onepassword

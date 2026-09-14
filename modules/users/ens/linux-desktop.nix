@@ -5,6 +5,7 @@
       bluetooth
       file-browser
       web-browser
+      web-browser-private-profiles
       terminal-emulator
       theming
       discord
