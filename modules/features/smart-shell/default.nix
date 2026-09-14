@@ -25,6 +25,7 @@ _: {
         attachExistingSession = true;
         settings = {
           default_mode = "locked";
+          support_kitty_graphics_protocol = true;
         };
         extraConfig = ''
           keybinds {
