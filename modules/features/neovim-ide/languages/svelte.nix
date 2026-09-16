@@ -5,6 +5,7 @@ _: {
         lsp = {
           servers = {
             svelte.enable = true;
+            tailwindcss.enable = true;
           };
         };
       };
