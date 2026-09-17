@@ -4,7 +4,7 @@ _: {
       nixvim = {
         lsp = {
           servers = {
-            svelte = {
+            tailwindcss = {
               enable = true;
             };
           };
