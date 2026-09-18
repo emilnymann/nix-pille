@@ -24,11 +24,6 @@ _: {
 
       extraConfigLuaPre = ''
         vim.env.PUPPETEER_EXECUTABLE_PATH = "${chromeHeadlessShell}/bin/snacks-chrome-headless-shell"
-
-        if vim.env.ZELLIJ ~= nil then
-          vim.env.SNACKS_ZELLIJ = "false"
-          vim.env.SNACKS_GHOSTTY = "true"
-        end
       '';
 
       dependencies.imagemagick.enable = true;
@@ -39,12 +34,6 @@ _: {
           settings = {
             image = {
               enabled = true;
-              doc = {
-                enabled = true;
-                inline = true;
-              };
-              convert.notify = true;
-              debug.convert = true;
             };
           };
         };

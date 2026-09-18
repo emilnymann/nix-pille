@@ -5,7 +5,6 @@ _: {
     lib,
     ...
   }: let
-    withHyprland = config.wayland.windowManager.hyprland.enable;
     ghosttyPackage =
       if pkgs.stdenv.hostPlatform.isDarwin
       then pkgs.ghostty-bin
@@ -43,7 +42,7 @@ _: {
         settings.default = ["ghostty.desktop"];
       };
 
-      wayland.windowManager.hyprland.settings = lib.mkIf withHyprland {
+      wayland.windowManager.hyprland.settings = {
         terminal = {
           _var = ghosttyExe;
         };
