@@ -29,6 +29,11 @@ _: {
       programs.ghostty = {
         enable = true;
         package = ghosttyPackage;
+        clearDefaultKeybinds = true;
+        # settings = {
+        #   keybind = [
+        #   ];
+        # };
       };
 
       features.terminal-emulator = {
