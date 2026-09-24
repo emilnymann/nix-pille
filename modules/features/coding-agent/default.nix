@@ -45,11 +45,12 @@ _: {
         openaiVerbosity = "low";
 
         defaultProvider = "github-copilot";
-        defaultModel = "gpt-5.6-luna";
+        defaultModel = "gpt-6-luna";
         defaultThinkingLevel = "xhigh";
         enabledModels = [
-          "kimi-k3"
-          "gpt-5.6*"
+          "gpt-6-luna"
+          "gpt-5.6-luna"
+          "claude-haiku-4.5"
         ];
 
         packages = [
