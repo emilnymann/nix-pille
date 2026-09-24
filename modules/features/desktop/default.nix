@@ -130,9 +130,7 @@ _: {
           cmd-shift-8 = "move-node-to-workspace 8";
           cmd-shift-9 = "move-node-to-workspace 9";
 
-          cmd-w = "close";
-
-          cmd-f = "fullscreen";
+          cmd-q = "close";
         };
       };
     };
