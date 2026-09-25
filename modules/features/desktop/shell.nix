@@ -53,7 +53,7 @@ _: {
           };
 
           tray = {
-            right_click = "menu";
+            right_click = "Menu";
           };
 
           workspaces = {
