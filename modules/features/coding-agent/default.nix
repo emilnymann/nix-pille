@@ -61,6 +61,7 @@ _: {
           "npm:@tintinweb/pi-tasks"
           "npm:pi-powerline-footer"
           "npm:pi-blackhole"
+          "npm:@juicesharp/rpiv-ask-user-question"
         ];
 
         powerline = {
