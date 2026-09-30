@@ -30,10 +30,30 @@ _: {
         enable = true;
         package = ghosttyPackage;
         clearDefaultKeybinds = true;
-        # settings = {
-        #   keybind = [
-        #   ];
-        # };
+        settings.keybind = [
+          # Keep clipboard shortcuts available in the locked/default key table.
+          "super+c=copy_to_clipboard"
+          "super+v=paste_from_clipboard"
+
+          # Ctrl+G toggles the vim-style key table on and off.
+          "vim/"
+          "ctrl+g=activate_key_table:vim"
+          "vim/ctrl+g=deactivate_key_table"
+
+          # Tab navigation and management.
+          "vim/shift+h=previous_tab"
+          "vim/shift+l=next_tab"
+          "vim/t>n=new_tab"
+          "vim/t>d=close_tab"
+
+          # Pane navigation, creation, and closing. Ghostty has no action to
+          # toggle an existing split's direction, so w>tab is intentionally omitted.
+          "vim/ctrl+h=goto_split:left"
+          "vim/ctrl+l=goto_split:right"
+          "vim/w>s=new_split:right"
+          "vim/w>shift+s=new_split:down"
+          "vim/w>d=close_surface"
+        ];
       };
 
       features.terminal-emulator = {
