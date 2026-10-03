@@ -37,6 +37,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    dlsslop-amd = {
+      url = "github:imaami/dlsslop-amd/29ea4ace16985fdfb758b6c3cf9bad61f749d8cf";
+      flake = false;
+    };
   };
 
   outputs = inputs:

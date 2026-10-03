@@ -27,7 +27,11 @@
       environment.systemPackages = with pkgs; [
         sops
         btop
+        rocmPackages.clr
       ];
+
+      environment.sessionVariables.DLSSLOP_HIP_LIBRARY =
+        "${pkgs.rocmPackages.clr}/lib/libamdhip64.so";
 
       networking = {
         hostName = "argon";
