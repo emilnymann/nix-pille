@@ -68,6 +68,23 @@
         "type": "github"
       }
     },
+    "dlsslop-amd": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790345279,
+        "narHash": "sha256-k+DCTPErDvJ9R9lJzdzlQcgBAe3B8q4b3vhPKtMlUu8=",
+        "owner": "imaami",
+        "repo": "dlsslop-amd",
+        "rev": "29ea4ace16985fdfb758b6c3cf9bad61f749d8cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "imaami",
+        "repo": "dlsslop-amd",
+        "rev": "29ea4ace16985fdfb758b6c3cf9bad61f749d8cf",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -364,6 +381,7 @@
     },
     "root": {
       "inputs": {
+        "dlsslop-amd": "dlsslop-amd",
         "flake-parts": "flake-parts",
         "glide": "glide",
         "home-manager": "home-manager",

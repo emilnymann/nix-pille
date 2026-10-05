@@ -54,11 +54,10 @@ _: {
         ];
 
         packages = [
-          "npm:pi-mcp-adapter"
           "npm:pi-rtk-optimizer"
-          "npm:@tintinweb/pi-subagents"
+          "npm:pi-subagents"
           "npm:pi-web-access"
-          "npm:@tintinweb/pi-tasks"
+          "npm:pi-background-tasks"
           "npm:pi-powerline-footer"
           "npm:pi-blackhole"
           "npm:@juicesharp/rpiv-ask-user-question"
