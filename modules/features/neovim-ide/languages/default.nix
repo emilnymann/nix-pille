@@ -35,7 +35,18 @@ _: {
                 return
               end
 
-              vim.lsp.buf.format({ bufnr = args.buf, async = false })
+              local use_biome = #vim.lsp.get_clients({
+                bufnr = args.buf,
+                name = "biome",
+              }) > 0
+
+              vim.lsp.buf.format({
+                bufnr = args.buf,
+                async = false,
+                filter = use_biome and function(client)
+                  return client.name == "biome"
+                end or nil,
+              })
             end
           '';
         }
@@ -108,7 +119,23 @@ _: {
         {
           mode = ["n" "v"];
           key = "<c-f>";
-          action.__raw = "function() vim.lsp.buf.format({ async = false }) end";
+          action.__raw = ''
+            function()
+              local bufnr = vim.api.nvim_get_current_buf()
+              local use_biome = #vim.lsp.get_clients({
+                bufnr = bufnr,
+                name = "biome",
+              }) > 0
+
+              vim.lsp.buf.format({
+                bufnr = bufnr,
+                async = false,
+                filter = use_biome and function(client)
+                  return client.name == "biome"
+                end or nil,
+              })
+            end
+          '';
           options = {desc = "Format buffer / selection";};
         }
       ];
