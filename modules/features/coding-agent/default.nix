@@ -25,9 +25,13 @@ _: {
       icons.warning = "";
     };
 
-    subagentsSettings = {
-      showCost = true;
-      reportUsage = true;
+    mcpConfig = {
+      mcpServers = {
+        "context7" = {
+          enabled = true;
+          url = "https://mcp.context7.com/mcp/oauth";
+        };
+      };
     };
   in {
     programs.pi-coding-agent = {
@@ -94,7 +98,7 @@ _: {
 
     home = {
       file.".pi/agent/extensions/powerline-footer/theme.json".source = jsonFormat.generate "pi-powerline-footer-theme.json" powerlineTheme;
-      file.".pi/agent/subagents.json".source = jsonFormat.generate "pi-subagents-settings.json" subagentsSettings;
+      file.".pi/agent/mcp.json".source = jsonFormat.generate "pi-mcp-config.json" mcpConfig;
     };
   };
 }
