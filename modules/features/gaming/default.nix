@@ -45,7 +45,9 @@
 
       features.gaming.dlsslop-amd.enable = true;
 
-      environment.systemPackages = lib.optionals config.features.gaming.dlsslop-amd.enable [
+      environment.systemPackages = [
+        pkgs.bottles
+      ] ++ lib.optionals config.features.gaming.dlsslop-amd.enable [
         self.packages.${pkgs.stdenv.hostPlatform.system}.dlsslop-amd
       ];
     };
