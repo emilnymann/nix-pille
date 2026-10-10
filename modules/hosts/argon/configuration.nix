@@ -22,6 +22,7 @@
         gpg-ssh
         theming
         gaming
+        gamedev
       ];
 
       environment.systemPackages = with pkgs; [
@@ -30,8 +31,7 @@
         rocmPackages.clr
       ];
 
-      environment.sessionVariables.DLSSLOP_HIP_LIBRARY =
-        "${pkgs.rocmPackages.clr}/lib/libamdhip64.so";
+      environment.sessionVariables.DLSSLOP_HIP_LIBRARY = "${pkgs.rocmPackages.clr}/lib/libamdhip64.so";
 
       networking = {
         hostName = "argon";
