@@ -92,7 +92,7 @@ _: {
             }
             {
               _args = [
-                "SUPER + V"
+                "SUPER + SHIFT + V"
                 (lib.generators.mkLuaInline "hl.dsp.exec_cmd(cliphist)")
                 {description = "Clipboard history";}
               ];
