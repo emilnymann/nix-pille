@@ -1,5 +1,7 @@
 _: {
-  flake.homeModules.neovim-ide = _: {
+  flake.homeModules.neovim-ide = {pkgs, ...}: {
+    home.packages = [pkgs.gdtoolkit_4];
+
     programs = {
       nixvim = {
         lsp = {

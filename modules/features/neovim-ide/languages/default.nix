@@ -15,6 +15,40 @@ _: {
       };
 
 
+      extraConfigLua = ''
+        _G.format_gdscript = function(bufnr)
+          local filename = vim.api.nvim_buf_get_name(bufnr)
+          if filename == "" then
+            return
+          end
+
+          local dir = vim.fs.dirname(filename)
+          local tempname = vim.fn.fnamemodify(vim.fn.tempname(), ":t")
+          local temp_file = vim.fs.joinpath(dir, "." .. tempname .. ".gd")
+          local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+          if vim.fn.writefile(lines, temp_file) ~= 0 then
+            vim.notify("Could not create a temporary file for gdformat", vim.log.levels.ERROR)
+            return
+          end
+
+          local result = vim.system({"gdformat", temp_file}, {
+            cwd = dir,
+            text = true,
+          }):wait()
+          if result.code ~= 0 then
+            vim.fn.delete(temp_file)
+            local details = result.stderr ~= "" and result.stderr or result.stdout
+            vim.notify("gdformat failed: " .. details, vim.log.levels.ERROR)
+            return
+          end
+
+          local formatted = vim.fn.readfile(temp_file)
+          vim.fn.delete(temp_file)
+          vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, formatted)
+        end
+      '';
+
       autoCmd = [
         {
           event = ["BufWritePre"];
@@ -32,6 +66,11 @@ _: {
               })[1]
 
               if not marker then
+                return
+              end
+
+              if vim.bo[args.buf].filetype == "gdscript" then
+                _G.format_gdscript(args.buf)
                 return
               end
 
@@ -122,6 +161,11 @@ _: {
           action.__raw = ''
             function()
               local bufnr = vim.api.nvim_get_current_buf()
+              if vim.bo[bufnr].filetype == "gdscript" then
+                _G.format_gdscript(bufnr)
+                return
+              end
+
               local use_biome = #vim.lsp.get_clients({
                 bufnr = bufnr,
                 name = "biome",
