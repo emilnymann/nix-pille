@@ -9,6 +9,11 @@ _: {
             };
           };
         };
+
+        plugins.conform-nvim.settings.formatters_by_ft = {
+          json = ["biome"];
+          jsonc = ["biome"];
+        };
       };
     };
   };

@@ -9,6 +9,13 @@ _: {
             biome.enable = true;
           };
         };
+
+        plugins.conform-nvim.settings.formatters_by_ft = {
+          javascript = ["biome"];
+          javascriptreact = ["biome"];
+          typescript = ["biome"];
+          typescriptreact = ["biome"];
+        };
       };
     };
   };

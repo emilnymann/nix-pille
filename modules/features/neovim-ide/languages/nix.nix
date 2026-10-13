@@ -1,7 +1,9 @@
 _: {
-  flake.homeModules.neovim-ide = {pkgs, lib, ...}: {
-    programs.nixvim.lsp = {
-      servers = {
+  flake.homeModules.neovim-ide = {pkgs, ...}: {
+    programs.nixvim = {
+      plugins.conform-nvim.settings.formatters_by_ft.nix = ["alejandra"];
+
+      lsp.servers = {
         nixd = {
           enable = true;
           package = pkgs.nixd;
@@ -12,7 +14,6 @@ _: {
               "flake.nix"
               ".git"
             ];
-            settings.nixd.formatting.command = [(lib.getExe pkgs.alejandra)];
           };
         };
       };
