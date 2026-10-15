@@ -23,6 +23,7 @@
         theming
         gaming
         gamedev
+        nix-helper
       ];
 
       environment.systemPackages = with pkgs; [
