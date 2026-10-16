@@ -12,6 +12,7 @@
       terminal-emulator
       theming
       onepassword
+      aws-cli
     ];
 
     home.packages = with pkgs; [
