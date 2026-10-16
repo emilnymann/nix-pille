@@ -23,6 +23,7 @@
         theming
         gaming
         gamedev
+        gamedev-lowpoly-modeling
         nix-helper
       ];
 
