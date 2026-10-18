@@ -1,6 +1,20 @@
 _: {
-  flake.nixosModules.media-server = {pkgs, ...}: {
+  flake.nixosModules.media-server = {lib, pkgs, ...}: {
     virtualisation.oci-containers.backend = "podman";
+    virtualisation.oci-containers.containers = lib.genAttrs [
+      "caddy"
+      "configarr"
+      "emby"
+      "nzbdav"
+      "nzbget"
+      "radarr"
+      "radarr-uhd"
+      "seerr"
+      "sonarr"
+      "sonarr-uhd"
+    ] (_: {
+      labels."io.containers.autoupdate" = "registry";
+    });
 
     users.groups.media.gid = 980;
     users.users = {

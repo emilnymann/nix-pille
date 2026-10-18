@@ -36,7 +36,7 @@ _: {
       };
 
       virtualisation.oci-containers.containers.caddy = {
-        image = "caddy:2";
+        image = "docker.io/library/caddy:2";
         networks = ["media"];
         ports = ["80:80" "443:443" "443:443/udp"];
         volumes = [
