@@ -12,12 +12,13 @@ _: {
     };
 
     virtualisation.oci-containers.containers.nzbdav = {
-      image = "ghcr.io/nzbdav-dev/nzbdav:0.6.x";
+      image = "ghcr.io/infinidysk/infinidysk:v1.6";
       environment = {
         PUID = toString config.users.users.nzbdav.uid;
         PGID = toString config.users.groups.media.gid;
         UMASK = "002";
         TZ = "Europe/Copenhagen";
+        TRUST_PROXY = "1";
       };
       networks = ["media"];
       volumes = [
