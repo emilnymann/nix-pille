@@ -5,7 +5,7 @@ _: {
         lsp = {
           servers = {
             htmx = {
-              enable = true;
+              enable = false;
             };
           };
         };
