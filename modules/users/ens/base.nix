@@ -7,6 +7,7 @@
       coding-agent
       password-manager
       music-player
+      nix-helper
     ];
 
     programs.git.settings = {

@@ -24,7 +24,6 @@
         gaming
         gamedev
         gamedev-lowpoly-modeling
-        nix-helper
       ];
 
       environment.systemPackages = with pkgs; [
