@@ -35,10 +35,6 @@
 
         home.username = "ens";
         home.homeDirectory = "/Users/ens";
-
-        programs.fish.shellAbbrs = {
-          drs = "sudo nix run nix-darwin -- switch --flake ~/nix#cobalt";
-        };
       };
 
       system.configurationRevision = self.rev or self.dirtyRev or null;
