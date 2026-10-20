@@ -103,6 +103,21 @@ _: {
           };
         };
 
+        conflict = {
+          enable = true;
+          settings = {
+            default_mappings = {
+              current = "<leader>gcc";
+              incoming = "<leader>gci";
+              both = "<leader>gcb";
+              base = "<leader>gcB";
+              none = "<leader>gcn";
+              next = "<leader>gc<c-n>";
+              prev = "<leader>gc<c-p>";
+            };
+          };
+        };
+
         lualine = {
           settings = {
             sections = {
