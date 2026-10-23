@@ -65,6 +65,7 @@ _: {
           "npm:pi-powerline-footer"
           "npm:pi-blackhole"
           "npm:@juicesharp/rpiv-ask-user-question"
+          "npm:@juicesharp/rpiv-todo"
         ];
 
         powerline = {
