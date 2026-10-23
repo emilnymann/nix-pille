@@ -61,6 +61,21 @@ _: {
           options = {desc = "Code action";};
         }
         {
+          mode = ["n" "v"];
+          key = "<leader>cA";
+          action.__raw = ''
+            function()
+              vim.lsp.buf.code_action({
+                context = {
+                  only = { "source" },
+                  diagnostics = {},
+                },
+              })
+            end
+          '';
+          options = {desc = "Source action";};
+        }
+        {
           mode = ["n"];
           key = "<leader>cr";
           action.__raw = "function() vim.lsp.buf.rename() end";
