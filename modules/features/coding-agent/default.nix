@@ -53,8 +53,8 @@ _: {
         defaultThinkingLevel = "xhigh";
         enabledModels = [
           "gpt-6-luna"
-          "gpt-5.6-luna"
           "claude-haiku-4.5"
+          "gemini-4-argon"
         ];
 
         packages = [
