@@ -12,7 +12,7 @@ _: {
         "profile uniify-dev" = {
           sso_session = "uniify";
           sso_account_id = "244924578833";
-          sso_role_name = "PowerUserAccess";
+          sso_role_name = "Admin";
           region = "eu-central-1";
           output = "json";
         };
