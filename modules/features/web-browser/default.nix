@@ -2,6 +2,7 @@
   flake.homeModules.web-browser = {
     config,
     lib,
+    pkgs,
     ...
   }: {
     imports = [inputs.glide.homeModules.default];
@@ -18,6 +19,21 @@
 
       programs.glide-browser = {
         enable = true;
+        package = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin (
+          pkgs.wrapFirefox
+          (
+            (inputs.glide.packages.${pkgs.stdenv.hostPlatform.system}.glide-browser-bin-unwrapped.override {
+              inherit (config.programs.glide-browser) policies;
+            }).overrideAttrs (oldAttrs: {
+              nativeBuildInputs =
+                (oldAttrs.nativeBuildInputs or [])
+                ++ [pkgs.darwin.autoSignDarwinBinariesHook];
+            })
+          )
+          {
+            pname = "glide-browser-bin";
+          }
+        );
       };
 
       wayland.windowManager.hyprland.settings = {
