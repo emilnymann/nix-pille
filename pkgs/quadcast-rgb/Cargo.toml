@@ -1,0 +1,13 @@
+[package]
+name = "quadcast-rgb"
+version = "0.1.0"
+edition = "2021"
+description = "One-shot RGB control for the HyperX QuadCast S (0951:171f)"
+license = "GPL-2.0-only"
+
+[dependencies]
+rusb = "0.9"
+
+[profile.release]
+lto = true
+strip = true

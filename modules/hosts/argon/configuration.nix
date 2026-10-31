@@ -21,6 +21,7 @@
         trashcan
         gpg-ssh
         theming
+        quadcast-rgb
         gaming
         gamedev
         gamedev-lowpoly-modeling
