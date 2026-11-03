@@ -5,6 +5,7 @@
       git-tui
       smart-shell
       coding-agent
+      coding-agent-cursor
       password-manager
       music-player
       nix-helper
