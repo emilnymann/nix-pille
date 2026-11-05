@@ -3,6 +3,7 @@
     imports = with self.homeModules; [
       neovim-ide
       git-tui
+      version-control
       smart-shell
       coding-agent
       coding-agent-cursor
@@ -19,6 +20,13 @@
       };
       commit.gpgsign = true;
       tag.gpgsign = true;
+    };
+
+    programs.jujutsu.settings = {
+      user = {
+        name = "Emil Nymann Sølyst";
+        email = "emilnymann96@gmail.com";
+      };
     };
 
     xdg.enable = true;
