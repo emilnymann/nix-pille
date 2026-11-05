@@ -10,16 +10,6 @@ _: {
         enableGitIntegration = true;
       };
 
-      lazygit = {
-        enable = true;
-        settings = {
-          git = {
-            overrideGpg = true;
-            diffRenderers = [{command = "delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format=\"lazygit-edit://{path}:{line}\"";}];
-          };
-        };
-      };
-
       gh = {
         enable = true;
       };
