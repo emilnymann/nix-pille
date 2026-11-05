@@ -13,10 +13,6 @@ _: {
               __unkeyed-1 = "<leader>g";
               group = "Git";
             }
-            {
-              __unkeyed-1 = "<leader>gh";
-              group = "Git Hunks";
-            }
           ];
         };
 
@@ -28,16 +24,6 @@ _: {
             };
             gh = {
               enabled = true;
-            };
-            lazygit = {
-              enabled = true;
-              config = {
-                os = {
-                  edit = ''sh -c 'if [ -z "$NVIM" ]; then nvim -- "$1"; else nvr --remote-send q && nvr --remote "$1"; fi' sh {{filename}}'';
-                  editAtLine = ''sh -c 'if [ -z "$NVIM" ]; then nvim +"$1" -- "$2"; else nvr --remote-send q && nvr --remote +"$1" "$2"; fi' sh {{line}} {{filename}}'';
-                  openDirInEditor = ''sh -c 'if [ -z "$NVIM" ]; then nvim -- "$1"; else nvr --remote-send q && nvr --remote "$1"; fi' sh {{dir}}'';
-                };
-              };
             };
           };
         };
@@ -150,14 +136,6 @@ _: {
       };
 
       keymaps = [
-        {
-          mode = ["n"];
-          key = "<leader>gg";
-          action.__raw = "function() Snacks.lazygit() end";
-          options = {
-            desc = "Git";
-          };
-        }
         {
           mode = ["n"];
           key = "<leader>gb";
