@@ -14,9 +14,9 @@ _: {
         };
       };
 
-      delta = {
+      difftastic = {
         enable = true;
-        enableJujutsuIntegration = true;
+        jujutsu.enable = true;
       };
     };
 
