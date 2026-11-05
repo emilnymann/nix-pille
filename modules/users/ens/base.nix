@@ -2,7 +2,6 @@
   flake.homeModules.ens-base = {
     imports = with self.homeModules; [
       neovim-ide
-      git-tui
       version-control
       smart-shell
       coding-agent

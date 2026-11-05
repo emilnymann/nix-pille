@@ -1,6 +1,10 @@
 _: {
   flake.homeModules.version-control = {pkgs, ...}: {
     programs = {
+      git = {
+        enable = true;
+      };
+
       jujutsu = {
         enable = true;
         settings = {
@@ -17,6 +21,10 @@ _: {
       difftastic = {
         enable = true;
         jujutsu.enable = true;
+      };
+
+      gh = {
+        enable = true;
       };
     };
 
