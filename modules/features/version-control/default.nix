@@ -22,6 +22,7 @@ _: {
 
     home.packages = with pkgs; [
       tuicr
+      blazingjj
     ];
   };
 }
