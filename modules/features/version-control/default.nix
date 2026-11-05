@@ -1,5 +1,5 @@
 _: {
-  flake.homeModules.version-control = _: {
+  flake.homeModules.version-control = {pkgs, ...}: {
     programs = {
       jujutsu = {
         enable = true;
@@ -19,5 +19,9 @@ _: {
         enableJujutsuIntegration = true;
       };
     };
+
+    home.packages = with pkgs; [
+      tuicr
+    ];
   };
 }
