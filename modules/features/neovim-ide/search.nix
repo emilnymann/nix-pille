@@ -35,7 +35,7 @@ _: {
           key = "<leader><space>";
           action.__raw = "function() Snacks.picker.smart() end";
           options = {
-            desc = "Find files";
+            desc = "Smart Picker";
           };
         }
         {
@@ -43,7 +43,7 @@ _: {
           key = "<leader>sg";
           action.__raw = "function() Snacks.picker.grep() end";
           options = {
-            desc = "Grep project";
+            desc = "Grep Project";
           };
         }
         {
@@ -51,7 +51,7 @@ _: {
           key = "<leader>sw";
           action.__raw = "function() Snacks.picker.grep_word() end";
           options = {
-            desc = "Grep word under cursor";
+            desc = "Grep Word";
           };
         }
         {
@@ -59,7 +59,7 @@ _: {
           key = "<leader>sg";
           action.__raw = "function() Snacks.picker.grep_word() end";
           options = {
-            desc = "Grep visual selection";
+            desc = "Grep Visual";
           };
         }
         {
@@ -67,7 +67,7 @@ _: {
           key = "<leader>sr";
           action.__raw = "function() Snacks.picker.recent() end";
           options = {
-            desc = "Recent files";
+            desc = "Recent Files";
           };
         }
         {
@@ -75,7 +75,7 @@ _: {
           key = "<leader>sp";
           action.__raw = "function() Snacks.picker.resume() end";
           options = {
-            desc = "Resume picker";
+            desc = "Resume Picker";
           };
         }
         {
@@ -83,7 +83,7 @@ _: {
           key = "<leader>ss";
           action.__raw = "function() Snacks.picker.lsp_symbols() end";
           options = {
-            desc = "LSP symbols";
+            desc = "Symbols";
           };
         }
         {
@@ -91,7 +91,7 @@ _: {
           key = "<leader>sS";
           action.__raw = "function() Snacks.picker.lsp_workspace_symbols() end";
           options = {
-            desc = "LSP workspace symbols";
+            desc = "Symbols (Workspace)";
           };
         }
         {
@@ -110,7 +110,7 @@ _: {
             end
           '';
           options = {
-            desc = "Search and Replace";
+            desc = "Replace";
           };
         }
       ];

@@ -9,101 +9,181 @@ _: {
               __unkeyed-1 = "a";
               group = "Around";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰅪";
+                color = "cyan";
+              };
             }
             {
               __unkeyed-1 = "i";
               group = "Inside";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰅩";
+                color = "cyan";
+              };
             }
             {
               __unkeyed-1 = "ao";
-              desc = "Block / conditional / loop";
+              desc = "Object";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰅩";
+                color = "orange";
+              };
             }
             {
               __unkeyed-1 = "io";
-              desc = "Block / conditional / loop";
+              desc = "Object";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰅩";
+                color = "orange";
+              };
             }
             {
               __unkeyed-1 = "af";
               desc = "Function";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰊕";
+                color = "azure";
+              };
             }
             {
               __unkeyed-1 = "if";
               desc = "Function";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰊕";
+                color = "azure";
+              };
             }
             {
               __unkeyed-1 = "ac";
               desc = "Class";
               mode = ["o" "x"];
+              icon = {
+                icon = "";
+                color = "purple";
+              };
             }
             {
               __unkeyed-1 = "ic";
               desc = "Class";
               mode = ["o" "x"];
+              icon = {
+                icon = "";
+                color = "purple";
+              };
             }
             {
               __unkeyed-1 = "at";
               desc = "Tag";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰓹";
+                color = "red";
+              };
             }
             {
               __unkeyed-1 = "it";
               desc = "Tag";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰓹";
+                color = "red";
+              };
             }
             {
               __unkeyed-1 = "ad";
               desc = "Digits";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰎠";
+                color = "yellow";
+              };
             }
             {
               __unkeyed-1 = "id";
               desc = "Digits";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰎠";
+                color = "yellow";
+              };
             }
             {
               __unkeyed-1 = "ae";
-              desc = "Word with case";
+              desc = "Word (Cased)";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰬶";
+                color = "green";
+              };
             }
             {
               __unkeyed-1 = "ie";
-              desc = "Word with case";
+              desc = "Word (Cased)";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰬶";
+                color = "green";
+              };
             }
             {
               __unkeyed-1 = "ag";
               desc = "Buffer";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰈔";
+                color = "blue";
+              };
             }
             {
               __unkeyed-1 = "ig";
               desc = "Buffer";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰈔";
+                color = "blue";
+              };
             }
             {
               __unkeyed-1 = "au";
-              desc = "Function call";
+              desc = "Function Call";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰡱";
+                color = "azure";
+              };
             }
             {
               __unkeyed-1 = "iu";
-              desc = "Function call";
+              desc = "Function Call";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰡱";
+                color = "azure";
+              };
             }
             {
               __unkeyed-1 = "aU";
-              desc = "Function call without dot";
+              desc = "Function Call (Without Dot)";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰡱";
+                color = "cyan";
+              };
             }
             {
               __unkeyed-1 = "iU";
-              desc = "Function call without dot";
+              desc = "Function Call (Without Dot)";
               mode = ["o" "x"];
+              icon = {
+                icon = "󰡱";
+                color = "cyan";
+              };
             }
           ];
         };

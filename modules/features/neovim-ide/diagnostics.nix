@@ -12,6 +12,34 @@ _: {
             {
               __unkeyed-1 = "<leader>x";
               group = "Diagnostics";
+              icon = {
+                icon = "󱖫";
+                color = "green";
+              };
+            }
+            {
+              __unkeyed-1 = "<leader>xx";
+              desc = "Buffer";
+              icon = {
+                icon = "󰈔";
+                color = "blue";
+              };
+            }
+            {
+              __unkeyed-1 = "<leader>xX";
+              desc = "Workspace";
+              icon = {
+                icon = "󰙅";
+                color = "azure";
+              };
+            }
+            {
+              __unkeyed-1 = "<leader>xl";
+              desc = "Line";
+              icon = {
+                icon = "󰅺";
+                color = "yellow";
+              };
             }
           ];
         };
@@ -39,18 +67,18 @@ _: {
         {
           key = "<leader>xx";
           action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
-          options = {desc = "Buffer diagnostics";};
+          options = {desc = "Buffer";};
         }
         {
           key = "<leader>xX";
           action = "<cmd>Trouble diagnostics toggle<cr>";
-          options = {desc = "Workspace diagnostics";};
+          options = {desc = "Workspace";};
         }
         {
           mode = ["n"];
-          key = "<leader>cd";
+          key = "<leader>xl";
           action.__raw = "vim.diagnostic.open_float";
-          options = {desc = "Line Diagnostics";};
+          options = {desc = "Line";};
         }
       ];
     };

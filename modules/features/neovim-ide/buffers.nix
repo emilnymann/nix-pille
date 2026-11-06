@@ -7,11 +7,27 @@ _: {
         which-key = {
           enable = true;
           settings.spec = [
-          {
-            __unkeyed-1 = "<leader>b";
-            group = "Buffers";
-          }
-        ];
+            {
+              __unkeyed-1 = "<leader>b";
+              group = "Buffer";
+            }
+            {
+              __unkeyed-1 = "<leader>bd";
+              desc = "Delete";
+              icon = {
+                icon = "󰅙";
+                color = "red";
+              };
+            }
+            {
+              __unkeyed-1 = "<leader>bo";
+              desc = "Delete Other";
+              icon = {
+                icon = "󰘪";
+                color = "red";
+              };
+            }
+          ];
         };
 
         mini = {
@@ -63,7 +79,7 @@ _: {
           key = "<S-h>";
           action = "<cmd>bprevious<cr>";
           options = {
-            desc = "Previous buffer";
+            desc = "Buffer";
           };
         }
         {
@@ -71,7 +87,7 @@ _: {
           key = "<S-l>";
           action = "<cmd>bnext<cr>";
           options = {
-            desc = "Next buffer";
+            desc = "Buffer";
           };
         }
         {
@@ -79,7 +95,7 @@ _: {
           key = "<leader>bd";
           action.__raw = "function() Snacks.bufdelete() end";
           options = {
-            desc = "Delete buffer";
+            desc = "Delete";
           };
         }
         {
@@ -87,7 +103,7 @@ _: {
           key = "<leader>bo";
           action.__raw = "function() Snacks.bufdelete.other() end";
           options = {
-            desc = "Delete other buffers";
+            desc = "Delete Other";
           };
         }
       ];

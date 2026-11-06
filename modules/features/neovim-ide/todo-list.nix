@@ -24,6 +24,34 @@ _: {
         {
           __unkeyed-1 = "<leader>t";
           group = "Todo";
+          icon = {
+            icon = "";
+            color = "purple";
+          };
+        }
+        {
+          __unkeyed-1 = "<leader>td";
+          desc = "Global";
+          icon = {
+            icon = "";
+            color = "azure";
+          };
+        }
+        {
+          __unkeyed-1 = "<leader>tD";
+          desc = "Project";
+          icon = {
+            icon = "";
+            color = "azure";
+          };
+        }
+        {
+          __unkeyed-1 = "<leader>tN";
+          desc = "Due";
+          icon = {
+            icon = "";
+            color = "red";
+          };
         }
       ];
     };

@@ -1,7 +1,19 @@
 _: {
   flake.homeModules.neovim-ide = _: {
     programs.nixvim = {
-      plugins.which-key.enable = true;
+      plugins.which-key = {
+        enable = true;
+        settings.spec = [
+          {
+            __unkeyed-1 = "<leader>?";
+            desc = "Keys";
+            icon = {
+              icon = "";
+              color = "cyan";
+            };
+          }
+        ];
+      };
 
       keymaps = [
         {
@@ -9,7 +21,7 @@ _: {
           key = "<leader>?";
           action.__raw = ''function() require("which-key").show({ global = false }) end'';
           options = {
-            desc = "Show keybindings";
+            desc = "Keys";
           };
         }
       ];

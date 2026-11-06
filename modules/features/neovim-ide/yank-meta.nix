@@ -5,6 +5,18 @@ _: {
         {
           __unkeyed-1 = "<leader>y";
           group = "Yank";
+          icon = {
+            icon = "";
+            color = "green";
+          };
+        }
+        {
+          __unkeyed-1 = "<leader>yf";
+          desc = "Filepath (CWD)";
+          icon = {
+            icon = "󰉋";
+            color = "blue";
+          };
         }
       ];
 
@@ -20,7 +32,7 @@ _: {
             end
           '';
           options = {
-            desc = "Yank filepath relative to CWD";
+            desc = "Filepath (CWD)";
           };
         }
       ];

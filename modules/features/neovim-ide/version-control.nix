@@ -141,7 +141,7 @@ _: {
           key = "<leader>gb";
           action.__raw = "function() Snacks.picker.git_log_line() end";
           options = {
-            desc = "Git blame line";
+            desc = "Blane Line";
           };
         }
         {
@@ -149,7 +149,7 @@ _: {
           key = "<leader>gf";
           action.__raw = "function() Snacks.picker.git_log_file() end";
           options = {
-            desc = "Git file history";
+            desc = "File History";
           };
         }
         {
