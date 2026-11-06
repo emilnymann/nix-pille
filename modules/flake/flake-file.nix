@@ -1,0 +1,61 @@
+{inputs, ...}: {
+  imports = [inputs.flake-file.flakeModules.default];
+
+  flake-file = {
+    description = "ENS NixOS flake";
+
+    outputs = ''
+      inputs:
+        inputs.flake-parts.lib.mkFlake {inherit inputs;} (
+          inputs.import-tree.filterNot (
+            file:
+              inputs.nixpkgs.lib.hasInfix "hardware-configuration" file
+              || inputs.nixpkgs.lib.hasPrefix "_" (baseNameOf file)
+          )
+          ./modules
+        )
+    '';
+
+    inputs = {
+      nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+
+      flake-parts.url = "github:hercules-ci/flake-parts";
+      import-tree.url = "github:vic/import-tree";
+      wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+      flake-file.url = "github:denful/flake-file";
+
+      nix-darwin = {
+        url = "github:LnL7/nix-darwin";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+      home-manager = {
+        url = "github:nix-community/home-manager";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+      sops-nix = {
+        url = "github:Mic92/sops-nix";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+      stylix = {
+        url = "github:nix-community/stylix";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+      nixvim.url = "github:nix-community/nixvim";
+
+      glide = {
+        url = "github:glide-browser/glide.nix";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.home-manager.follows = "home-manager";
+      };
+
+      dlsslop-amd = {
+        url = "github:imaami/dlsslop-amd/29ea4ace16985fdfb758b6c3cf9bad61f749d8cf";
+        flake = false;
+      };
+    };
+  };
+}

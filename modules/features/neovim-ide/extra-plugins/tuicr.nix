@@ -3,17 +3,19 @@
   self,
   ...
 }: {
+  flake-file.inputs.tuicr = {
+    url = "github:xendarboh/tuicr.nvim";
+    flake = false;
+  };
+
   perSystem = {pkgs, ...}: {
     packages.tuicr = pkgs.vimUtils.buildVimPlugin {
       pname = "tuicr.nvim";
-      version = "0-unstable-2026-04-11";
+      version = let
+        d = inputs.tuicr.lastModifiedDate;
+      in "0-unstable-${pkgs.lib.substring 0 4 d}-${pkgs.lib.substring 4 2 d}-${pkgs.lib.substring 6 2 d}";
 
-      src = pkgs.fetchFromGitHub {
-        owner = "xendarboh";
-        repo = "tuicr.nvim";
-        rev = "8b84a000ecc2126ffd2394c188a23f83912779ea";
-        hash = "sha256-HwDUq4aXRGLaoy6IgnMqldRCtlT0UrZKyhL4qqBOrds=";
-      };
+      src = inputs.tuicr;
 
       # tuicr registers its own user command in plugin/. Nixvim generates the
       # setup call instead.

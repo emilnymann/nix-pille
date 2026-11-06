@@ -85,6 +85,23 @@
         "type": "github"
       }
     },
+    "dooing": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786497109,
+        "narHash": "sha256-P3pxrseboW0J/wBpEPP+bXm33FQUO0tUNj4rLz5kZFs=",
+        "owner": "atiladefreitas",
+        "repo": "dooing",
+        "rev": "bc461143ce49335c0058a25f317da6ce5fed29be",
+        "type": "github"
+      },
+      "original": {
+        "owner": "atiladefreitas",
+        "repo": "dooing",
+        "rev": "bc461143ce49335c0058a25f317da6ce5fed29be",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -98,6 +115,21 @@
       "original": {
         "owner": "rafaelmardojai",
         "repo": "firefox-gnome-theme",
+        "type": "github"
+      }
+    },
+    "flake-file": {
+      "locked": {
+        "lastModified": 1792905615,
+        "narHash": "sha256-KdGEzlRQPHBbNPD+AChjry8eWEx0TCrGKy1Hkacj+bA=",
+        "owner": "denful",
+        "repo": "flake-file",
+        "rev": "7b08dbc223bb1a758a515aad9653a6bf196bc772",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "flake-file",
         "type": "github"
       }
     },
@@ -382,6 +414,8 @@
     "root": {
       "inputs": {
         "dlsslop-amd": "dlsslop-amd",
+        "dooing": "dooing",
+        "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "glide": "glide",
         "home-manager": "home-manager",
@@ -391,6 +425,7 @@
         "nixvim": "nixvim",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
+        "tuicr": "tuicr",
         "wrapper-modules": "wrapper-modules"
       }
     },
@@ -541,6 +576,22 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "tuicr": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775885758,
+        "narHash": "sha256-HwDUq4aXRGLaoy6IgnMqldRCtlT0UrZKyhL4qqBOrds=",
+        "owner": "xendarboh",
+        "repo": "tuicr.nvim",
+        "rev": "8b84a000ecc2126ffd2394c188a23f83912779ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "xendarboh",
+        "repo": "tuicr.nvim",
         "type": "github"
       }
     },
