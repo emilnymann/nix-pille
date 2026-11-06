@@ -1,171 +1,62 @@
 _: {
-  flake.homeModules.neovim-ide = {pkgs, ...}: {
+  flake.homeModules.neovim-ide = _: {
     programs.nixvim = {
-      extraPackages = with pkgs; [
-        neovim-remote
-      ];
-
       plugins = {
-        which-key = {
+        tuicr = {
           enable = true;
-          settings.spec = [
-            {
-              __unkeyed-1 = "<leader>g";
-              group = "Git";
-            }
-          ];
         };
-
         snacks = {
           enable = true;
           settings = {
             picker = {
               enabled = true;
             };
-            gh = {
-              enabled = true;
-            };
-          };
-        };
-
-        gitsigns = {
-          enable = true;
-          settings = {
-            signs = {
-              add = {text = "▎";};
-              change = {text = "▎";};
-              delete = {text = "";};
-              topdelete = {text = "";};
-              changedelete = {text = "▎";};
-              untracked = {text = "▎";};
-            };
-
-            signs_staged = {
-              add = {text = "▎";};
-              change = {text = "▎";};
-              delete = {text = "";};
-              topdelete = {text = "";};
-              changedelete = {text = "▎";};
-            };
-
-            on_attach.__raw = ''
-              function(buffer)
-                local gs = package.loaded.gitsigns
-
-                local function map(mode, l, r, desc)
-                  vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
-                end
-
-                -- stylua: ignore start
-                map("n", "]h", function()
-                  if vim.wo.diff then
-                    vim.cmd.normal({ "]c", bang = true })
-                  else
-                    gs.nav_hunk("next")
-                  end
-                end, "Next Hunk")
-                map("n", "[h", function()
-                  if vim.wo.diff then
-                    vim.cmd.normal({ "[c", bang = true })
-                  else
-                    gs.nav_hunk("prev")
-                  end
-                end, "Prev Hunk")
-                map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
-                map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
-                map({ "n", "x" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-                map({ "n", "x" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-                map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
-                map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
-                map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-                map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
-                map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
-                map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
-                map("n", "<leader>ghd", gs.diffthis, "Diff This")
-                map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
-                map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-              end
-            '';
-          };
-        };
-
-        conflict = {
-          enable = true;
-          settings = {
-            default_mappings = {
-              current = "<leader>gcc";
-              incoming = "<leader>gci";
-              both = "<leader>gcb";
-              base = "<leader>gcB";
-              none = "<leader>gcn";
-              next = "<leader>gc<c-n>";
-              prev = "<leader>gc<c-p>";
-            };
-          };
-        };
-
-        lualine = {
-          settings = {
-            sections = {
-              lualine_b = ["branch"];
-              lualine_x = [
-                {
-                  __unkeyed-1 = "diff";
-                  symbols = {
-                    added = " ";
-                    modified = " ";
-                    removed = " ";
-                  };
-                  source.__raw = ''
-                    function()
-                      local gitsigns = vim.b.gitsigns_status_dict
-                      if gitsigns then
-                        return {
-                          added = gitsigns.added,
-                          modified = gitsigns.changed,
-                          removed = gitsigns.removed,
-                        }
-                      end
-                    end
-                  '';
-                }
-              ];
-            };
           };
         };
       };
 
+      plugins.which-key.settings.spec = [
+        {
+          __unkeyed-1 = "<leader>v";
+          group = "Version Control";
+          icon = {
+            icon = "";
+            color = "cyan";
+          };
+        }
+        {
+          __unkeyed-1 = "<leader>vf";
+          group = "History (File)";
+          icon = {
+            icon = "󱋡";
+            color = "purple";
+          };
+        }
+        {
+          __unkeyed-1 = "<leader>vR";
+          group = "Review";
+          icon = {
+            icon = "";
+            color = "green";
+          };
+        }
+      ];
+
       keymaps = [
         {
           mode = ["n"];
-          key = "<leader>gb";
-          action.__raw = "function() Snacks.picker.git_log_line() end";
-          options = {
-            desc = "Blane Line";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>gf";
+          key = "<leader>vf";
           action.__raw = "function() Snacks.picker.git_log_file() end";
           options = {
-            desc = "File History";
+            desc = "History (File)";
           };
         }
         {
           mode = ["n"];
-          key = "<leader>gp";
-          action.__raw = "function() Snacks.picker.gh_pr() end";
+          key = "<leader>vR";
+          action = "<cmd>Tuicr<cr>";
           options = {
-            desc = "GitHub Pull Requests (open)";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>gP";
-          action.__raw = ''function() Snacks.picker.gh_pr({ state = "all" }) end'';
-          options = {
-            desc = "GitHub Pull Requests (all)";
+            desc = "Review";
           };
         }
       ];
