@@ -16,10 +16,6 @@
       in "0-unstable-${pkgs.lib.substring 0 4 d}-${pkgs.lib.substring 4 2 d}-${pkgs.lib.substring 6 2 d}";
 
       src = inputs.tuicr;
-
-      # tuicr registers its own user command in plugin/. Nixvim generates the
-      # setup call instead.
-      postPatch = "rm plugin/tuicr.lua";
     };
   };
 
