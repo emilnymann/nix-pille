@@ -9,6 +9,10 @@ _: {
         {
           __unkeyed-1 = "<leader>d";
           group = "Diff";
+          icon = {
+            cat = "filetype";
+            name = "diff";
+          };
         }
       ];
 
