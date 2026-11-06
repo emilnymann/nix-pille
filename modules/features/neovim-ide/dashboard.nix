@@ -36,8 +36,8 @@ _: {
                   }
                   {
                     icon = " ";
-                    key = "s";
-                    desc = "Find Text";
+                    key = "g";
+                    desc = "Live Grep";
                     action = ":lua Snacks.dashboard.pick('live_grep')";
                   }
                   {
