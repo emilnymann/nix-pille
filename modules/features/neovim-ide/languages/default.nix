@@ -1,9 +1,5 @@
 _: {
-  flake.homeModules.neovim-ide = {
-    config,
-    lib,
-    ...
-  }: {
+  flake.homeModules.neovim-ide = _: {
     programs.nixvim = {
       plugins = {
         lspconfig.enable = true;
