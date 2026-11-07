@@ -21,6 +21,15 @@ _: {
                     right = 0;
                   };
                 }
+                {
+                  __unkeyed-1 = "filename";
+                  symbols = {
+                    modified = "󱇧";
+                    readonly = "󰈡";
+                    unnamed = "[No Name]";
+                    newfile = "󱀺";
+                  };
+                }
               ];
 
               lualine_x = [
