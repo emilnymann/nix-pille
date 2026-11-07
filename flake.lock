@@ -68,6 +68,22 @@
         "type": "github"
       }
     },
+    "difftastic-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783611154,
+        "narHash": "sha256-x5rm54LdloowVFPtNGs/N6dAqcVe3tHH7eJjPvxdqzk=",
+        "owner": "clabby",
+        "repo": "difftastic.nvim",
+        "rev": "c39bbe1c60eec06ad7d141bd09bb910fac4d2436",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clabby",
+        "repo": "difftastic.nvim",
+        "type": "github"
+      }
+    },
     "dlsslop-amd": {
       "flake": false,
       "locked": {
@@ -88,17 +104,16 @@
     "dooing": {
       "flake": false,
       "locked": {
-        "lastModified": 1786497109,
-        "narHash": "sha256-P3pxrseboW0J/wBpEPP+bXm33FQUO0tUNj4rLz5kZFs=",
+        "lastModified": 1789389163,
+        "narHash": "sha256-FpoA7fnUI7Dqdj/iBz4/nwoMc/5mWaO1FoOanuziiUY=",
         "owner": "atiladefreitas",
         "repo": "dooing",
-        "rev": "bc461143ce49335c0058a25f317da6ce5fed29be",
+        "rev": "7ff620e11d023331403883280711e26d351809c6",
         "type": "github"
       },
       "original": {
         "owner": "atiladefreitas",
         "repo": "dooing",
-        "rev": "bc461143ce49335c0058a25f317da6ce5fed29be",
         "type": "github"
       }
     },
@@ -413,6 +428,7 @@
     },
     "root": {
       "inputs": {
+        "difftastic-nvim": "difftastic-nvim",
         "dlsslop-amd": "dlsslop-amd",
         "dooing": "dooing",
         "flake-file": "flake-file",

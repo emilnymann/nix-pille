@@ -14,12 +14,16 @@
     );
 
   inputs = {
+    difftastic-nvim = {
+      url = "github:clabby/difftastic.nvim";
+      flake = false;
+    };
     dlsslop-amd = {
       url = "github:imaami/dlsslop-amd/29ea4ace16985fdfb758b6c3cf9bad61f749d8cf";
       flake = false;
     };
     dooing = {
-      url = "github:atiladefreitas/dooing/bc461143ce49335c0058a25f317da6ce5fed29be";
+      url = "github:atiladefreitas/dooing";
       flake = false;
     };
     flake-file.url = "github:denful/flake-file";

@@ -5,6 +5,14 @@ _: {
         tuicr = {
           enable = true;
         };
+
+        difftastic = {
+          enable = true;
+          settings = {
+            snacks_picker.enabled = true;
+          };
+        };
+
         snacks = {
           enable = true;
           settings = {
@@ -26,7 +34,7 @@ _: {
         }
         {
           __unkeyed-1 = "<leader>vf";
-          group = "History (File)";
+          desc = "History (File)";
           icon = {
             icon = "󱋡";
             color = "purple";
@@ -34,10 +42,26 @@ _: {
         }
         {
           __unkeyed-1 = "<leader>vR";
-          group = "Review";
+          desc = "Review";
           icon = {
             icon = "";
             color = "green";
+          };
+        }
+        {
+          __unkeyed-1 = "<leader>vd";
+          desc = "Diff";
+          icon = {
+            icon = "";
+            color = "yellow";
+          };
+        }
+        {
+          __unkeyed-1 = "<leader>vD";
+          desc = "Diff (Pick)";
+          icon = {
+            icon = "";
+            color = "yellow";
           };
         }
       ];
@@ -57,6 +81,22 @@ _: {
           action = "<cmd>Tuicr<cr>";
           options = {
             desc = "Review";
+          };
+        }
+        {
+          mode = ["n"];
+          key = "<leader>vd";
+          action = "<cmd>Difft<cr>";
+          options = {
+            desc = "Diff";
+          };
+        }
+        {
+          mode = ["n"];
+          key = "<leader>vD";
+          action = "<cmd>DifftPick<cr>";
+          options = {
+            desc = "Diff (Pick)";
           };
         }
       ];
