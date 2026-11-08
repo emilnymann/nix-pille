@@ -29,6 +29,67 @@ _: {
             };
           };
         };
+
+        which-key.settings.spec = [
+          {
+            __unkeyed-1 = "<C-a>";
+            desc = "Goto/Apply NES";
+            icon = {
+              icon = "";
+              color = "green";
+            };
+          }
+          {
+            __unkeyed-1 = "<C-.>";
+            mode = ["n" "t" "i" "x"];
+            desc = "Focus Sidekick";
+            icon = {
+              icon = "󰁤";
+              color = "blue";
+            };
+          }
+          {
+            __unkeyed-1 = "<leader>a";
+            group = "AI";
+            icon = {
+              icon = "";
+              color = "purple";
+            };
+          }
+          {
+            __unkeyed-1 = "<leader>aa";
+            desc = "Toggle";
+            icon = {
+              icon = "";
+              color = "green";
+            };
+          }
+          {
+            __unkeyed-1 = "<leader>ad";
+            desc = "Close";
+            icon = {
+              icon = "󰅙";
+              color = "red";
+            };
+          }
+          {
+            __unkeyed-1 = "<leader>av";
+            mode = ["x"];
+            desc = "Send Selection";
+            icon = {
+              icon = "";
+              color = "cyan";
+            };
+          }
+          {
+            __unkeyed-1 = "<leader>af";
+            desc = "Send File";
+            icon = {
+              icon = "";
+              color = "yellow";
+            };
+          }
+        ];
       };
 
       keymaps = [
