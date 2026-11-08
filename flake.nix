@@ -14,6 +14,10 @@
     );
 
   inputs = {
+    bitwarden-firefox-addon = {
+      url = "file+https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+      flake = false;
+    };
     difftastic-nvim = {
       url = "github:clabby/difftastic.nvim";
       flake = false;
@@ -46,6 +50,10 @@
     };
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     nixvim.url = "github:nix-community/nixvim";
+    onepassword-firefox-addon = {
+      url = "file+https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
+      flake = false;
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

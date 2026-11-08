@@ -68,6 +68,18 @@
         "type": "github"
       }
     },
+    "bitwarden-firefox-addon": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Verf9MwclFE9fZucIxW28qm7YYQm3PIAda/m+k+KQHE=",
+        "type": "file",
+        "url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
+      }
+    },
     "difftastic-nvim": {
       "flake": false,
       "locked": {
@@ -426,8 +438,21 @@
         "type": "github"
       }
     },
+    "onepassword-firefox-addon": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-n47X6NwAlFo+hYbfmglp7aRXTbaN3U8VWrxzE8OQQ64=",
+        "type": "file",
+        "url": "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi"
+      }
+    },
     "root": {
       "inputs": {
+        "bitwarden-firefox-addon": "bitwarden-firefox-addon",
         "difftastic-nvim": "difftastic-nvim",
         "dlsslop-amd": "dlsslop-amd",
         "dooing": "dooing",
@@ -439,6 +464,7 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
+        "onepassword-firefox-addon": "onepassword-firefox-addon",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "tuicr": "tuicr",
