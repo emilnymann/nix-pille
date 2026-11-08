@@ -15,13 +15,12 @@
       ];
     };
 
-    homeModules.janeski = {
+    homeModules.janeski = {config, ...}: {
       imports = with self.homeModules; [
         desktop
         bluetooth
         file-browser
         web-browser
-        web-browser-private-profiles
         terminal-emulator
         theming
         discord
@@ -35,6 +34,11 @@
         music-player
         nix-helper
       ];
+
+      programs.firefox.profiles.${config.home.username} = {
+        isDefault = true;
+        name = config.home.username;
+      };
 
       services.hyprpaper.settings.wallpaper = [
         {
