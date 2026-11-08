@@ -23,6 +23,11 @@
         media-server
       ];
 
+      stylix = {
+        polarity = "dark";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
+      };
+
       sops = {
         defaultSopsFile = ./secrets.yaml;
         age.keyFile = "/var/lib/sops-nix/xenon.key";
