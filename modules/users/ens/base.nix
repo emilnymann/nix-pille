@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.homeModules.ens-base = {pkgs, ...}: {
+  flake.homeModules.ens-base = {
     imports = with self.homeModules; [
       neovim-ide
       version-control
@@ -29,34 +29,7 @@
     };
 
     features.web-browser.program = "glide";
-
-    stylix = {
-      polarity = "dark";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
-      fonts = {
-        monospace = {
-          package = pkgs.maple-mono.NF;
-          name = "Maple Mono NF";
-        };
-        serif = {
-          package = pkgs.nerd-fonts.noto;
-          name = "NotoSerif Nerd Font";
-        };
-        sansSerif = {
-          package = pkgs.nerd-fonts.noto;
-          name = "NotoSans Nerd Font";
-        };
-        emoji = {
-          package = pkgs.noto-fonts-color-emoji;
-          name = "Noto Color Emoji";
-        };
-      };
-    };
-
-    programs.nixvim.colorschemes.gruvbox-material = {
-      enable = true;
-      autoLoad = true;
-    };
+    features.theming.colorscheme = "gruvbox-material-dark-medium";
 
     xdg.enable = true;
     home.stateVersion = "26.05";

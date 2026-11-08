@@ -15,7 +15,7 @@
       ];
     };
 
-    homeModules.janeski = {config, pkgs, ...}: {
+    homeModules.janeski = {config, ...}: {
       imports = with self.homeModules; [
         desktop
         bluetooth
@@ -42,49 +42,9 @@
 
       stylix.targets.firefox.profileNames = [config.home.username];
 
-      stylix = {
-        polarity = "dark";
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
-        fonts = {
-          monospace = {
-            package = pkgs.maple-mono.NF;
-            name = "Maple Mono NF";
-          };
-          serif = {
-            package = pkgs.nerd-fonts.noto;
-            name = "NotoSerif Nerd Font";
-          };
-          sansSerif = {
-            package = pkgs.nerd-fonts.noto;
-            name = "NotoSans Nerd Font";
-          };
-          emoji = {
-            package = pkgs.noto-fonts-color-emoji;
-            name = "Noto Color Emoji";
-          };
-        };
-      };
-
-      programs.nixvim.colorschemes.gruvbox-material = {
-        enable = true;
-        autoLoad = true;
-      };
-
-      home.pointerCursor = {
-        enable = true;
-        gtk.enable = true;
-        x11.enable = true;
-        name = "BreezeX-Dark";
-        size = 24;
-        package = pkgs.runCommand "moveUp" {} ''
-          mkdir -p $out/share/icons
-          ln -s ${
-            pkgs.fetchzip {
-              url = "https://github.com/ful1e5/BreezeX_Cursor/releases/download/v2.0.1/BreezeX-Dark.tar.xz";
-              hash = "sha256-HqjO/ogAd/dsrO5WHIilUQaq1CbiU48lEaoefcUmmBM=";
-            }
-          } $out/share/icons/BreezeX-Dark
-        '';
+      features.theming = {
+        colorscheme = "gruvbox-material-dark-medium";
+        cursor = "BreezeX-Dark";
       };
 
       services.hyprpaper.settings.wallpaper = [

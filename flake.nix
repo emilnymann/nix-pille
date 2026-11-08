@@ -18,6 +18,10 @@
       url = "file+https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
       flake = false;
     };
+    breezex-dark = {
+      url = "https://github.com/ful1e5/BreezeX_Cursor/releases/download/v2.0.1/BreezeX-Dark.tar.xz";
+      flake = false;
+    };
     difftastic-nvim = {
       url = "github:clabby/difftastic.nvim";
       flake = false;

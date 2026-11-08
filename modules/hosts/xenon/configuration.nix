@@ -23,10 +23,7 @@
         media-server
       ];
 
-      stylix = {
-        polarity = "dark";
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
-      };
+      features.theming.colorscheme = "gruvbox-material-dark-medium";
 
       sops = {
         defaultSopsFile = ./secrets.yaml;
