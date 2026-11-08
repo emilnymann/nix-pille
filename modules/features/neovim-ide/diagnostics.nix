@@ -19,6 +19,9 @@ _: {
             }
             {
               __unkeyed-1 = "<leader>xx";
+              __unkeyed-2 = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
+              mode = ["n" "v" "o"];
+              silent = false;
               desc = "Buffer";
               icon = {
                 icon = "󰈔";
@@ -27,6 +30,9 @@ _: {
             }
             {
               __unkeyed-1 = "<leader>xX";
+              __unkeyed-2 = "<cmd>Trouble diagnostics toggle<cr>";
+              mode = ["n" "v" "o"];
+              silent = false;
               desc = "Workspace";
               icon = {
                 icon = "󰙅";
@@ -35,6 +41,8 @@ _: {
             }
             {
               __unkeyed-1 = "<leader>xl";
+              __unkeyed-2.__raw = "vim.diagnostic.open_float";
+              silent = false;
               desc = "Line";
               icon = {
                 icon = "󰅺";
@@ -62,25 +70,6 @@ _: {
           };
         };
       };
-
-      keymaps = [
-        {
-          key = "<leader>xx";
-          action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
-          options = {desc = "Buffer";};
-        }
-        {
-          key = "<leader>xX";
-          action = "<cmd>Trouble diagnostics toggle<cr>";
-          options = {desc = "Workspace";};
-        }
-        {
-          mode = ["n"];
-          key = "<leader>xl";
-          action.__raw = "vim.diagnostic.open_float";
-          options = {desc = "Line";};
-        }
-      ];
     };
   };
 }

@@ -13,14 +13,12 @@ _: {
         };
       };
 
-      keymaps = [
+      plugins.which-key.settings.spec = [
         {
-          mode = ["n"];
-          key = "<leader>e";
-          action.__raw = "function() Snacks.explorer() end";
-          options = {
-            desc = "File explorer";
-          };
+          __unkeyed-1 = "<leader>e";
+          __unkeyed-2.__raw = "function() Snacks.explorer() end";
+          desc = "File explorer";
+          silent = false;
         }
       ];
     };

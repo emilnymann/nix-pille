@@ -34,6 +34,8 @@ _: {
         }
         {
           __unkeyed-1 = "<leader>vf";
+          __unkeyed-2.__raw = "function() Snacks.picker.git_log_file() end";
+          silent = false;
           desc = "History (File)";
           icon = {
             icon = "󱋡";
@@ -42,6 +44,8 @@ _: {
         }
         {
           __unkeyed-1 = "<leader>vR";
+          __unkeyed-2 = "<cmd>Tuicr<cr>";
+          silent = false;
           desc = "Review";
           icon = {
             icon = "";
@@ -50,6 +54,8 @@ _: {
         }
         {
           __unkeyed-1 = "<leader>vd";
+          __unkeyed-2 = "<cmd>Difft<cr>";
+          silent = false;
           desc = "Diff";
           icon = {
             icon = "";
@@ -58,45 +64,12 @@ _: {
         }
         {
           __unkeyed-1 = "<leader>vD";
+          __unkeyed-2 = "<cmd>DifftPick<cr>";
+          silent = false;
           desc = "Diff (Pick)";
           icon = {
             icon = "";
             color = "yellow";
-          };
-        }
-      ];
-
-      keymaps = [
-        {
-          mode = ["n"];
-          key = "<leader>vf";
-          action.__raw = "function() Snacks.picker.git_log_file() end";
-          options = {
-            desc = "History (File)";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>vR";
-          action = "<cmd>Tuicr<cr>";
-          options = {
-            desc = "Review";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>vd";
-          action = "<cmd>Difft<cr>";
-          options = {
-            desc = "Diff";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>vD";
-          action = "<cmd>DifftPick<cr>";
-          options = {
-            desc = "Diff (Pick)";
           };
         }
       ];

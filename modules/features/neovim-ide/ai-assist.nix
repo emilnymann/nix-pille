@@ -33,18 +33,20 @@ _: {
         which-key.settings.spec = [
           {
             __unkeyed-1 = "<C-a>";
-            desc = "Goto/Apply NES";
+            __unkeyed-2.__raw = ''function() require("sidekick").nes_jump_or_apply() end'';
+            desc = "Next Edit Suggestion";
             icon = {
-              icon = "";
+              icon = "";
               color = "green";
             };
           }
           {
             __unkeyed-1 = "<C-.>";
+            __unkeyed-2.__raw = ''function() require("sidekick.cli").focus({ name = "pi" }) end'';
             mode = ["n" "t" "i" "x"];
             desc = "Focus Sidekick";
             icon = {
-              icon = "󰁤";
+              icon = "";
               color = "blue";
             };
           }
@@ -58,6 +60,7 @@ _: {
           }
           {
             __unkeyed-1 = "<leader>aa";
+            __unkeyed-2.__raw = ''function() require("sidekick.cli").toggle({ name = "pi", focus = true }) end'';
             desc = "Toggle";
             icon = {
               icon = "";
@@ -66,6 +69,7 @@ _: {
           }
           {
             __unkeyed-1 = "<leader>ad";
+            __unkeyed-2.__raw = ''function() require("sidekick.cli").close() end'';
             desc = "Close";
             icon = {
               icon = "󰅙";
@@ -74,15 +78,17 @@ _: {
           }
           {
             __unkeyed-1 = "<leader>av";
+            __unkeyed-2.__raw = ''function() require("sidekick.cli").send({ name = "pi", msg = "{selection}" }) end'';
             mode = ["x"];
             desc = "Send Selection";
             icon = {
-              icon = "";
+              icon = "󰒅";
               color = "cyan";
             };
           }
           {
             __unkeyed-1 = "<leader>af";
+            __unkeyed-2.__raw = ''function() require("sidekick.cli").send({ name = "pi", msg = "{file}" }) end'';
             desc = "Send File";
             icon = {
               icon = "";
@@ -91,41 +97,6 @@ _: {
           }
         ];
       };
-
-      keymaps = [
-        {
-          key = "<C-a>";
-          action.__raw = ''function() require("sidekick").nes_jump_or_apply() end'';
-          options = {desc = "Goto/Apply next edit suggestion";};
-        }
-        {
-          mode = ["n" "t" "i" "x"];
-          key = "<C-.>";
-          action.__raw = ''function() require("sidekick.cli").focus({ name = "pi" }) end'';
-          options = {desc = "Focus";};
-        }
-        {
-          key = "<leader>aa";
-          action.__raw = ''function() require("sidekick.cli").toggle({ name = "pi", focus = true }) end'';
-          options = {desc = "Toggle";};
-        }
-        {
-          key = "<leader>ad";
-          action.__raw = ''function() require("sidekick.cli").close() end'';
-          options = {desc = "Close";};
-        }
-        {
-          key = "<leader>av";
-          action.__raw = ''function() require("sidekick.cli").send({ name = "pi", msg = "{selection}" }) end'';
-          mode = ["x"];
-          options = {desc = "Send visual selection";};
-        }
-        {
-          key = "<leader>af";
-          action.__raw = ''function() require("sidekick.cli").send({ name = "pi", msg = "{file}" }) end'';
-          options = {desc = "Send current file";};
-        }
-      ];
     };
   };
 }

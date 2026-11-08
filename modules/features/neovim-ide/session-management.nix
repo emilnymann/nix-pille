@@ -16,6 +16,9 @@ _: {
           }
           {
             __unkeyed-1 = "<leader>Sq";
+            __unkeyed-2 = "<cmd>wq<cr>";
+            mode = ["n" "v" "o"];
+            silent = false;
             desc = "Save & Quit";
             icon = {
               icon = "󰆓";
@@ -24,6 +27,9 @@ _: {
           }
           {
             __unkeyed-1 = "<leader>SQ";
+            __unkeyed-2 = "<cmd>q!<cr>";
+            mode = ["n" "v" "o"];
+            silent = false;
             desc = "Quit!";
             icon = {
               icon = "󰗼";
@@ -32,6 +38,9 @@ _: {
           }
           {
             __unkeyed-1 = "<leader>Sr";
+            __unkeyed-2.__raw = ''function() require("persistence").load() end'';
+            mode = ["n" "v" "o"];
+            silent = false;
             desc = "Restore";
             icon = {
               icon = "";
@@ -40,6 +49,9 @@ _: {
           }
           {
             __unkeyed-1 = "<leader>Ss";
+            __unkeyed-2.__raw = ''function() require("persistence").select() end'';
+            mode = ["n" "v" "o"];
+            silent = false;
             desc = "Select";
             icon = {
               icon = "󱂬";
@@ -47,7 +59,21 @@ _: {
             };
           }
           {
+            __unkeyed-1 = "<leader>SR";
+            __unkeyed-2.__raw = ''function() require("persistence").load({ last = true }) end'';
+            mode = ["n" "v" "o"];
+            desc = "Restore Last";
+            icon = {
+              icon = "";
+              color = "cyan";
+            };
+            silent = false;
+          }
+          {
             __unkeyed-1 = "<leader>Sd";
+            __unkeyed-2.__raw = ''function() require("persistence").stop() end'';
+            mode = ["n" "v" "o"];
+            silent = false;
             desc = "Disable Saving";
             icon = {
               icon = "󰅙";
@@ -56,39 +82,6 @@ _: {
           }
         ];
       };
-
-      keymaps = [
-        {
-          key = "<leader>Sq";
-          action = "<cmd>wq<cr>";
-          options = {desc = "Save & Quit";};
-        }
-        {
-          key = "<leader>SQ";
-          action = "<cmd>q!<cr>";
-          options = {desc = "Quit!";};
-        }
-        {
-          key = "<leader>Sr";
-          action.__raw = ''function() require("persistence").load() end'';
-          options = {desc = "Restore";};
-        }
-        {
-          key = "<leader>Ss";
-          action.__raw = ''function() require("persistence").select() end'';
-          options = {desc = "Select";};
-        }
-        {
-          key = "<leader>Ss";
-          action.__raw = ''function() require("persistence").load({ last = true }) end'';
-          options = {desc = "Restore Last";};
-        }
-        {
-          key = "<leader>Sd";
-          action.__raw = ''function() require("persistence").stop() end'';
-          options = {desc = "Disable Saving";};
-        }
-      ];
     };
   };
 }

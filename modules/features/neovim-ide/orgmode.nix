@@ -27,6 +27,18 @@ _: {
             group = "Org";
           }
           {
+            __unkeyed-1 = "<leader>oo";
+            __unkeyed-2 = "<cmd>Neorg index<cr>";
+            desc = "Open Org index";
+            silent = false;
+          }
+          {
+            __unkeyed-1 = "<leader>ow";
+            __unkeyed-2 = "<cmd>Neorg workspace notes<cr>";
+            desc = "Switch to notes workspace";
+            silent = false;
+          }
+          {
             __unkeyed-1 = "<localleader>";
             group = "Org buffer";
           }
@@ -55,51 +67,31 @@ _: {
           pattern = "norg";
           callback.__raw = ''
             function(args)
-              local maps = {
-                { key = "<localleader>nn", action = "<Plug>(neorg.dirman.new-note)", desc = "New note" },
-                { key = "<localleader>tu", action = "<Plug>(neorg.qol.todo-items.todo.task-undone)", desc = "Task undone" },
-                { key = "<localleader>tp", action = "<Plug>(neorg.qol.todo-items.todo.task-pending)", desc = "Task pending" },
-                { key = "<localleader>td", action = "<Plug>(neorg.qol.todo-items.todo.task-done)", desc = "Task done" },
-                { key = "<localleader>th", action = "<Plug>(neorg.qol.todo-items.todo.task-on-hold)", desc = "Task on hold" },
-                { key = "<localleader>tc", action = "<Plug>(neorg.qol.todo-items.todo.task-cancelled)", desc = "Task cancelled" },
-                { key = "<localleader>tr", action = "<Plug>(neorg.qol.todo-items.todo.task-recurring)", desc = "Task recurring" },
-                { key = "<localleader>ti", action = "<Plug>(neorg.qol.todo-items.todo.task-important)", desc = "Task important" },
-                { key = "<localleader>ta", action = "<Plug>(neorg.qol.todo-items.todo.task-ambiguous)", desc = "Task needs input" },
-                { key = "<localleader>lt", action = "<Plug>(neorg.pivot.list.toggle)", desc = "Toggle list type" },
-                { key = "<localleader>li", action = "<Plug>(neorg.pivot.list.invert)", desc = "Invert list type" },
-                { key = "<localleader>id", action = "<Plug>(neorg.tempus.insert-date)", desc = "Insert date" },
-              }
-
-              for _, map in ipairs(maps) do
-                vim.keymap.set("n", map.key, map.action, {
-                  buffer = args.buf,
-                  desc = map.desc,
-                  silent = true,
-                })
+              if vim.b[args.buf].which_key_neorg_mappings then
+                return
               end
 
-              vim.keymap.set("i", "<C-CR>", "<Plug>(neorg.itero.next-iteration)", {
+              require("which-key").add({
                 buffer = args.buf,
-                desc = "Continue item",
+                mode = "n",
                 silent = true,
+                { "<localleader>nn", "<Plug>(neorg.dirman.new-note)", desc = "New note" },
+                { "<localleader>tu", "<Plug>(neorg.qol.todo-items.todo.task-undone)", desc = "Task undone" },
+                { "<localleader>tp", "<Plug>(neorg.qol.todo-items.todo.task-pending)", desc = "Task pending" },
+                { "<localleader>td", "<Plug>(neorg.qol.todo-items.todo.task-done)", desc = "Task done" },
+                { "<localleader>th", "<Plug>(neorg.qol.todo-items.todo.task-on-hold)", desc = "Task on hold" },
+                { "<localleader>tc", "<Plug>(neorg.qol.todo-items.todo.task-cancelled)", desc = "Task cancelled" },
+                { "<localleader>tr", "<Plug>(neorg.qol.todo-items.todo.task-recurring)", desc = "Task recurring" },
+                { "<localleader>ti", "<Plug>(neorg.qol.todo-items.todo.task-important)", desc = "Task important" },
+                { "<localleader>ta", "<Plug>(neorg.qol.todo-items.todo.task-ambiguous)", desc = "Task needs input" },
+                { "<localleader>lt", "<Plug>(neorg.pivot.list.toggle)", desc = "Toggle list type" },
+                { "<localleader>li", "<Plug>(neorg.pivot.list.invert)", desc = "Invert list type" },
+                { "<localleader>id", "<Plug>(neorg.tempus.insert-date)", desc = "Insert date" },
+                { "<C-CR>", "<Plug>(neorg.itero.next-iteration)", mode = "i", desc = "Continue item" },
               })
+              vim.b[args.buf].which_key_neorg_mappings = true
             end
           '';
-        }
-      ];
-
-      keymaps = [
-        {
-          mode = ["n"];
-          key = "<leader>oo";
-          action = "<cmd>Neorg index<cr>";
-          options.desc = "Open Org index";
-        }
-        {
-          mode = ["n"];
-          key = "<leader>ow";
-          action = "<cmd>Neorg workspace notes<cr>";
-          options.desc = "Switch to notes workspace";
         }
       ];
     };

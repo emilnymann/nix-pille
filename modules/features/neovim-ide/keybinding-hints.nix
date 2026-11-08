@@ -6,6 +6,8 @@ _: {
         settings.spec = [
           {
             __unkeyed-1 = "<leader>?";
+            __unkeyed-2.__raw = ''function() require("which-key").show({ global = false }) end'';
+            silent = false;
             desc = "Keys";
             icon = {
               icon = "";
@@ -14,17 +16,6 @@ _: {
           }
         ];
       };
-
-      keymaps = [
-        {
-          mode = ["n"];
-          key = "<leader>?";
-          action.__raw = ''function() require("which-key").show({ global = false }) end'';
-          options = {
-            desc = "Keys";
-          };
-        }
-      ];
     };
   };
 }

@@ -52,31 +52,20 @@
         mapleader = " ";
       };
 
-      keymaps = [
+      plugins.which-key.settings.spec = [
         {
-          mode = [
-            "i"
-            "x"
-            "n"
-            "s"
-          ];
-          key = "<C-s>";
-          action = "<cmd>w<cr><esc>";
-          options = {
-            desc = "Save file";
-          };
+          __unkeyed-1 = "<C-s>";
+          __unkeyed-2 = "<cmd>w<cr><esc>";
+          mode = ["i" "x" "n" "s"];
+          desc = "Save file";
+          silent = false;
         }
         {
-          mode = [
-            "i"
-            "n"
-            "s"
-          ];
-          key = "<esc>";
-          action = "<cmd>noh<cr><esc>";
-          options = {
-            desc = "Escape and clear search highlight";
-          };
+          __unkeyed-1 = "<esc>";
+          __unkeyed-2 = "<cmd>noh<cr><esc>";
+          mode = ["i" "n" "s"];
+          desc = "Escape and clear search highlight";
+          silent = false;
         }
       ];
     };

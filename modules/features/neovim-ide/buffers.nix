@@ -8,11 +8,25 @@ _: {
           enable = true;
           settings.spec = [
             {
+              __unkeyed-1 = "<S-h>";
+              __unkeyed-2 = "<cmd>bprevious<cr>";
+              desc = "Buffer";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<S-l>";
+              __unkeyed-2 = "<cmd>bnext<cr>";
+              desc = "Buffer";
+              silent = false;
+            }
+            {
               __unkeyed-1 = "<leader>b";
               group = "Buffer";
             }
             {
               __unkeyed-1 = "<leader>bd";
+              __unkeyed-2.__raw = "function() Snacks.bufdelete() end";
+              silent = false;
               desc = "Delete";
               icon = {
                 icon = "󰅙";
@@ -21,6 +35,8 @@ _: {
             }
             {
               __unkeyed-1 = "<leader>bo";
+              __unkeyed-2.__raw = "function() Snacks.bufdelete.other() end";
+              silent = false;
               desc = "Delete Other";
               icon = {
                 icon = "󰘪";
@@ -72,41 +88,6 @@ _: {
           };
         };
       };
-
-      keymaps = [
-        {
-          mode = ["n"];
-          key = "<S-h>";
-          action = "<cmd>bprevious<cr>";
-          options = {
-            desc = "Buffer";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<S-l>";
-          action = "<cmd>bnext<cr>";
-          options = {
-            desc = "Buffer";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>bd";
-          action.__raw = "function() Snacks.bufdelete() end";
-          options = {
-            desc = "Delete";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>bo";
-          action.__raw = "function() Snacks.bufdelete.other() end";
-          options = {
-            desc = "Delete Other";
-          };
-        }
-      ];
     };
   };
 }

@@ -5,30 +5,34 @@ _: {
         enable = true;
       };
 
-      keymaps = [
+      plugins.which-key.settings.spec = [
         {
+          __unkeyed-1 = "s";
+          __unkeyed-2.__raw = ''function() require("flash").jump() end'';
           mode = ["n" "x" "o"];
-          key = "s";
-          action.__raw = ''function() require("flash").jump() end'';
-          options = { desc = "Flash"; };
+          desc = "Flash";
+          silent = false;
         }
         {
+          __unkeyed-1 = "S";
+          __unkeyed-2.__raw = ''function() require("flash").treesitter() end'';
           mode = ["n" "o" "x"];
-          key = "S";
-          action.__raw = ''function() require("flash").treesitter() end'';
-          options = { desc = "Flash Treesitter"; };
+          desc = "Flash Treesitter";
+          silent = false;
         }
         {
+          __unkeyed-1 = "r";
+          __unkeyed-2.__raw = ''function() require("flash").remote() end'';
           mode = ["o"];
-          key = "r";
-          action.__raw = ''function() require("flash").remote() end'';
-          options = { desc = "Flash remote"; };
+          desc = "Flash remote";
+          silent = false;
         }
         {
+          __unkeyed-1 = "R";
+          __unkeyed-2.__raw = ''function() require("flash").treesitter_search() end'';
           mode = ["o" "x"];
-          key = "R";
-          action.__raw = ''function() require("flash").treesitter_search() end'';
-          options = { desc = "Treesitter Search"; };
+          desc = "Treesitter Search";
+          silent = false;
         }
       ];
     };

@@ -12,12 +12,13 @@ _: {
         };
       };
 
-      keymaps = [
+      plugins.which-key.settings.spec = [
         {
+          __unkeyed-1 = "<C-t>";
+          __unkeyed-2.__raw = "function() Snacks.terminal() end";
           mode = ["i" "n" "t"];
-          key = "<C-t>";
-          action.__raw = "function() Snacks.terminal() end";
-          options = {desc = "Toggle terminal";};
+          desc = "Toggle terminal";
+          silent = false;
         }
       ];
     };

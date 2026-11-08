@@ -12,12 +12,12 @@ _: {
         };
       };
 
-      keymaps = [
+      plugins.which-key.settings.spec = [
         {
-          mode = ["n"];
-          key = "<leader>cR";
-          action.__raw = "function() Snacks.rename.rename_file() end";
-          options = {desc = "Rename file";};
+          __unkeyed-1 = "<leader>cR";
+          __unkeyed-2.__raw = "function() Snacks.rename.rename_file() end";
+          desc = "Rename file";
+          silent = false;
         }
       ];
     };

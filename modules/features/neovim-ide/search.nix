@@ -9,6 +9,73 @@ _: {
               __unkeyed-1 = "<leader>s";
               group = "Search";
             }
+            {
+              __unkeyed-1 = "<leader><space>";
+              __unkeyed-2.__raw = "function() Snacks.picker.smart() end";
+              desc = "Smart Picker";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<leader>sg";
+              __unkeyed-2.__raw = "function() Snacks.picker.grep() end";
+              desc = "Grep Project";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<leader>sw";
+              __unkeyed-2.__raw = "function() Snacks.picker.grep_word() end";
+              desc = "Grep Word";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<leader>sg";
+              __unkeyed-2.__raw = "function() Snacks.picker.grep_word() end";
+              mode = ["x"];
+              desc = "Grep Visual";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<leader>sr";
+              __unkeyed-2.__raw = "function() Snacks.picker.recent() end";
+              desc = "Recent Files";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<leader>sp";
+              __unkeyed-2.__raw = "function() Snacks.picker.resume() end";
+              desc = "Resume Picker";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<leader>ss";
+              __unkeyed-2.__raw = "function() Snacks.picker.lsp_symbols() end";
+              desc = "Symbols";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<leader>sS";
+              __unkeyed-2.__raw = "function() Snacks.picker.lsp_workspace_symbols() end";
+              desc = "Symbols (Workspace)";
+              silent = false;
+            }
+            {
+              __unkeyed-1 = "<leader>sR";
+              __unkeyed-2.__raw = ''
+                function()
+                  local grug = require("grug-far")
+                  local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+                  grug.open({
+                    transient = true,
+                    prefills = {
+                      filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+                    },
+                  })
+                end
+              '';
+              mode = ["n" "x"];
+              desc = "Replace";
+              silent = false;
+            }
           ];
         };
 
@@ -28,92 +95,6 @@ _: {
           };
         };
       };
-
-      keymaps = [
-        {
-          mode = ["n"];
-          key = "<leader><space>";
-          action.__raw = "function() Snacks.picker.smart() end";
-          options = {
-            desc = "Smart Picker";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>sg";
-          action.__raw = "function() Snacks.picker.grep() end";
-          options = {
-            desc = "Grep Project";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>sw";
-          action.__raw = "function() Snacks.picker.grep_word() end";
-          options = {
-            desc = "Grep Word";
-          };
-        }
-        {
-          mode = ["x"];
-          key = "<leader>sg";
-          action.__raw = "function() Snacks.picker.grep_word() end";
-          options = {
-            desc = "Grep Visual";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>sr";
-          action.__raw = "function() Snacks.picker.recent() end";
-          options = {
-            desc = "Recent Files";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>sp";
-          action.__raw = "function() Snacks.picker.resume() end";
-          options = {
-            desc = "Resume Picker";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>ss";
-          action.__raw = "function() Snacks.picker.lsp_symbols() end";
-          options = {
-            desc = "Symbols";
-          };
-        }
-        {
-          mode = ["n"];
-          key = "<leader>sS";
-          action.__raw = "function() Snacks.picker.lsp_workspace_symbols() end";
-          options = {
-            desc = "Symbols (Workspace)";
-          };
-        }
-        {
-          mode = ["n" "x"];
-          key = "<leader>sR";
-          action.__raw = ''
-            function()
-              local grug = require("grug-far")
-              local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-              grug.open({
-                transient = true,
-                prefills = {
-                  filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-                },
-              })
-            end
-          '';
-          options = {
-            desc = "Replace";
-          };
-        }
-      ];
     };
   };
 }

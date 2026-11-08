@@ -25,6 +25,8 @@ _: {
             }
             {
               __unkeyed-1 = "gd";
+              __unkeyed-2.__raw = "function() Snacks.picker.lsp_definitions() end";
+              silent = false;
               mode = ["n"];
               desc = "Definition";
               icon = {
@@ -34,6 +36,9 @@ _: {
             }
             {
               __unkeyed-1 = "gr";
+              __unkeyed-2.__raw = "function() Snacks.picker.lsp_references() end";
+              nowait = true;
+              silent = false;
               mode = ["n"];
               desc = "Reference";
               icon = {
@@ -43,6 +48,8 @@ _: {
             }
             {
               __unkeyed-1 = "gI";
+              __unkeyed-2.__raw = "function() Snacks.picker.lsp_implementations() end";
+              silent = false;
               mode = ["n"];
               desc = "Implementation";
               icon = {
@@ -52,6 +59,8 @@ _: {
             }
             {
               __unkeyed-1 = "gy";
+              __unkeyed-2.__raw = "function() Snacks.picker.lsp_type_definitions() end";
+              silent = false;
               mode = ["n"];
               desc = "T[y]pe Definition";
               icon = {
@@ -61,6 +70,8 @@ _: {
             }
             {
               __unkeyed-1 = "gD";
+              __unkeyed-2.__raw = "function() Snacks.picker.lsp_declarations() end";
+              silent = false;
               mode = ["n"];
               desc = "Declaration";
               icon = {
@@ -70,6 +81,8 @@ _: {
             }
             {
               __unkeyed-1 = "K";
+              __unkeyed-2.__raw = "function() vim.lsp.buf.hover() end";
+              silent = false;
               mode = ["n"];
               desc = "Hover";
               icon = {
@@ -79,6 +92,8 @@ _: {
             }
             {
               __unkeyed-1 = "<leader>ca";
+              __unkeyed-2.__raw = "function() vim.lsp.buf.code_action() end";
+              silent = false;
               mode = ["n" "v"];
               desc = "Action";
               icon = {
@@ -88,6 +103,17 @@ _: {
             }
             {
               __unkeyed-1 = "<leader>cA";
+              __unkeyed-2.__raw = ''
+                function()
+                  vim.lsp.buf.code_action({
+                    context = {
+                      only = { "source" },
+                      diagnostics = {},
+                    },
+                  })
+                end
+              '';
+              silent = false;
               mode = ["n" "v"];
               desc = "Action (Source)";
               icon = {
@@ -97,6 +123,8 @@ _: {
             }
             {
               __unkeyed-1 = "<leader>cr";
+              __unkeyed-2.__raw = "function() vim.lsp.buf.rename() end";
+              silent = false;
               mode = ["n"];
               desc = "Rename Symbol";
               icon = {
@@ -106,6 +134,8 @@ _: {
             }
             {
               __unkeyed-1 = "gK";
+              __unkeyed-2.__raw = "function() vim.lsp.buf.signature_help() end";
+              silent = false;
               mode = ["n"];
               desc = "Signature Help";
               icon = {
@@ -115,6 +145,8 @@ _: {
             }
             {
               __unkeyed-1 = "<c-k>";
+              __unkeyed-2.__raw = "function() vim.lsp.buf.signature_help() end";
+              silent = false;
               mode = ["i"];
               desc = "Signature Help";
               icon = {
@@ -124,6 +156,12 @@ _: {
             }
             {
               __unkeyed-1 = "<c-f>";
+              __unkeyed-2.__raw = ''
+                function()
+                  require("conform").format({ async = false })
+                end
+              '';
+              silent = false;
               mode = ["n" "v"];
               desc = "Format";
               icon = {
@@ -134,97 +172,6 @@ _: {
           ];
         };
       };
-
-      keymaps = [
-        {
-          mode = ["n"];
-          key = "gd";
-          action.__raw = "function() Snacks.picker.lsp_definitions() end";
-          options = {desc = "Definition";};
-        }
-        {
-          mode = ["n"];
-          key = "gr";
-          action.__raw = "function() Snacks.picker.lsp_references() end";
-          options = {
-            desc = "Reference";
-            nowait = true;
-          };
-        }
-        {
-          mode = ["n"];
-          key = "gI";
-          action.__raw = "function() Snacks.picker.lsp_implementations() end";
-          options = {desc = "Implementation";};
-        }
-        {
-          mode = ["n"];
-          key = "gy";
-          action.__raw = "function() Snacks.picker.lsp_type_definitions() end";
-          options = {desc = "T[y]pe Definition";};
-        }
-        {
-          mode = ["n"];
-          key = "gD";
-          action.__raw = "function() Snacks.picker.lsp_declarations() end";
-          options = {desc = "Declaration";};
-        }
-        {
-          mode = ["n"];
-          key = "K";
-          action.__raw = "function() vim.lsp.buf.hover() end";
-          options = {desc = "Hover";};
-        }
-        {
-          mode = ["n" "v"];
-          key = "<leader>ca";
-          action.__raw = "function() vim.lsp.buf.code_action() end";
-          options = {desc = "Action";};
-        }
-        {
-          mode = ["n" "v"];
-          key = "<leader>cA";
-          action.__raw = ''
-            function()
-              vim.lsp.buf.code_action({
-                context = {
-                  only = { "source" },
-                  diagnostics = {},
-                },
-              })
-            end
-          '';
-          options = {desc = "Action (Source)";};
-        }
-        {
-          mode = ["n"];
-          key = "<leader>cr";
-          action.__raw = "function() vim.lsp.buf.rename() end";
-          options = {desc = "Rename Symbol";};
-        }
-        {
-          mode = ["n"];
-          key = "gK";
-          action.__raw = "function() vim.lsp.buf.signature_help() end";
-          options = {desc = "Signature Help";};
-        }
-        {
-          mode = ["i"];
-          key = "<c-k>";
-          action.__raw = "function() vim.lsp.buf.signature_help() end";
-          options = {desc = "Signature Help";};
-        }
-        {
-          mode = ["n" "v"];
-          key = "<c-f>";
-          action.__raw = ''
-            function()
-              require("conform").format({ async = false })
-            end
-          '';
-          options = {desc = "Format";};
-        }
-      ];
     };
   };
 }

@@ -12,27 +12,18 @@ _: {
         }
         {
           __unkeyed-1 = "<leader>yf";
-          desc = "Filepath (CWD)";
-          icon = {
-            icon = "󰉋";
-            color = "blue";
-          };
-        }
-      ];
-
-      keymaps = [
-        {
-          mode = ["n"];
-          key = "<leader>yf";
-          action.__raw = ''
+          __unkeyed-2.__raw = ''
             function()
               local path = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
               vim.fn.setreg("+", path)
               vim.notify("Yanked " .. path)
             end
           '';
-          options = {
-            desc = "Filepath (CWD)";
+          silent = false;
+          desc = "Filepath (CWD)";
+          icon = {
+            icon = "󰉋";
+            color = "blue";
           };
         }
       ];

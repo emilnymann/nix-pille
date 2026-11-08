@@ -19,11 +19,22 @@ _: {
             pattern = ["svelte"];
             callback.__raw = ''
               function(event)
-                vim.keymap.set("i", "<", "<", {
-                  buffer = event.buf,
-                  noremap = true,
-                  desc = "Insert < without auto-pairing in Svelte",
+                if vim.b[event.buf].which_key_svelte_mapping then
+                  return
+                end
+
+                require("which-key").add({
+                  {
+                    "<",
+                    "<",
+                    mode = "i",
+                    buffer = event.buf,
+                    noremap = true,
+                    silent = false,
+                    desc = "Insert < without auto-pairing in Svelte",
+                  },
                 })
+                vim.b[event.buf].which_key_svelte_mapping = true
               end
             '';
           }
