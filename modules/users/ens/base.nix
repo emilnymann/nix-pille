@@ -28,6 +28,8 @@
       };
     };
 
+    features.web-browser.program = "glide";
+
     xdg.enable = true;
     home.stateVersion = "26.05";
   };
