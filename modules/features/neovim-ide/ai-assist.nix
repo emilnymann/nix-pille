@@ -89,6 +89,7 @@ _: {
           {
             __unkeyed-1 = "<leader>af";
             __unkeyed-2.__raw = ''function() require("sidekick.cli").send({ name = "pi", msg = "{file}" }) end'';
+            mode = ["x" "n"];
             desc = "Send File";
             icon = {
               icon = "";
