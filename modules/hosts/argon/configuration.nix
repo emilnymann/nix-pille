@@ -28,6 +28,7 @@
       ];
 
       features.theming.colorscheme = "gruvbox-material-dark-medium";
+      features.gaming.dlsslop-amd.enable = true;
 
       environment.systemPackages = with pkgs; [
         sops
@@ -111,7 +112,17 @@
         };
       };
 
-      home-manager.users.ens = self.homeModules.ens;
+      home-manager.users.ens = {
+        imports = [self.homeModules.ens];
+
+        wayland.windowManager.hyprland.settings.monitor = {
+          output = "DP-1";
+          mode = "2560x1440@165";
+          position = "auto";
+          scale = 1;
+          vrr = 1;
+        };
+      };
 
       services.displayManager.autoLogin.user = "ens";
 
