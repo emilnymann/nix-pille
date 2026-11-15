@@ -22,6 +22,7 @@ _: {
     osConfig,
     pkgs,
     lib,
+    config,
     ...
   }: let
     power-menu = pkgs.writeShellScriptBin "power-menu" ''
@@ -64,7 +65,7 @@ _: {
         filechooser = {
           cmd = "yazi-wrapper.sh";
           default_dir = "$HOME";
-          env = "TERMCMD='ghostty -e'";
+          env = "TERMCMD='${config.features.terminal-emulator.bin} ${config.features.terminal-emulator.execFlag}'";
           open_mode = "suggested";
           save_mode = "suggested";
         };

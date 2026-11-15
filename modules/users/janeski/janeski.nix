@@ -15,9 +15,16 @@
       ];
     };
 
-    homeModules.janeski = {config, osConfig, lib, ...}: {
+    homeModules.janeski = {
+      config,
+      osConfig,
+      lib,
+      pkgs,
+      ...
+    }: {
       imports = with self.homeModules; [
         desktop
+        desktop-binds
         bluetooth
         file-browser
         web-browser
@@ -46,6 +53,108 @@
         colorscheme = "gruvbox-material-dark-medium";
         cursor = "BreezeX-Dark";
       };
+
+      programs.ghostty = {
+        clearDefaultKeybinds = true;
+        settings.keybind = [
+          "super+c=copy_to_clipboard"
+          "super+v=paste_from_clipboard"
+
+          "vim/"
+          "ctrl+g=activate_key_table:vim"
+          "vim/ctrl+g=deactivate_key_table"
+
+          "vim/shift+h=previous_tab"
+          "vim/shift+l=next_tab"
+          "vim/t>n=new_tab"
+          "vim/t>d=close_tab"
+
+          "vim/ctrl+h=goto_split:left"
+          "vim/ctrl+l=goto_split:right"
+          "vim/w>s=new_split:right"
+          "vim/w>shift+s=new_split:down"
+          "vim/w>d=close_surface"
+        ];
+      };
+
+      programs.ashell.settings = lib.mkIf osConfig.programs.hyprland.enable {
+        modules = {
+          left = [
+            "Workspaces"
+            "WindowTitle"
+          ];
+          center = [
+            "Tempo"
+            "MediaPlayer"
+          ];
+          right = [
+            "Tray"
+            "Notifications"
+            "SystemInfo"
+            "Settings"
+          ];
+        };
+
+        media_player.indicator_format = "IconAndTitle";
+        notifications.grouped = true;
+
+        settings = {
+          peripheral_indicators = "All";
+          audio_indicator_format = "IconAndPercentage";
+          indicators = [
+            "Audio"
+            "Microphone"
+            "Network"
+            "Bluetooth"
+            "PeripheralBattery"
+          ];
+          bluetooth_more_cmd = "${config.features.terminal-emulator.bin} ${config.features.terminal-emulator.execFlag} ${lib.getExe pkgs.bluetui}";
+        };
+
+        tempo.clock_format = "%R • %e";
+        tray.right_click = "Menu";
+
+        workspaces = {
+          disable_special_workspaces = true;
+          enable_workspace_filling = true;
+          max_workspaces = 9;
+          workspace_names = [
+            "一"
+            "二"
+            "三"
+            "四"
+            "五"
+            "六"
+            "七"
+            "八"
+            "九"
+            "十"
+          ];
+        };
+
+        osd.enabled = true;
+      };
+
+      wayland.windowManager.hyprland.settings.gesture = lib.mkIf osConfig.programs.hyprland.enable [
+        {
+          fingers = 3;
+          direction = "horizontal";
+          action = "workspace";
+          scale = 0.5;
+        }
+        {
+          fingers = 3;
+          direction = "vertical";
+          action = "special";
+          workspace_name = "scratch";
+          scale = 0.5;
+        }
+        {
+          fingers = 3;
+          direction = "pinch";
+          action = "fullscreen";
+        }
+      ];
 
       wayland.windowManager.hyprland.settings.config = lib.mkIf osConfig.programs.hyprland.enable {
         general = {

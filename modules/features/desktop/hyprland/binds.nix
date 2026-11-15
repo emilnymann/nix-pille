@@ -1,5 +1,5 @@
 _: {
-  flake.homeModules.desktop = {
+  flake.homeModules.desktop-binds = {
     osConfig,
     lib,
     pkgs,
@@ -52,6 +52,17 @@ _: {
   in
     lib.mkIf osConfig.programs.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
+        window_rule = [
+          {
+            name = "screenshot-annotate-overlay";
+            match.class = "^dev\\.ens\\.ScreenshotAnnotate$";
+            float = true;
+            center = true;
+            focus_on_activate = true;
+            stay_focused = true;
+          }
+        ];
+
         bind = let
           directionKeys = {
             H = "l";
