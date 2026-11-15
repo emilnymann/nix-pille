@@ -27,34 +27,8 @@ _: {
       ];
 
       wayland.windowManager.hyprland.settings.config = {
-        general = {
-          gaps_in = 4;
-          gaps_out = 4;
-        };
-
-        decoration = {
-          rounding = 8;
-        };
-
-        input = {
-          kb_model = "pc104";
-          kb_layout = "us";
-          kb_variant = "mac";
-          kb_options = "ctrl:nocaps,lv3:alt_switch";
-          repeat_delay = 450;
-          repeat_rate = 67;
-
-          touchpad = {
-            natural_scroll = true;
-          };
-        };
-
         misc = {
           vrr = 1;
-        };
-
-        cursor = {
-          inactive_timeout = 6;
         };
 
         binds = {
