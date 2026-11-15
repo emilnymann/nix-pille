@@ -26,6 +26,10 @@
         name = "Emil Nymann Sølyst";
         email = "emilnymann96@gmail.com";
       };
+      signing = {
+        behavior = "own";
+        backend = "gpg";
+      };
     };
 
     features.web-browser.program = "glide";

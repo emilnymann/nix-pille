@@ -8,10 +8,6 @@ _: {
       jujutsu = {
         enable = true;
         settings = {
-          signing = {
-            behavior = "own";
-            backend = "gpg";
-          };
           ui = {
             editor = ["nvim" "+$line"];
           };
