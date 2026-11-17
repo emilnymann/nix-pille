@@ -17,7 +17,7 @@
       enable = true;
       defaultEditor = true;
 
-      nixpkgs.config.allowUnfree = true;
+      nixpkgs.useGlobalPackages = true;
     };
   };
 }
