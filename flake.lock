@@ -311,6 +311,27 @@
         "type": "github"
       }
     },
+    "hyprmac": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795017700,
+        "narHash": "sha256-r6lHKSIMy6+h/H2lRf9NqMWCR8m49zgJ+68KUbI2ECc=",
+        "owner": "emilnymann",
+        "repo": "HyprMac-contrib",
+        "rev": "402e8362b26e3faa54de8399e39157ace8a9789e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emilnymann",
+        "ref": "push-lzoqlxmrokyr",
+        "repo": "HyprMac-contrib",
+        "type": "github"
+      }
+    },
     "import-tree": {
       "locked": {
         "lastModified": 1788467110,
@@ -474,6 +495,7 @@
         "flake-parts": "flake-parts",
         "glide": "glide",
         "home-manager": "home-manager",
+        "hyprmac": "hyprmac",
         "import-tree": "import-tree",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",

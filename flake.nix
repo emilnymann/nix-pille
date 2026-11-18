@@ -47,6 +47,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprmac = {
+      url = "github:emilnymann/HyprMac-contrib/push-lzoqlxmrokyr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     import-tree.url = "github:vic/import-tree";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";

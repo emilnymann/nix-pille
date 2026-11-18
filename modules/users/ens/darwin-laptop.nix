@@ -6,6 +6,7 @@
   flake.homeModules.ens-darwin-laptop = {pkgs, ...}: {
     imports = with self.homeModules; [
       ens-base
+      hyprmac
       file-browser
       web-browser
       terminal-emulator
