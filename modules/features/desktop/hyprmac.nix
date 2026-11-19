@@ -55,6 +55,8 @@
         focusBorderColorHex = "7daea3";
         floatingBorderColorHex = "d3869b";
         focusBracketColorHex = "d8a657";
+        focusBracketStyle = "off";
+        showFocusBorder = true;
 
         excludedBundleIDs = [
           "com.apple.FaceTime"
