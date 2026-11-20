@@ -186,12 +186,12 @@
         openaiVerbosity = "low";
 
         defaultProvider = "github-copilot";
-        defaultModel = "gpt-6-luna";
-        defaultThinkingLevel = "xhigh";
+        defaultModel = "gemini-4-hydrogen";
         enabledModels = [
           "gpt-6-luna"
           "claude-haiku-4.5"
-          "gemini-4-argon"
+          "gemini-4-carbon"
+          "gemini-4-hydrogen"
         ];
 
         packages = [
@@ -221,13 +221,6 @@
             secondary = ["extension_statuses"];
           };
         };
-      };
-
-      keybindings = {
-        "tui.editor.historyNext" = ["ctrl+n" "down"];
-        "tui.editor.historyPrevious" = ["ctrl+p" "up"];
-        "tui.editor.newLine" = ["enter"];
-        "tui.editor.submit" = ["ctrl+enter"];
       };
     };
 
@@ -262,6 +255,7 @@
           url = "https://mcp.context7.com/mcp/oauth";
         };
       };
+      ".pi/agent/AGENTS.md".source = ./agent-instructions.md;
     };
 
     xdg.enable = true;
