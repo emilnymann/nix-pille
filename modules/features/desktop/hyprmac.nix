@@ -1,6 +1,6 @@
 {inputs, ...}: {
   flake-file.inputs.hyprmac = {
-    url = "github:emilnymann/HyprMac-contrib/push-lzoqlxmrokyr";
+    url = "github:zacharytgray/HyprMac/nix/flake-and-module";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 

@@ -318,17 +318,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1795017700,
-        "narHash": "sha256-r6lHKSIMy6+h/H2lRf9NqMWCR8m49zgJ+68KUbI2ECc=",
-        "owner": "emilnymann",
-        "repo": "HyprMac-contrib",
-        "rev": "402e8362b26e3faa54de8399e39157ace8a9789e",
+        "lastModified": 1795114739,
+        "narHash": "sha256-n9cAw5xARxm9rP60yvqE3m83CcKk0olUIGCU7aoIfXw=",
+        "owner": "zacharytgray",
+        "repo": "HyprMac",
+        "rev": "b24c4506bede39fa508f09a5e3e0aa4b04a00765",
         "type": "github"
       },
       "original": {
-        "owner": "emilnymann",
-        "ref": "push-lzoqlxmrokyr",
-        "repo": "HyprMac-contrib",
+        "owner": "zacharytgray",
+        "ref": "nix/flake-and-module",
+        "repo": "HyprMac",
         "type": "github"
       }
     },
