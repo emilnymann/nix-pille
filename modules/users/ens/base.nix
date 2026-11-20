@@ -250,9 +250,13 @@
         icons.warning = "";
       };
       ".pi/agent/mcp.json".source = jsonFormat.generate "pi-mcp-config.json" {
-        mcpServers.context7 = {
-          enabled = true;
-          url = "https://mcp.context7.com/mcp/oauth";
+        mcpServers = {
+          context7 = {
+            url = "https://mcp.context7.com/mcp/oauth";
+          };
+          linear = {
+            url = "https://mcp.linear.app/mcp";
+          };
         };
       };
       ".pi/agent/AGENTS.md".source = ./agent-instructions.md;
