@@ -43,11 +43,14 @@
         };
       };
 
-      environment.systemPackages = [
-        pkgs.bottles
-      ] ++ lib.optionals config.features.gaming.dlsslop-amd.enable [
-        self.packages.${pkgs.stdenv.hostPlatform.system}.dlsslop-amd
-      ];
+      environment.systemPackages =
+        [
+          pkgs.bottles
+          pkgs.cemu
+        ]
+        ++ lib.optionals config.features.gaming.dlsslop-amd.enable [
+          self.packages.${pkgs.stdenv.hostPlatform.system}.dlsslop-amd
+        ];
     };
   };
 }
