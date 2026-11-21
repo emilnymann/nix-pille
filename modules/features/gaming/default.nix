@@ -8,6 +8,7 @@
       dlsslop-amd = pkgs.callPackage ../../../pkgs/dlsslop-amd.nix {
         src = inputs.dlsslop-amd;
       };
+      wiiudownloader = pkgs.callPackage ../../../pkgs/wiiudownloader.nix {};
     };
   };
 
@@ -47,6 +48,9 @@
         [
           pkgs.bottles
           pkgs.cemu
+        ]
+        ++ lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
+          self.packages.${pkgs.stdenv.hostPlatform.system}.wiiudownloader
         ]
         ++ lib.optionals config.features.gaming.dlsslop-amd.enable [
           self.packages.${pkgs.stdenv.hostPlatform.system}.dlsslop-amd
