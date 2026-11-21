@@ -1,13 +1,12 @@
 {inputs, ...}: {
   flake-file.inputs.hyprmac = {
-    url = "github:zacharytgray/HyprMac/nix/flake-and-module";
+    url = "github:zacharytgray/HyprMac";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
   flake.homeModules.hyprmac = {
     config,
     lib,
-    pkgs,
     ...
   }: let
     browserBundleId =

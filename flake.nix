@@ -48,7 +48,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprmac = {
-      url = "github:zacharytgray/HyprMac/nix/flake-and-module";
+      url = "github:zacharytgray/HyprMac";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:vic/import-tree";
