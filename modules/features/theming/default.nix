@@ -116,6 +116,7 @@ in {
     config = {
       stylix = {
         enable = true;
+        targets.wayprompt.enable = false;
         overlays.enable = false;
         polarity = theme.polarity;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme.file}";
