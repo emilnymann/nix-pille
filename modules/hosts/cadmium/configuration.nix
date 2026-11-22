@@ -35,6 +35,8 @@
         networkmanager.enable = true;
       };
 
+      services.openssh.enable = true;
+
       security = {
         sudo.enable = true;
         polkit.enable = true;

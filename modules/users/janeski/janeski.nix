@@ -48,7 +48,7 @@
       stylix.targets.firefox.profileNames = [config.home.username];
 
       features.theming = {
-        colorscheme = "gruvbox-material-dark-medium";
+        colorscheme = "atlas";
         cursor = "BreezeX-Dark";
       };
 
