@@ -33,9 +33,31 @@
       networking = {
         hostName = "cadmium";
         networkmanager.enable = true;
+        nftables.enable = true;
+        firewall.extraInputRules = ''
+          ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 169.254.0.0/16 } tcp dport 22 accept
+          ip6 saddr { fc00::/7, fe80::/10 } tcp dport 22 accept
+        '';
       };
 
-      services.openssh.enable = true;
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+        settings.publish = {
+          disable-publishing = false;
+          publish-addresses = true;
+        };
+      };
+
+      services.openssh = {
+        enable = true;
+        openFirewall = false;
+        settings = {
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+        };
+      };
 
       security = {
         sudo.enable = true;
@@ -70,10 +92,13 @@
       };
 
       nix = {
-        settings.experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
+        settings = {
+          experimental-features = [
+            "nix-command"
+            "flakes"
+          ];
+          trusted-users = ["root" "@wheel"];
+        };
         optimise.automatic = true;
         gc = {
           automatic = true;
@@ -103,6 +128,10 @@
           ];
 
           shell = pkgs.fish;
+
+          openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHp2+MUwKg4vv7M2I5kyCWwlmyKQL++/VasEqj7/GFhC openpgp:0x2FF97ABE"
+          ];
         };
       };
 
@@ -110,7 +139,10 @@
 
       services.displayManager.autoLogin.user = "janeski";
 
-      services.resolved.enable = true;
+      services.resolved = {
+        enable = true;
+        settings.Resolve.MulticastDNS = false;
+      };
     };
   };
 }

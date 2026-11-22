@@ -40,7 +40,11 @@
 
       networking = {
         hostName = "argon";
-        networkmanager.enable = true;
+        networkmanager = {
+          enable = true;
+          connectionConfig."connection.mdns" = 1;
+        };
+        firewall.allowedUDPPorts = [5353];
       };
 
       security = {
@@ -126,7 +130,10 @@
 
       services.displayManager.autoLogin.user = "ens";
 
-      services.resolved.enable = true;
+      services.resolved = {
+        enable = true;
+        settings.Resolve.MulticastDNS = "resolve";
+      };
     };
   };
 }

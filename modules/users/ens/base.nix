@@ -32,6 +32,15 @@
       };
     };
 
+    programs.ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      settings.cadmium = {
+        HostName = "cadmium.local";
+        User = "janeski";
+      };
+    };
+
     features.web-browser.program = "glide";
     features.theming.colorscheme = "gruvbox-material-dark-medium";
 
