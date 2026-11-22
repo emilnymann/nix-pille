@@ -135,7 +135,17 @@
         };
       };
 
-      home-manager.users.janeski = self.homeModules.janeski;
+      home-manager.users.janeski = {
+        imports = [self.homeModules.janeski];
+
+        wayland.windowManager.hyprland.settings.monitor = {
+          output = "DP-2";
+          mode = "2560x1440@165";
+          position = "auto";
+          scale = 1;
+          vrr = 1;
+        };
+      };
 
       services.displayManager.autoLogin.user = "janeski";
 
