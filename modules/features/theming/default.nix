@@ -3,7 +3,20 @@
     gruvbox-material-dark-medium = {
       polarity = "dark";
       file = "gruvbox-material-dark-medium.yaml";
-      nixvim = "gruvbox-material";
+      nixvim = {
+        scheme = "gruvbox-material";
+        extraConfig = {};
+      };
+    };
+    atlas = {
+      polarity = "dark";
+      file = "atlas.yaml";
+      nixvim = {
+        scheme = "base16";
+        extraConfig = {
+          colorscheme = "atlas";
+        };
+      };
     };
   };
 
@@ -109,10 +122,13 @@ in {
         fonts = fonts pkgs;
       };
 
-      programs.nixvim.colorschemes.${theme.nixvim} = lib.mkIf nixvimEnabled {
-        enable = true;
-        autoLoad = true;
-      };
+      programs.nixvim.colorschemes.${theme.nixvim.scheme} = lib.mkIf nixvimEnabled (
+        {
+          enable = true;
+          autoLoad = true;
+        }
+        // theme.nixvim.extraConfig
+      );
 
       home.pointerCursor = lib.mkIf (cfg.cursor != null && pkgs.stdenv.hostPlatform.isLinux) {
         enable = true;
