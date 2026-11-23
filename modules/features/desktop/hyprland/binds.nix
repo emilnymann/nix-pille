@@ -116,12 +116,53 @@ _: {
               ];
             }
 
-            # Windows
+            # Windows & Apps
             {
               _args = [
                 "SUPER + W"
                 (lib.generators.mkLuaInline "hl.dsp.window.close()")
                 {description = "Close active window";}
+              ];
+            }
+            {
+              _args = [
+                "SUPER + Q"
+                (lib.generators.mkLuaInline "hl.dsp.window.signal({ signal = 15 })")
+                {description = "Quit active application";}
+              ];
+            }
+            {
+              _args = [
+                "SUPER + C"
+                (lib.generators.mkLuaInline ''
+                  function()
+                    local win = hl.get_active_window()
+                    local cls = win and win.class or ""
+                    local mods = (cls == "com.mitchellh.ghostty") and "CTRL + SHIFT" or "CTRL"
+                    hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = "C", state = "down" }))
+                    hl.timer(function()
+                      hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = "C", state = "up" }))
+                    end, { timeout = 20, type = "oneshot" })
+                  end
+                '')
+                {description = "Copy";}
+              ];
+            }
+            {
+              _args = [
+                "SUPER + V"
+                (lib.generators.mkLuaInline ''
+                  function()
+                    local win = hl.get_active_window()
+                    local cls = win and win.class or ""
+                    local mods = (cls == "com.mitchellh.ghostty") and "CTRL + SHIFT" or "CTRL"
+                    hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = "V", state = "down" }))
+                    hl.timer(function()
+                      hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = "V", state = "up" }))
+                    end, { timeout = 20, type = "oneshot" })
+                  end
+                '')
+                {description = "Paste";}
               ];
             }
             {

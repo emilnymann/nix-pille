@@ -18,7 +18,7 @@
     yaziCmd = "${term.bin} ${term.titleFlag}yazi ${term.execFlag} ${lib.getExe config.programs.yazi.finalPackage}";
 
     # Modifier bitmask: 1 = Hypr, 2 = Shift, 4 = Option, 8 = Control, 16 = Command.
-    # Carbon kVK_* codes: H=4, J=38, K=40, L=37, Return=36, B=11, F=3, O=31, '=39, /=44.
+    # Carbon kVK_* codes: H=4, J=38, K=40, L=37, Return=36, B=11, F=3, O=31, W=13, '=39, /=44.
     hjklDirections = [
       {
         keyCode = 4;
@@ -131,6 +131,12 @@
               keyCode = 40;
               modifiers = 5;
               action.showKeybinds = {};
+            }
+            # Hypr + W -> Close window (explicitly keep default so HyprMac handles it on Left Cmd too)
+            {
+              keyCode = 13;
+              modifiers = 1;
+              action.closeWindow = {};
             }
             # Hypr + ' -> Toggle scratchpad
             {
