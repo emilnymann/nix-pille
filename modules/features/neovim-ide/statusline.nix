@@ -34,6 +34,11 @@ _: {
 
               lualine_x = [
                 {
+                  __unkeyed-1.__raw = ''function() return require("noice").api.status.mode.get() end'';
+                  cond.__raw = ''function() return package.loaded["noice"] and require("noice").api.status.mode.has() end'';
+                  color.__raw = ''function() return { fg = Snacks.util.color("Constant") } end'';
+                }
+                {
                   __unkeyed-1.__raw = ''function() return require("noice").api.status.command.get() end'';
                   cond.__raw = ''function() return package.loaded["noice"] and require("noice").api.status.command.has() end'';
                   color.__raw = ''function() return { fg = Snacks.util.color("Statement") } end'';
