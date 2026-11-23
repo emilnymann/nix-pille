@@ -15,6 +15,8 @@
       aws-cli
     ];
 
+    programs.google-chrome.enable = true;
+
     programs.glide-browser.profiles = {
       work = {
         id = 0;
