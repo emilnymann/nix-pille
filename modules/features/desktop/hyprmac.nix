@@ -18,7 +18,7 @@
     yaziCmd = "${term.bin} ${term.titleFlag}yazi ${term.execFlag} ${lib.getExe config.programs.yazi.finalPackage}";
 
     # Modifier bitmask: 1 = Hypr, 2 = Shift, 4 = Option, 8 = Control, 16 = Command.
-    # Carbon kVK_* codes: H=4, J=38, K=40, L=37, Return=36, B=11, F=3, O=31, /=44.
+    # Carbon kVK_* codes: H=4, J=38, K=40, L=37, Return=36, B=11, F=3, O=31, '=39, /=44.
     hjklDirections = [
       {
         keyCode = 4;
@@ -131,6 +131,18 @@
               keyCode = 40;
               modifiers = 5;
               action.showKeybinds = {};
+            }
+            # Hypr + ' -> Toggle scratchpad
+            {
+              keyCode = 39;
+              modifiers = 1;
+              action.toggleScratchpad = {};
+            }
+            # Hypr + Shift + ' -> Move window to scratchpad
+            {
+              keyCode = 39;
+              modifiers = 3;
+              action.moveToScratchpad = {};
             }
           ];
       };
