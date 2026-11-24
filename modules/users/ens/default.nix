@@ -15,11 +15,27 @@
       ];
     };
 
-    homeModules.ens = {
+    homeModules.ens = _: {
       imports = with self.homeModules; [
-        ens-base
-        ens-linux-desktop
+        bluetooth
+        coding-agent
+        coding-agent-cursor
+        desktop
+        desktop-binds
+        file-browser
+        music-player
+        neovim-ide
+        nix-helper
+        password-manager
+        smart-shell
+        terminal-emulator
+        theming
+        version-control
+        web-browser
       ];
+
+      xdg.enable = true;
+      home.stateVersion = "26.05";
     };
   };
 }

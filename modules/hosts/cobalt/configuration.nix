@@ -30,7 +30,7 @@
 
       home-manager.users.ens = {
         imports = [
-          self.homeModules.ens-darwin-laptop
+          self.homeModules.ens
         ];
 
         home.username = "ens";
