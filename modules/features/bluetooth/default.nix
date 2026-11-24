@@ -14,11 +14,11 @@ _: {
   flake.homeModules.bluetooth =
     {
       pkgs,
-      osConfig,
+      osConfig ? {},
       lib,
       ...
     }:
-    lib.mkIf osConfig.hardware.bluetooth.enable {
+    lib.mkIf (lib.attrByPath ["hardware" "bluetooth" "enable"] false osConfig) {
       home.packages = with pkgs; [
         bluetui
       ];

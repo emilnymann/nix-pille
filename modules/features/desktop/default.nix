@@ -19,12 +19,13 @@ _: {
   };
 
   flake.homeModules.desktop = {
-    osConfig,
+    osConfig ? {},
     pkgs,
     lib,
     config,
     ...
   }: let
+    hyprlandEnabled = lib.attrByPath ["programs" "hyprland" "enable"] false osConfig;
     power-menu = pkgs.writeShellScriptBin "power-menu" ''
       choice=$(printf 'Shutdown\nReboot' | ${lib.getExe pkgs.vicinae} dmenu)
 
@@ -34,7 +35,7 @@ _: {
       esac
     '';
   in
-    lib.mkIf osConfig.programs.hyprland.enable {
+    lib.mkIf hyprlandEnabled {
       wayland.windowManager.hyprland = {
         enable = true;
         settings = {

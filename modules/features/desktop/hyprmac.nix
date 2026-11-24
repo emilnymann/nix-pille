@@ -4,9 +4,10 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  flake.homeModules.hyprmac = {
+  flake.homeModules.desktop = {
     config,
     lib,
+    pkgs,
     ...
   }: let
     browserBundleId =
@@ -40,7 +41,7 @@
   in {
     imports = [inputs.hyprmac.homeManagerModules.default];
 
-    programs.hyprmac = {
+    programs.hyprmac = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
       enable = true;
       launchd.enable = true;
 

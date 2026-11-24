@@ -1,10 +1,11 @@
 _: {
   flake.homeModules.desktop-binds = {
-    osConfig,
+    osConfig ? {},
     lib,
     pkgs,
     ...
   }: let
+    hyprlandEnabled = lib.attrByPath ["programs" "hyprland" "enable"] false osConfig;
     screenshotFullscreenCopy = pkgs.writeShellScriptBin "screenshot-fullscreen-copy" ''
       set -euo pipefail
       ${lib.getExe pkgs.grim} - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"} --type image/png
@@ -50,7 +51,7 @@ _: {
             --output-filename "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
     '';
   in
-    lib.mkIf osConfig.programs.hyprland.enable {
+    lib.mkIf hyprlandEnabled {
       wayland.windowManager.hyprland.settings = {
         window_rule = [
           {
