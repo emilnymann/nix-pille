@@ -23,11 +23,6 @@
         isDefault = true;
         name = "work";
       };
-      private = {
-        id = 1;
-        isDefault = false;
-        name = "private";
-      };
     };
 
     home.packages = with pkgs; [
