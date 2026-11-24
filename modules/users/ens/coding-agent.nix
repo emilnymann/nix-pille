@@ -8,11 +8,19 @@ _: {
 
         defaultProvider = "github-copilot";
         defaultModel = "gemini-4-carbon";
+        modelThinkingLevels = {
+          "github-copilot/gemini-4-neon" = "high";
+        };
         enabledModels = [
           "gemini-4-neon"
           "gemini-4-carbon"
           "gemini-4-hydrogen"
         ];
+
+        subagents = {
+          defaultProvider = "github-copilot";
+          defaultModel = "gemini-4-hydrogen";
+        };
 
         packages = [
           "npm:pi-rtk-optimizer"
