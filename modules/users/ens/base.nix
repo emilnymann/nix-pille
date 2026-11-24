@@ -199,10 +199,9 @@
         openaiVerbosity = "low";
 
         defaultProvider = "github-copilot";
-        defaultModel = "gemini-4-hydrogen";
+        defaultModel = "gemini-4-carbon";
         enabledModels = [
-          "gpt-6-luna"
-          "claude-haiku-4.5"
+          "gemini-4-neon"
           "gemini-4-carbon"
           "gemini-4-hydrogen"
         ];
