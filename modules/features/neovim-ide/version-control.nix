@@ -25,7 +25,7 @@ _: {
         jj = {
           enable = true;
           settings = {
-            editor.window.type = "floating";
+            editor.window.type = "hsplit";
           };
         };
       };
