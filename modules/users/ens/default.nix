@@ -19,7 +19,6 @@
       imports = with self.homeModules; [
         bluetooth
         coding-agent
-        coding-agent-cursor
         desktop
         desktop-binds
         file-browser
