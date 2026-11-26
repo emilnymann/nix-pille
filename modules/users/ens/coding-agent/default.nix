@@ -7,13 +7,13 @@ _: {
         openaiVerbosity = "low";
 
         defaultProvider = "github-copilot";
-        defaultModel = "gemini-4-carbon";
+        defaultModel = "gemini-4-neon";
+        defaultThinkingLevel = "xhigh";
         modelThinkingLevels = {
-          "github-copilot/gemini-4-neon" = "high";
+          "github-copilot/gemini-4-neon" = "xhigh";
         };
         enabledModels = [
           "gemini-4-neon"
-          "gemini-4-carbon"
           "gemini-4-hydrogen"
         ];
 
