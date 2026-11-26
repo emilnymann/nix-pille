@@ -89,6 +89,7 @@ _: {
       };
       ".pi/agent/AGENTS.md".source = ./agent-instructions.md;
       ".pi/agent/skills/orchestrator/SKILL.md".source = ./skills/orchestrator/SKILL.md;
+      ".pi/agent/skills/pr-overview/SKILL.md".source = ./skills/pr-overview/SKILL.md;
     };
   };
 }
