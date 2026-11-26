@@ -22,10 +22,16 @@ _: {
       gh = {
         enable = true;
       };
+
+      tuicr = {
+        enable = true;
+        settings = {
+          editor = "nvim";
+        };
+      };
     };
 
     home.packages = with pkgs; [
-      tuicr
       blazingjj
     ];
   };
