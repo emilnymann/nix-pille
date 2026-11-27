@@ -152,29 +152,24 @@ _: {
         {
           trash_ids = [
             # Unwanted
-            "cae4ca30163749b891686f95532519bd" # AV1
-            "b6832f586342ef70d9c128d40c07b872" # Dual groups
-            "b8cd450cbfa689c0259a01d9e29ba3d6" # 3D
-            "ed38b889b31be83fda192888e2286d83" # BR-DISK
-            "e6886871085226c3da1830830146846c" # Generated HDR
-            "c465ccc73923871b3eb1802042331306" # Line/Mic Dubbed
-            "90a6f9a284dff5103f6346090e6280c8" # Low-qual
-            "ae9b7c9ebde1f3bd336a8cbd1ec4c5e5" # Stripped group
-            "bfd8eb01832d646a0a89c4deb46f8564" # Upscaled
+            "15a05bc7c1a36e2b57fd628f8977e2fc" # AV1
+            "32b367365729d530ca1c124a0b180c64" # Bad Dual Groups
+            "85c61753df5da1fb2aab6f2a47426b09" # BR-DISK
+            "9c11cd3f07101cdba90a2d81cf0e56b4" # LQ
+            "82d40da2bc6923f41e14394075dd4b03" # No-RlsGroup
+            "23297a736ca77c0fc8e70f8edd7ee56c" # Upscaled
 
             # Language
-            "d6e9318c875905d6cfb5bee961afcea9" # Original only
+            "ae575f95ab639ba5d15f663bf019e3e8" # Original only
 
             # High-qual groups
-            "3a3ff47579026e76d6504ebea39390de" # RMX T1
-            "9f98181fe5a3fbeb0cc29340da2a468a" # RMX T2
-            "8baaf0b3142bf4d94c42a724f034e27a" # RMX T3
-            "ed27ebfef2f323e964fb1f61391bcb35" # HD BR T1
-            "c20c8647f2746a1f4c4262b0fbbeeeae" # HD BR T2
-            "5608c71bcebba0a5e666223bae8c9227" # HD BR T3
-            "c20f169ef63c5f40c2def54abaf4438e" # WEB T1
-            "403816d65392c79236dcb6dd591aeda4" # WEB T2
-            "af94e0fe497124d1f9ce732069ec8c3b" # WEB T3
+            "9965a052eb87b0d10313b1cea89eb451" # RMX T1
+            "8a1d0c3d7497e741736761a1da866a2e" # RMX T2
+            "d6819cba26b1a6508138d25fb5e32293" # HD BR T1
+            "c2216b7b8aa545dc1ce8388c618f8d57" # HD BR T2
+            "e6258996055b9fbab7e9cb2f75819294" # WEB T1
+            "58790d4e2fdcd9733aa7ae68ba2bb503" # WEB T2
+            "d84935abd3f8556dcd51d4f27e22d0a6" # WEB T3
           ];
           assign_scores_to = [
             {name = "HD";}
@@ -310,29 +305,24 @@ _: {
             "0c4b99df9206d2cfac3c05ab897dd62a" # HDR10+ Boost
 
             # Unwanted
-            "cae4ca30163749b891686f95532519bd" # AV1
-            "b6832f586342ef70d9c128d40c07b872" # Dual groups
-            "b8cd450cbfa689c0259a01d9e29ba3d6" # 3D
-            "ed38b889b31be83fda192888e2286d83" # BR-DISK
-            "e6886871085226c3da1830830146846c" # Generated HDR
-            "c465ccc73923871b3eb1802042331306" # Line/Mic Dubbed
-            "90a6f9a284dff5103f6346090e6280c8" # Low-qual
-            "ae9b7c9ebde1f3bd336a8cbd1ec4c5e5" # Stripped group
-            "bfd8eb01832d646a0a89c4deb46f8564" # Upscaled
+            "15a05bc7c1a36e2b57fd628f8977e2fc" # AV1
+            "32b367365729d530ca1c124a0b180c64" # Bad Dual Groups
+            "85c61753df5da1fb2aab6f2a47426b09" # BR-DISK
+            "9c11cd3f07101cdba90a2d81cf0e56b4" # LQ
+            "82d40da2bc6923f41e14394075dd4b03" # No-RlsGroup
+            "23297a736ca77c0fc8e70f8edd7ee56c" # Upscaled
 
             # Language
-            "d6e9318c875905d6cfb5bee961afcea9" # Original only
+            "ae575f95ab639ba5d15f663bf019e3e8" # Original only
 
             # High-qual groups
-            "3a3ff47579026e76d6504ebea39390de" # RMX T1
-            "9f98181fe5a3fbeb0cc29340da2a468a" # RMX T2
-            "8baaf0b3142bf4d94c42a724f034e27a" # RMX T3
-            "ed27ebfef2f323e964fb1f61391bcb35" # HD BR T1
-            "c20c8647f2746a1f4c4262b0fbbeeeae" # HD BR T2
-            "5608c71bcebba0a5e666223bae8c9227" # HD BR T3
-            "c20f169ef63c5f40c2def54abaf4438e" # WEB T1
-            "403816d65392c79236dcb6dd591aeda4" # WEB T2
-            "af94e0fe497124d1f9ce732069ec8c3b" # WEB T3
+            "9965a052eb87b0d10313b1cea89eb451" # RMX T1
+            "8a1d0c3d7497e741736761a1da866a2e" # RMX T2
+            "d6819cba26b1a6508138d25fb5e32293" # HD BR T1
+            "c2216b7b8aa545dc1ce8388c618f8d57" # HD BR T2
+            "e6258996055b9fbab7e9cb2f75819294" # WEB T1
+            "58790d4e2fdcd9733aa7ae68ba2bb503" # WEB T2
+            "d84935abd3f8556dcd51d4f27e22d0a6" # WEB T3
           ];
           assign_scores_to = [
             {name = "UHD";}
