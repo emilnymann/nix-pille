@@ -52,6 +52,12 @@ _: {
       };
     };
 
+    features.coding-agent.mcpServers = {
+      context7 = {
+        url = "https://mcp.context7.com/mcp/oauth";
+      };
+    };
+
     home.file = let
       jsonFormat = pkgs.formats.json {};
     in {
@@ -76,16 +82,6 @@ _: {
           border = "borderMuted";
         };
         icons.warning = "";
-      };
-      ".pi/agent/mcp.json".source = jsonFormat.generate "pi-mcp-config.json" {
-        mcpServers = {
-          context7 = {
-            url = "https://mcp.context7.com/mcp/oauth";
-          };
-          linear = {
-            url = "https://mcp.linear.app/mcp";
-          };
-        };
       };
       ".pi/agent/AGENTS.md".source = ./agent-instructions.md;
       ".pi/agent/skills/orchestrator/SKILL.md".source = ./skills/orchestrator/SKILL.md;
