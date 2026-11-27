@@ -15,6 +15,10 @@ _: {
           typescript = ["biome"];
           typescriptreact = ["biome"];
         };
+
+        plugins.ts-autotag = {
+          enable = true;
+        };
       };
     };
   };
