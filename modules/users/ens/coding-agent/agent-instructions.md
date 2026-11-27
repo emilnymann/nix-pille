@@ -7,3 +7,4 @@
 ## Pull Requests
 - Keep descriptions concise and readable: plain prose with short bullets, avoiding walls of inline code, bold text, or backticks.
 - Omit redundant issue references in the body when the PR title or branch already links the issue.
+- Do not reply to bot review comments (e.g. CodeRabbit); just address relevant findings in code.

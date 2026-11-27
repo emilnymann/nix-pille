@@ -9,10 +9,11 @@ disable-model-invocation: true
 You are authorized and expected to act as an orchestrator using `subagent` (`github-copilot/gemini-4-hydrogen` default):
 - Plan, decompose, coordinate, integrate `jj` revisions, and verify in the parent.
 - Delegate discovery (`scout`), implementation (`worker`), research (`researcher`), and review (`reviewer`) by default; handle only quick spot-checks or trivial single-step edits directly when spawning a subagent is clearly unnecessary overhead.
-- Maximize parallelism and pipeline aggressively:
+- Maximize parallelism and pipeline aggressively using the `todo` dependency graph:
+  - Model real ordering constraints with `todo` `blockedBy` (only add a dependency when an item genuinely cannot start without another item's output). Treat every unblocked `pending` item as eligible to run in parallel immediately, and launch newly unblocked items as soon as their prerequisites complete.
   - Structure plans into independent slices with disjoint file ownership whenever possible, and run independent `scout`, `worker` (each in its own `jj` workspace), `researcher`, and `reviewer` tasks concurrently instead of sequentially.
-  - Overlap review/validation with downstream work: as soon as a revision lands, launch `reviewer` / validation on it **in parallel** with the next `worker` (e.g. writing docs, tests, or the next slice in a separate `jj` workspace) rather than waiting for review to finish first.
-  - Launch loosely coupled work (like docs, tests, or consumers with a settled contract) speculatively in parallel. If review or checks uncover a mistake while a speculative subagent is running, update it with `subagent({ action: "steer", id, message })`, or `stop` it, abandon its workspace, and redo.
+  - Overlap review/validation with downstream work: as soon as a revision lands, launch `reviewer` / validation on it **in parallel** with unblocked downstream `worker`s (e.g. writing docs, tests, or the next slice in a separate `jj` workspace) rather than waiting for review to finish first.
+  - Launch loosely coupled work (like docs, tests, or consumers with a settled contract) speculatively in parallel—do not artificially block them on implementation or review. If review or checks uncover a mistake while a speculative subagent is running, update it with `subagent({ action: "steer", id, message })`, or `stop` it, abandon its workspace, and redo.
 - Reuse scout results and artifacts rather than re-scouting the same files; pass collected context paths/findings directly to `worker` and `reviewer` briefs.
 - Complete all todo items end-to-end without waiting for user review between items; the user will review all revisions after everything is finished.
 - Override the default one-`in_progress` todo rule when delegating in parallel: mark every active delegated item `in_progress` at launch and `completed` as soon as its revision is integrated and verified.
