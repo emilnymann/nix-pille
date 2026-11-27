@@ -33,7 +33,10 @@
 
       environment.systemPackages = with pkgs; [ghostty.terminfo btop];
 
-      networking.useDHCP = false;
+      networking = {
+        hostName = "xenon";
+        useDHCP = false;
+      };
       systemd.network = {
         enable = true;
         networks."10-wan" = {
@@ -103,10 +106,13 @@
       };
 
       nix = {
-        settings.experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
+        settings = {
+          experimental-features = [
+            "nix-command"
+            "flakes"
+          ];
+          trusted-users = ["root" "@wheel"];
+        };
         optimise.automatic = true;
         gc = {
           automatic = true;

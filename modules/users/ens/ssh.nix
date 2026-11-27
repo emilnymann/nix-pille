@@ -3,9 +3,15 @@ _: {
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      settings.cadmium = {
-        HostName = "cadmium.local";
-        User = "janeski";
+      settings = {
+        cadmium = {
+          HostName = "cadmium.local";
+          User = "janeski";
+        };
+        xenon = {
+          HostName = "emns.dev";
+          User = "ens";
+        };
       };
     };
   };
