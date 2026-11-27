@@ -129,8 +129,17 @@ _: {
               qualities = ["WEBDL-1080p" "WEBRip-1080p"];
             }
             {
+              name = "Bluray-1080p";
+            }
+            {
+              name = "HDTV-1080p";
+            }
+            {
               name = "WEB 720p";
               qualities = ["WEBDL-720p" "WEBRip-720p"];
+            }
+            {
+              name = "Bluray-720p";
             }
             {
               name = "HDTV-720p";
